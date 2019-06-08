@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
-        <title>Chidi Orji's Portfolio</title>
+        <title>Chidi Orji - Portfolio</title>
     </head>
 
     <body>
@@ -32,14 +32,25 @@
 
                         <div class="contact header_flex">
                             <p>orjichidi95@gmail.com</p>
-                            <p>+234 903 665 063</p>
+                            <p>+234903665063</p>
                         </div>
                     </div>
                 </header>
 
+                <section class="links">
+                    <div class="links_sidebar">
+                        <a class="smooth_scroll" href="#django_apps">Django apps</a>
+                        <a class="smooth_scroll" href="#react_apps">React apps</a>
+                        <a class="smooth_scroll" href="#rn_apps">React Native apps</a>
+                        <a class="smooth_scroll" href="#python_apps">Python apps</a>
+                        <a class="smooth_scroll" href="#ds_prjs">Datascience projects</a>
+                        <a class="smooth_scroll" href="#gis_prjs">ArcGIS projects</a>
+                    </div>
+                </section>
+
                 <section id="works">
                     <div class="container">
-                        <div class="tech">
+                        <div id="django_apps" class="tech">
                             <div class="tech_name">
                                 <h2>Django apps</h2>
                             </div>
@@ -97,7 +108,7 @@
                         </div>
 
 
-                        <div class="tech">
+                        <div id="react_apps" class="tech">
                             <div class="tech_name">
                                 <h2>React apps</h2>
                             </div>
@@ -105,7 +116,8 @@
                             <div class="tech_projects">
                                 <div class="react_projects card">
                                     <h4 class="app_name">My Reads</h4>
-                                    <p class="app_description">Book tracking app written in <code>React</code></p>
+                                    <p class="app_description">Book tracking app.</p>
+                                    <p class="stack">Stack: <code>React</code></p>
                                     <div class="project_links">
                                         <a href="https://github.com/chidimo/My-Reads">Github Repo</a>
                                         <a href="https://react-shelf.herokuapp.com">Hosted App</a>
@@ -114,7 +126,8 @@
 
                                 <div class="react_projects card">
                                     <h4 class="app_name">Would You Rather</h4>
-                                    <p class="app_description">A simple game written in <code>React</code>, with <code>Redux</code> for state management.</p>
+                                    <p class="app_description">A would you rather game written</p>
+                                    <p class="stack">Stack: <code>React</code>, <code>Redux</code></p>
                                     <div class="project_links">
                                         <a href="https://github.com/chidimo/Would-You-Rather">Github Repo</a>
                                         <a href="https://wud-u-rada.herokuapp.com/">Hosted App</a>
@@ -124,9 +137,9 @@
                                 <div class="react_projects card">
                                     <h4 class="app_name">Url shortener</h4>
                                     <p class="app_description">
-                                        URL shortening service with automatic redirects. It is <code>React</code> and <code>Meteor</code>, with 
-                                        <code>MongoDB</code> database
+                                        URL shortening service with automatic redirect.
                                     </p>
+                                    <p class="stack">Stack: <code>React</code>, <code>Meteor</code>, <code>MongoDB</code></p>
                                     <div class="project_links">
                                         <a href="https://github.com/chidimo/Url-Shortener">Github Repo</a>
                                         <a href="https://basic-url-shortener.herokuapp.com">Hosted App</a>
@@ -137,7 +150,7 @@
                         </div>
 
 
-                        <div class="tech">
+                        <div id="rn_apps" class="tech">
                             <div class="tech_name">
                                 <h2>React Native apps</h2>
                             </div>
@@ -146,6 +159,7 @@
                                 <div class="rn_apps card">
                                     <h4 class="app_name">Mobile Flashcards</h4>
                                     <p class="app_description">Your study companionA flashcard app built with <code>React Native</code></p>
+                                    <p class="stack">Stack: <code>React Native</code>, <code>Redux</code></p>
                                     <div class="project_links">
                                         <a href="https://github.com/chidimo/Mobile-Flashcards">Github Repo</a>
                                         <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40chidimo/mobile-flashcards-4b30376ce6d240bb9de13b6b11c19b7c-signed.apk">App link</a>
@@ -155,6 +169,7 @@
                                 <div class="rn_apps card">
                                     <h4 class="app_name">Currency Analyzer</h4>
                                     <p class="app_description">Count better. With easeA web and mobile app built with <code>Meteor</code></p>
+                                    <p class="stack">Stack: <code>React</code>, <code>Meteor</code></p>
                                     <div class="project_links">
                                         <a href="https://github.com/chidimo/Currency-Analyzer">Github Repo</a>
                                         <a href="https://play.google.com/store/apps/details?id=com.currency.analyzer">App link</a>
@@ -164,7 +179,7 @@
                         </div>
 
 
-                        <div class="tech">
+                        <div id="python_apps" class="tech">
                             <div class="tech_name">
                                 <h2>Python apps</h2>
                             </div>
@@ -209,7 +224,7 @@
                         </div>
 
 
-                        <div class="tech">
+                        <div id="ds_prjs" class="tech">
                             <div class="tech_name">
                                 <h2>Datascience projects</h2>
                             </div>
@@ -278,7 +293,7 @@
                         </div>
 
                         
-                        <div class="tech">
+                        <div id="gis_prjs" class="tech">
                             <div class="tech_name">
                                 <h2>GIS (ArcGIS Desktop) projects</h2>
                             </div>
@@ -313,7 +328,7 @@
                 </section>
             </div>
 
-            <a href="#header" class="smooth_scroll">Back to Top</a>
+            <a id="back_to_top" href="#header" class="smooth_scroll">Back to Top</a>
 
             <footer>
                 <div class="footer_text">
