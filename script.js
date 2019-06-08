@@ -1,6 +1,6 @@
 $(document).ready(() => {
     // Add smooth scrolling to all links with class smooth-scroll
-    $(".smooth_scroll").on('click', e => {
+    $(".smooth_scroll").on('click', function(e) {
 
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {

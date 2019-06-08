@@ -37,8 +37,7 @@ h2 {
 /* Header */
 
 header {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 10px 0;
     min-height: 70px;
     background: #FFFFFF;
     box-shadow: 5px 5px 30px #2A3131;
@@ -75,11 +74,14 @@ header p {
     width: 70%;
 }
 
+.contact {
+    margin-top: 5px;
+}
+
 /* Global */
 .container {
     width: 50%;
     margin: auto;
-    padding-top: 10px;
 }
 
 /* certifications */
@@ -97,6 +99,17 @@ footer {
     color: #FFFFFF;
     padding: 20px;
     margin-top: 20px;
+}
+
+a.smooth_scroll {
+    position: fixed;
+    bottom: 25px;
+    right: 5px;
+    font-weight: bold;
+}
+
+a.smooth_scroll:visited {
+    color: #375E97;
 }
 
 .card {
