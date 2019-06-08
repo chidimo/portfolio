@@ -31,8 +31,8 @@ p {
 }
 
 code {
-    color: red;
-    font-family: 'Courier New', Courier, monospace;
+    color: #d43c16;
+    font-family: Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New';
 }
 
 h2 {
@@ -89,6 +89,24 @@ header p {
     margin: auto;
 }
 
+.links {
+    position: fixed;
+    right: 0;
+    top: 250px;
+}
+
+.links_sidebar {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.links_sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
 /* certifications */
 
 li.unstyled {
@@ -106,7 +124,7 @@ footer {
     margin-top: 20px;
 }
 
-a.smooth_scroll {
+a#back_to_top {
     position: fixed;
     bottom: 25px;
     right: 5px;
@@ -139,5 +157,8 @@ a.smooth_scroll:visited {
 @media (max-width: 768px) {
     .container {
         width: 95%;
+    }
+    #links, #back_to_top {
+        display: none;
     }
 }
