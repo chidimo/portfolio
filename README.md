@@ -1,2 +1,3 @@
-# portfolio
+# Chidimo
+
 My portfolio site

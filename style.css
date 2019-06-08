@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    color: #375E97;
+    font-size: 18px;
+}
+
+.page_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 70px;
+    background: #FB6542;
+}
+
+header a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header #branding h1 {
+    margin: 0;
+}
+
+header a.active {
+    font-weight: bold;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40%;
+}
+
+/* Global */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+/* certifications */
+
+li.unstyled {
+    list-style-type: none;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #52658F;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 20px;
+    margin-top: 20px;
+}
