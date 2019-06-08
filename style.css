@@ -30,6 +30,11 @@ p {
     margin: 2px 0;
 }
 
+code {
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h2 {
     font-size: 30px;
 }
