@@ -76,7 +76,7 @@ header p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 70%;
+    width: 75%;
 }
 
 .contact {
@@ -146,6 +146,8 @@ a.smooth_scroll:visited {
 
 .project_links a {
     padding: 7px;
+    margin-top: 15px;
+    display: inline-block;
     border-radius: 3px;
     background: #375E97;
     color: #FFFFFF;

@@ -23,10 +23,11 @@
                             <p class="job_title">Full Stack Developer</p>
                         </div>
 
-                        <div class="social header_flex">
+                        <div class="header_flex">
                             <p><i class="fab fa-github-square"></i> <a href="https://github.com/chidimo">Github</a></p>
                             <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/chidi-orji/">LinkedIn</a></p>
                             <p><i class="far fa-file"></i> <a href="https://docs.google.com/document/d/17cSfgjRHbDGr3LJogh574jM3QJIwj8tOILyo2I1vKXM/edit?usp=sharing">Resume</a></p>
+                            <p><i class="fas fa-book"></i> <a href="posts.html">Posts</a></p>
                             <p><i class="fas fa-certificate"></i> <a href="certifications.html">Certifications</a></p>
                         </div>
 
@@ -39,9 +40,11 @@
 
                 <section class="links">
                     <div class="links_sidebar card">
-                        <a class="smooth_scroll" href="#django">Django apps</a>
+                        <a class="smooth_scroll" href="#fs">Full Stack apps</a>
                         <a class="smooth_scroll" href="#react">React apps</a>
-                        <a class="smooth_scroll" href="#mobile">Mobile apps</a>
+                        <a class="smooth_scroll" href="#react_native">React Native apps</a>
+                        <a class="smooth_scroll" href="#meteor">Meteor apps</a>
+                        <a class="smooth_scroll" href="#django">Django apps</a>
                         <a class="smooth_scroll" href="#python">Python apps</a>
                         <a class="smooth_scroll" href="#ds">Datascience projects</a>
                         <a class="smooth_scroll" href="#gis">ArcGIS projects</a>
@@ -50,69 +53,53 @@
 
                 <section id="works">
                     <div class="container">
-                        <div id="django" class="tech">
+                        <div id="fs" class="tech">
                             <div class="tech_name">
-                                <h2>Django apps</h2>
+                                <h2>Full Stack Apps (Frontend + Backend)</h2>
                             </div>
-        
+
                             <div class="tech_projects">
+                                <div class="fs_projects card">
+                                    <h4 class="app_name">Quick Credit (<code>Express</code> + <code>HTML5</code> + <code>CSS3</code> + <code>JavaScript</code>)</h4>
+                                    <p class="app_description">
+                                        Quick Credit is an online lending platform that provides short term soft loans to individuals.
+                                        This helps solve problems of financial inclusion as a way to alleviate poverty and 
+                                        empower low income earners.
+                                        <br>
+                                        <br>
+                                        Currently, on the frontend app, only the authentication endpoints have been wired to the backend.
+                                    </p>
+
+                                    <p class="stack">Stack: <code>Express</code>, <code>HTML5</code>, <code>CSS3</code>, <code>JavaScript</code></p>
+                                    <div class="project_links">
+                                        <a href="https://github.com/chidimo/Quick-Credit">Github repo</a>
+                                        <a href="https://qcredit.herokuapp.com/api/v1/">Backend App</a>
+                                        <a href="https://chidimo.github.io/Quick-Credit/UI/index.html">Frontend App</a>
+                                        <a href="https://qcredit.docs.apiary.io/">API documentation</a>
+                                    </div>
+                                </div>
+
                                 <div class="django_projects card">
-                                    <h4 class="app_name">Ethodoxy</h4>
+                                    <h4 class="app_name">Ethodoxy (<code>Django</code> + <code>React</code>)</h4>
                                     <p class="app_description">
                                         The name is a short form for Electronic Orthodoxy.
-                                        The current site hosts the <strong>Douay-Rheims</strong> version of the bible and
-                                        the <strong>Challoner</strong> commentary.<br>
-                                        The app has been rewritten to expose a set of API endpoints. The new backend repo
-                                        is available from the same URL. The new frontend app is yet to be completed.
+                                        The current database features the <strong>Douay-Rheims</strong> version of the bible and
+                                        the <strong>Challoner</strong> commentary.
+                                        <br>
+                                        <br>
+                                        The app has been rewritten to expose a set of API endpoints. The new frontend app is still in development.
                                     </p>
-                                    <p class="stack">Stack: <code>Django</code>, <code>Vue.js</code></p>
+                                    <p class="stack">Stack: <code>Django</code>, <code>React</code></p>
                                     <div class="project_links">
-                                        <a href="https://github.com/chidimo/ethodoxy">Github Repo</a>
-                                        <a href="http://ethodoxy.pythonanywhere.com/">Hosted App</a>
-                                    </div>
-                                </div>
-
-                                <div class="django_projects card">
-                                    <h4 class="app_name">ChoralCentral</h4>
-                                    <p class="app_description">The app is a place for sharing choral music sheets and midi files.</p>
-                                    <p class="stack">Stack: <code>Django</code>, <code>Bootstrap</code></p>
-                                    <div class="project_links">
-                                        <a href="https://github.com/chidimo/ChoralCentral">Github Repo</a>
-                                        <a href="https://www.choralcentral.net/">Hosted App</a>
-                                    </div>
-                                </div>
-
-                                <div class="django_projects card">
-                                    <h4 class="app_name">FunnShopp</h4>
-                                    <p class="app_description">An Enterprise Resource Planning (ERP) system</p>
-                                    <p class="stack">Stack: <code>Django</code>, <code>Bootstrap</code></p>
-                                    <div class="project_links">
-                                        <a href="https://github.com/chidimo/FunnShopp">Github Repo</a>
-                                        <a href="https://www.funnshopp.com">Hosted App</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="django_projects card">
-                                    <h4 class="app_name">Voidcoin</h4>
-                                    <p class="app_description">A simple blockchain implementation in python</p>
-                                    <p class="stack">Stack: <code>Python</code>, <code>Django</code>, <code>Bootstrap</code></p>
-                                    <div class="project_links">
-                                        <a href="https://github.com/chidimo/voidcoin">Github Repo</a>
-                                        <a href="http://voidcoin.herokuapp.com/">Hosted App</a>
-                                    </div>
-                                </div>
-                            
-                                <div class="django_projects card">
-                                    <h4 class="app_name">YouTube and Drive API v3</h4>
-                                    <p class="app_description">Request YouTube and/or Google Drive access from within a Django web app</p>
-                                    <p class="stack">Stack: <code>Django</code>, <code>YouTube API v3</code>, <code>Drive API v3</code></p>
-                                    <div class="project_links">
-                                        <a href="https://github.com/chidimo/voidcoin">Github Repo</a>
+                                        <a href="https://github.com/chidimo/ethodoxy">Backend Repo</a>
+                                        <a href="https://github.com/chidimo/Ethodoxy-Frontend">Frontend Repo</a>
+                                        <a href="https://ethodoxy.herokuapp.com/api/v1">Backend App</a>
+                                        <a href="https://ethodoxy.herokuapp.com/swagger/">API documentation</a>
+                                        <a href="http://ethodoxy.pythonanywhere.com/">Hosted App (maintenance)</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                         <div id="react" class="tech">
                             <div class="tech_name">
@@ -158,9 +145,9 @@
                         </div>
 
 
-                        <div id="mobile" class="tech">
+                        <div id="react_native" class="tech">
                             <div class="tech_name">
-                                <h2>Mobile apps</h2>
+                                <h2>React Native apps</h2>
                             </div>
 
                             <div class="tech_projects">
@@ -173,7 +160,16 @@
                                         <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40chidimo/mobile-flashcards-4b30376ce6d240bb9de13b6b11c19b7c-signed.apk">Android app</a>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
+
+                        <div id="meteor" class="tech">
+                            <div class="tech_name">
+                                <h2>Meteor apps</h2>
+                            </div>
+
+                            <div class="tech_projects">
                                 <div class="mobile_apps card">
                                     <h4 class="app_name">Currency Analyzer</h4>
                                     <p class="app_description">A currency counting app. Available for web and mobile</p>
@@ -182,6 +178,55 @@
                                         <a href="https://github.com/chidimo/Currency-Analyzer">Github Repo</a>
                                         <a href="https://play.google.com/store/apps/details?id=com.currency.analyzer">Android app</a>
                                         <a href="http://currency-analyzer.herokuapp.com/">Web app</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="django" class="tech">
+                            <div class="tech_name">
+                                <h2>Django apps</h2>
+                            </div>
+        
+                            <div class="tech_projects">
+                                
+
+                                <div class="django_projects card">
+                                    <h4 class="app_name">ChoralCentral</h4>
+                                    <p class="app_description">The app is a place for sharing choral music sheets and midi files.</p>
+                                    <p class="stack">Stack: <code>Django</code>, <code>Bootstrap</code></p>
+                                    <div class="project_links">
+                                        <a href="https://github.com/chidimo/ChoralCentral">Github Repo</a>
+                                        <a href="https://www.choralcentral.net/">Hosted App</a>
+                                    </div>
+                                </div>
+
+                                <div class="django_projects card">
+                                    <h4 class="app_name">FunnShopp</h4>
+                                    <p class="app_description">An Enterprise Resource Planning (ERP) system</p>
+                                    <p class="stack">Stack: <code>Django</code>, <code>Bootstrap</code></p>
+                                    <div class="project_links">
+                                        <a href="https://github.com/chidimo/FunnShopp">Github Repo</a>
+                                        <a href="https://www.funnshopp.com">Hosted App</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="django_projects card">
+                                    <h4 class="app_name">Voidcoin</h4>
+                                    <p class="app_description">A simple blockchain implementation in python</p>
+                                    <p class="stack">Stack: <code>Python</code>, <code>Django</code>, <code>Bootstrap</code></p>
+                                    <div class="project_links">
+                                        <a href="https://github.com/chidimo/voidcoin">Github Repo</a>
+                                        <a href="http://voidcoin.herokuapp.com/">Hosted App</a>
+                                    </div>
+                                </div>
+                            
+                                <div class="django_projects card">
+                                    <h4 class="app_name">YouTube and Drive API v3</h4>
+                                    <p class="app_description">Request YouTube and/or Google Drive access from within a Django web app</p>
+                                    <p class="stack">Stack: <code>Django</code>, <code>YouTube API v3</code>, <code>Drive API v3</code></p>
+                                    <div class="project_links">
+                                        <a href="https://github.com/chidimo/voidcoin">Github Repo</a>
                                     </div>
                                 </div>
                             </div>
