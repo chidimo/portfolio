@@ -1,5 +1,5 @@
-# Chidimo
+# Portfolio
 
-My portfolio site
+Built with React and Typescript
 
-https://chidimo.github.io/portfolio/
+<https://chidimo.netlify.app>
