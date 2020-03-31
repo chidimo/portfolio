@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+import './App.scss';
+
+import { Routes } from './Routes';
+import { Navigation } from './Navigation';
+import { ContextProvider } from './ContextProvider';
+
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <ContextProvider>
+      <ToastContainer
+        autoClose={2000}
+        position="top-right"
+        className="toast-container"
+        toastClassName="dark-toast"
+      />
 
-export default App;
+      <Navigation />
+      <Routes />
+    </ContextProvider>
+  );
+};
