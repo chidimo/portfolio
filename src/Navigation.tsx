@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link, RouteComponentProps } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
+
+import { NavLink } from './NavLink';
 
 export const Navigation = (props: RouteComponentProps) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <Link className="navbar-brand" to="/">
-        React + firebase
-      </Link>
+      <NavLink className="navbar-brand" to="/">
+        Chidi Orji
+      </NavLink>
       <button
         type="button"
         aria-expanded="false"
@@ -21,26 +23,21 @@ export const Navigation = (props: RouteComponentProps) => {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" to="/">
-              Home <span className="sr-only">(current)</span>
-            </Link>
-          </li>
           <li className="nav-item">
-            <Link className="nav-link" to="projects">
+            <NavLink className="nav-link" to="projects">
               Projects
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="publications">
+            <NavLink className="nav-link" to="publications">
               Publications
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link to="certifications" className="nav-link">
+            <NavLink to="certifications" className="nav-link">
               Certifications
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

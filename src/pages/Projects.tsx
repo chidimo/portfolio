@@ -5,7 +5,6 @@ import { RouteComponentProps } from '@reach/router';
 export const Projects = (props: RouteComponentProps) => {
   return (
     <div>
-      <h2>Projects</h2>
       <section id="works">
         <div className="container">
           <div id="fs" className="tech">
