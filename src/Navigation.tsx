@@ -1,46 +1,61 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { navigate } from '@reach/router';
+
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 import { NavLink } from './NavLink';
 
 export const Navigation = (props: RouteComponentProps) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <NavLink className="navbar-brand" to="/">
-        Chidi Orji
-      </NavLink>
-      <button
-        type="button"
-        aria-expanded="false"
-        data-toggle="collapse"
-        className="navbar-toggler"
-        aria-label="Toggle navigation"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+    <Fragment>
+      <Navbar
+        bg="dark"
+        expand="md"
+        sticky="top"
+        variant="dark"
+        collapseOnSelect
+        className="top-navigation"
       >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="projects">
+        <Navbar.Brand
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate('/');
+          }}
+        >
+          Chidi Orji
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <NavLink
+              to="projects"
+              className="nav-link"
+              data-rb-event-key="countries"
+            >
               Projects
             </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="publications">
-              Publications
-            </NavLink>
-          </li>
 
-          <li className="nav-item">
-            <NavLink to="certifications" className="nav-link">
+            <NavLink
+              to="certifications"
+              className="nav-link"
+              data-rb-event-key="countries"
+            >
               Certifications
             </NavLink>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+            <NavLink
+              to="publications"
+              className="nav-link"
+              data-rb-event-key="countries"
+            >
+              Publications
+            </NavLink>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </Fragment>
   );
 };
