@@ -10,20 +10,22 @@ import { projectsData } from './projectsData';
 export const ProjectsPage = (props: RouteComponentProps) => {
   return (
     <Container>
-      {projectsData.map((p, index) => {
-        const { title, description, stack, category } = p;
-        return (
-          <Accordion key={index} defaultActiveKey="0">
-            <Project
-              index={index}
-              title={title}
-              stack={stack}
-              category={category}
-              description={description}
-            />
-          </Accordion>
-        );
-      })}
+      {projectsData
+        // .sort((a, b) => a.category.localeCompare(b.category))
+        .map((p, index) => {
+          const { title, description, stack, category } = p;
+          return (
+            <Accordion key={index} defaultActiveKey="0">
+              <Project
+                index={index}
+                title={title}
+                stack={stack}
+                category={category}
+                description={description}
+              />
+            </Accordion>
+          );
+        })}
 
       <div id="fs" className="tech">
         <div className="tech_name">

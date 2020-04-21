@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import Badge from 'react-bootstrap/Badge';
 
+import { componentNameFromString } from './utils';
 interface ProjectProps {
   index: number;
   title: string;
@@ -23,37 +24,42 @@ const variants = {
   default: 'dark',
 };
 
-const borders = {
-  fullstack: 'primary', frontend: 'success', default: 'dark',
-}
+// const borders = {
+//   fullstack: 'primary',
+//   frontend: 'success',
+//   default: 'dark',
+// };
 
 export const Project = (props: ProjectProps) => {
   const { index, title, stack, category, description } = props;
+  const componentTitle = componentNameFromString(title);
 
   return (
-    <Card className="mb-2"  border={borders[category] || borders.default}>
-
-      <Accordion.Toggle as={Card.Header} eventKey={`${index}`}>
-        {title}
+    <Card className="mb-2 project-card">
+      <Accordion.Toggle
+        as={Card.Header}
+        eventKey={`${index}`}
+        className="project-title"
+        onClick={e => {
+          console.log(e)
+        }}
+      >
+        {`<${componentTitle}>`}
       </Accordion.Toggle>
 
       <Accordion.Collapse eventKey={`${index}`}>
-        <Card>
-          <Card.Body>
+        <Card className="details-card">
+          <Card.Body className="details-card-body">
             {stack.map((s, i) => {
               return (
-                <Badge
-                  key={i}
-                  pill
-                  variant={variants[s] || variants.default}
-                >
+                <Badge key={i} pill variant={variants[s] || variants.default}>
                   {s}
                 </Badge>
               );
             })}
             <Card.Text>{description}</Card.Text>
           </Card.Body>
-          <Card.Footer>{category}</Card.Footer>
+          <Card.Footer className="project-card-footer">{`</${componentTitle}>`}</Card.Footer>
         </Card>
       </Accordion.Collapse>
     </Card>

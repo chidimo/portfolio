@@ -1,0 +1,23 @@
+.project-card {
+  border: none;
+
+  .details-card {
+    border: none;
+
+    .details-card-body {
+      padding: 0.25rem 3rem;
+    }
+  }
+
+  .project-card-footer,
+  .project-title {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.badge-pill {
+  margin-right: 0.5rem;
+}

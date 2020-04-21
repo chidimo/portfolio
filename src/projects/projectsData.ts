@@ -8,7 +8,16 @@ export interface ProjectDataInterface {
 
 export const categories = ['fullstack', 'frontend', 'backend', 'mobile'];
 
-export const stacks = ['express', 'html5', 'meteor', 'css3', 'javascript', 'django', 'djangorestframework', 'mongodb']
+export const stacks = [
+  'express',
+  'html5',
+  'meteor',
+  'css3',
+  'javascript',
+  'django',
+  'djangorestframework',
+  'mongodb',
+];
 
 export const projectsData: ProjectDataInterface[] = [
   {
