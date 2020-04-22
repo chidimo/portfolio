@@ -1,3 +1,6 @@
+.project-parent-accordion {
+}
+
 .project-card {
   border: none;
 
@@ -15,6 +18,11 @@
     background: none;
     font-size: 1.5rem;
     font-weight: bold;
+  }
+
+  .project-title {
+    // add a hover state later
+    cursor: pointer;
   }
 }
 

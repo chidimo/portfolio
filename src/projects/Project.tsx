@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import Badge from 'react-bootstrap/Badge';
@@ -31,8 +31,13 @@ const variants = {
 // };
 
 export const Project = (props: ProjectProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { index, title, stack, category, description } = props;
   const componentTitle = componentNameFromString(title);
+  const showChildren = `<${componentTitle}>`;
+  const hideChildren = `<${componentTitle}/>`;
+
+  const [toggleTitle, setToggle] = useState(index > 0 ? true : false);
 
   return (
     <Card className="mb-2 project-card">
@@ -40,11 +45,11 @@ export const Project = (props: ProjectProps) => {
         as={Card.Header}
         eventKey={`${index}`}
         className="project-title"
-        onClick={e => {
-          console.log(e)
+        onClick={(e) => {
+          setToggle(!toggleTitle);
         }}
       >
-        {`<${componentTitle}>`}
+        {toggleTitle ? hideChildren : showChildren}
       </Accordion.Toggle>
 
       <Accordion.Collapse eventKey={`${index}`}>

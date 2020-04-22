@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import Container from 'react-bootstrap/Container';
@@ -15,7 +14,11 @@ export const ProjectsPage = (props: RouteComponentProps) => {
         .map((p, index) => {
           const { title, description, stack, category } = p;
           return (
-            <Accordion key={index} defaultActiveKey="0">
+            <Accordion
+              key={index}
+              defaultActiveKey="0"
+              className="project-parent-accordion"
+            >
               <Project
                 index={index}
                 title={title}
