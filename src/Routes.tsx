@@ -10,17 +10,18 @@ import { Home } from './pages/Home';
 import { ProjectsPage } from './projects/ProjectsPage';
 import { Publications } from './publication/Publications';
 import { Certifications } from './certifications/Certifications';
+import { LeftSideBar } from './LeftSideBar';
 
 export const Routes = (props: RouteComponentProps) => {
   return (
     <Suspense fallback={<div>Loading</div>}>
       <Navigation />
-      <Container>
+      <Container fluid>
         <Row>
-          <Col xs="12" md="2" className="left-column">
-            sidebar
+          <Col xs="12" md="3" className="left-column">
+            <LeftSideBar />
           </Col>
-          <Col xs="12" md="8" className="left-column">
+          <Col xs="12" md="9" className="left-column">
             <Router className="width__60_center">
               <Home path="/" />
               <ProjectsPage path="/projects" />
@@ -29,7 +30,7 @@ export const Routes = (props: RouteComponentProps) => {
             </Router>
           </Col>
 
-          <Col xs="12" md="2" className="left-column">
+          <Col xs="12" md="1" className="left-column">
             sidebar
           </Col>
         </Row>
