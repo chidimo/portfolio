@@ -30,7 +30,31 @@
   margin-right: 0.5rem;
 }
 
-.left-column {
-  margin: 0;
-  padding: 0;
+.modal-90w {
+  width: 90%;
+}
+
+.single-certificate-view {
+  padding: 0.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.middle-column-child {
+  top: 4rem;
+  z-index: 1000;
+  padding: 2rem 0;
+  overflow-y: scroll;
+  max-height: calc(100vh - 4rem);
+}
+
+.left-column-child {
+  top: 4rem;
+  z-index: 1000;
+  padding: 2rem 0;
+  overflow-y: scroll;
+  max-height: calc(100vh - 4rem);
+}
+
+.card {
+  border: none;
 }

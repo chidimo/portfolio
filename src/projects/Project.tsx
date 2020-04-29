@@ -6,10 +6,12 @@ import Badge from 'react-bootstrap/Badge';
 import { componentNameFromString } from './utils';
 interface ProjectProps {
   index: number;
-  title: string;
-  stack: string[];
-  category: string;
-  description: string;
+  data: {
+    title: string;
+    stack: string[];
+    category: string;
+    description: string;
+  };
 }
 
 const variants = {
@@ -32,7 +34,8 @@ const variants = {
 
 export const Project = (props: ProjectProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { index, title, stack, category, description } = props;
+  const { index, data } = props;
+  const { title, stack, category, description } = data;
   const componentTitle = componentNameFromString(title);
   const showChildren = `<${componentTitle}>`;
   const hideChildren = `<${componentTitle}/>`;
@@ -63,6 +66,7 @@ export const Project = (props: ProjectProps) => {
               );
             })}
             <Card.Text>{description}</Card.Text>
+            <Card.Text>{category}</Card.Text>
           </Card.Body>
           <Card.Footer className="project-card-footer">{`</${componentTitle}>`}</Card.Footer>
         </Card>

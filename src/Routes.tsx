@@ -19,10 +19,12 @@ export const Routes = (props: RouteComponentProps) => {
       <Container fluid>
         <Row>
           <Col xs="12" md="3" className="left-column">
-            <LeftSideBar />
+            <div className="left-column-child">
+              <LeftSideBar />
+            </div>
           </Col>
-          <Col xs="12" md="9" className="left-column">
-            <Router className="width__60_center">
+          <Col xs="12" md="8" className="middle-column">
+            <Router className="middle-column-child">
               <Home path="/" />
               <ProjectsPage path="/projects" />
               <Publications path="/publications" />
@@ -30,9 +32,7 @@ export const Routes = (props: RouteComponentProps) => {
             </Router>
           </Col>
 
-          <Col xs="12" md="1" className="left-column">
-            sidebar
-          </Col>
+          <Col xs="12" md="1" className="right-column"></Col>
         </Row>
       </Container>
     </Suspense>

@@ -11,17 +11,19 @@ export const LeftSideBar: React.FC = () => {
     "email": "orjichidi95@gmail.com",
     "location":"Lagos, Nigeria",
     "education":"B.Eng (Petroleum Engineering), University of Benin",
-    "homepage": "https://chidimo.netlify.app",
-    "twitter": "https://www.twitter.com/chi_di_mo",
-    "linkedin": "https://www.linkedin.com/in/chidi-orji/",
-    "github": "https://github.com/chidimo",
+    "social": {
+      "homepage": "https://chidimo.netlify.app",
+      "twitter": "https://www.twitter.com/chi_di_mo",
+      "linkedin": "https://www.linkedin.com/in/chidi-orji/",
+      "github": "https://github.com/chidimo",
+    },
     "languages": {
-      "python": "",
-      "javascript":""
+      "python": "latest",
+      "javascript":"latest"
     },
     "frameworks": {
-      "react": "",
-      "django": "",
+      "react": "latest",
+      "django": "latest",
     }
   }
   `;
