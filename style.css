@@ -32,7 +32,7 @@ p {
 
 code {
     color: #D43C16;
-    font-family: Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New';
+    font-family: Consolas, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New';
 }
 
 h2 {
@@ -72,27 +72,46 @@ header p {
     font-weight: bold;
 }
 
-.header_flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 75%;
+.app_name {
+    margin: 0;
+    padding: 10px 0;
 }
 
-.contact {
-    margin-top: 5px;
+.links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .links-container {
+        flex-direction: row;
+    }
 }
 
 /* Global */
 .container {
-    width: 50%;
+    width: 95%;
     margin: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 50%;
+    }
 }
 
 .links {
     position: fixed;
     right: 0;
     top: 250px;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .links {
+        display: block
+    }
 }
 
 .links_sidebar {
@@ -127,6 +146,13 @@ a#back_to_top {
     bottom: 25px;
     right: 5px;
     font-weight: bold;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #back_to_top {
+        display: block;
+    }
 }
 
 a.smooth_scroll:visited {
@@ -141,24 +167,26 @@ a.smooth_scroll:visited {
 }
 
 .project_links {
-    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+    .project_links {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project_links a {
     padding: 7px;
-    margin-top: 15px;
+    text-align: center;
     display: inline-block;
     border-radius: 3px;
     background: #375E97;
     color: #FFFFFF;
     text-decoration: none;
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-    .links, #back_to_top {
-        display: none;
-    }
+    white-space: nowrap;
 }
