@@ -7,10 +7,15 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #0a58ca;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.page_title {
+  padding: 10px 0;
+  color: midnightblue;
 }

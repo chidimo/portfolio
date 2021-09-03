@@ -1,0 +1,11 @@
+.social_container_style {
+  display: flex;
+
+  &>div {
+    margin-right: 5px;
+  }
+}
+
+.image {
+  border-radius: 3px;
+}
