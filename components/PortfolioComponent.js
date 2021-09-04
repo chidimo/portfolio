@@ -1,30 +1,50 @@
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useEffect, useState, useMemo } from "react";
 import Container from "react-bootstrap/Container";
 
 import { myPortfolio } from "../data/portfolio";
 import styles from "./PortfolioComponent.module.scss";
+import { useRouter } from "next/router";
 
-export const PortfolioComponent = () => {
-  const [selectedStack, setSelectedStack] = useState([]);
+export const PortfolioComponent = ({ screenshots }) => {
+  const router = useRouter();
+
   const [visibleProjects, setVisibleProjects] = useState([]);
 
+  const selectedStack = useMemo(
+    () =>
+      router.query.selectedStack?.split(",").filter((name) => name !== "") ||
+      [],
+    [router.query]
+  );
+
+  const getProjectsToShow = (filterArray) =>
+    myPortfolio.filter((pf) => filterArray.some((el) => pf.stack.includes(el)));
+
   useEffect(() => {
-    setVisibleProjects(myPortfolio);
-  }, []);
+    if (selectedStack.length > 0) {
+      setVisibleProjects(getProjectsToShow(selectedStack));
+    } else {
+      setVisibleProjects(myPortfolio);
+    }
+  }, [selectedStack]);
 
   const handleStackClick = (stackName) => {
-    let data = [];
     let newStack = [];
 
     if (selectedStack.includes(stackName)) {
-      newStack = selectedStack.filter((sn) => sn === stackName);
-      data = visibleProjects.filter((pf) => !pf.stack.includes(stackName));
+      newStack = selectedStack.filter((sn) => sn !== stackName);
     } else {
       newStack = selectedStack.concat(stackName);
-      data = myPortfolio.filter((pf) => pf.stack.includes(stackName));
     }
-    setVisibleProjects(data);
-    setSelectedStack(newStack);
+
+    setVisibleProjects(getProjectsToShow(newStack));
+    router.push(`/portfolio?selectedStack=${newStack?.join(",")}`);
+  };
+
+  const clearFilter = () => {
+    setVisibleProjects(myPortfolio);
+    router.push("/portfolio");
   };
 
   return (
@@ -32,23 +52,46 @@ export const PortfolioComponent = () => {
       <h3 className="page_title">Portfolio</h3>
 
       {selectedStack.length > 0 && (
-        <div className={styles.selectedStack}>
-          <p>
-            Showing{" "}
-            {selectedStack.map((sst, idx) => {
-              const selectedStackClassName = ["chip", "blueBg"].join(" ");
-              return (
-                <span key={idx} className={selectedStackClassName}>
-                  {sst}
-                </span>
-              );
-            })}
-          </p>
-        </div>
+        <>
+          <div>
+            <span
+              className={["chip", "blueBg", "pointer"].join(" ")}
+              onClick={clearFilter}
+            >
+              Clear filter
+            </span>
+          </div>
+          <hr />
+
+          <div className={styles.selectedStack}>
+            <p>
+              Showing projects built with{" "}
+              {selectedStack.map((sst, idx) => {
+                const selectedStackClassName = ["chip", "blueBg"].join(" ");
+                return (
+                  <span key={idx} className={selectedStackClassName}>
+                    {sst}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+        </>
       )}
 
       {visibleProjects.map((pf, idx) => {
-        const { title, categories, stack, links, description } = pf;
+        const {
+          title,
+          stack,
+          links,
+          categories,
+          description,
+          screenshotsFolder,
+        } = pf;
+
+        const shots = screenshots.filter(
+          (ssh) => ssh.projectName === screenshotsFolder
+        )[0] || { fileData: [] };
 
         return (
           <div key={idx} className={styles.single_project_parent_container}>
@@ -74,7 +117,7 @@ export const PortfolioComponent = () => {
                     "chip",
                     "lightGreyBg",
                     "pointer",
-                    selectedStack.includes(st) ? "selected_stack" : "",
+                    selectedStack?.includes(st) ? "selected_stack" : "",
                   ].join(" ");
                   return (
                     <span
@@ -106,6 +149,23 @@ export const PortfolioComponent = () => {
 
             <div>
               <p>{description}</p>
+            </div>
+
+            <div className={styles.single_project_screenshots}>
+              {shots.fileData.map((sh, idx) => {
+                const { filename, imagePath, width, height } = sh;
+
+                return (
+                  <div key={idx} className={styles.screenshot_display}>
+                    <Image
+                      width={width}
+                      height={height}
+                      src={`/${imagePath}`}
+                      alt={filename}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         );

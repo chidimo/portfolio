@@ -31,9 +31,9 @@ a {
 span.chip {
   font-size: 12px;
   padding: 2px 7px;
-  border-radius: 3px;
+  border-radius: 10px;
   display: inline-block;
-  margin-right: 5px;
+  margin: 3px 5px 3px 0;
 }
 
 .chip.blueBg {
@@ -42,14 +42,16 @@ span.chip {
 }
 
 .chip.lightGreyBg {
-  background-color: lightgrey;
+  background-color: #e8e8e8;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .chip.greyBg {
   background-color: grey;
   color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .chip.selected_stack {
-  border: 1px solid goldenrod;
+  border: 1px solid gold;
 }
