@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Container from "react-bootstrap/Container";
 import styles from "./_app.module.scss";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -35,6 +36,7 @@ function MyApp({ Component, pageProps }) {
         </Container>
         <Footer />
         <Sidebar />
+        {/* <ScrollToTop /> */}
       </Container>
     </Provider>
   );

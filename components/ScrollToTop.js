@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 // https://dev.to/prnvbirajdar/react-hooks-component-to-smooth-scroll-to-the-top-35fd
 
 export const ScrollToTop = (props) => {
   const { visibilityOffset } = props;
-  const [ isVisible, setIsVisible ] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -26,24 +26,26 @@ export const ScrollToTop = (props) => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
 
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, [ visibilityOffset ]);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, [visibilityOffset]);
 
   return (
     <div
       style={{
-        position: 'fixed',
-        bottom: '10px',
-        right: '6px',
-        color: '#434B95',
-        fontSize: '60px',
-        fontWeight: 'bold',
+        position: "fixed",
+        bottom: "10px",
+        right: "6px",
+        color: "#434B95",
+        fontSize: "60px",
+        fontWeight: "bold",
+        cursor: "pointer",
+        background: 'red'
       }}
     >
       {isVisible && (
-        <div onClick={scrollToTop} className="pointer">
+        <div onClick={scrollToTop} className="pointer scroll_to_top">
           <p>&#8593;</p>
         </div>
       )}

@@ -19,3 +19,37 @@ a {
   padding: 10px 0;
   color: midnightblue;
 }
+
+.mb_5 {
+  margin-bottom: 5px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+span.chip {
+  font-size: 12px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.chip.blueBg {
+  background-color: #07f;
+  color: #fff;
+}
+
+.chip.lightGreyBg {
+  background-color: lightgrey;
+}
+
+.chip.greyBg {
+  background-color: grey;
+  color: white;
+}
+
+.chip.selected_stack {
+  border: 1px solid goldenrod;
+}

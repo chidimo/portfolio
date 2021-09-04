@@ -21,7 +21,7 @@ export const SideNavigation = () => {
 
       <LinkItem href="/certifications" title="My Certifications" />
 
-      <LinkItem href="/blog" title="Blog" />
+      <LinkItem href="/blog" title="Blog" disabled/>
     </Nav>
   );
 };

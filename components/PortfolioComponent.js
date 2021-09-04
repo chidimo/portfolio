@@ -5,7 +5,7 @@ import { myPortfolio } from "../data/portfolio";
 import styles from "./PortfolioComponent.module.scss";
 
 export const PortfolioComponent = () => {
-  const [selectedStack, setSelectedStack] = useState();
+  const [selectedStack, setSelectedStack] = useState([]);
   const [visibleProjects, setVisibleProjects] = useState([]);
 
   useEffect(() => {
@@ -13,29 +13,36 @@ export const PortfolioComponent = () => {
   }, []);
 
   const handleStackClick = (stackName) => {
-    const data = myPortfolio.filter((pf) => pf.stack.includes(stackName));
+    let data = [];
+    let newStack = [];
+
+    if (selectedStack.includes(stackName)) {
+      newStack = selectedStack.filter((sn) => sn === stackName);
+      data = visibleProjects.filter((pf) => !pf.stack.includes(stackName));
+    } else {
+      newStack = selectedStack.concat(stackName);
+      data = myPortfolio.filter((pf) => pf.stack.includes(stackName));
+    }
     setVisibleProjects(data);
+    setSelectedStack(newStack);
   };
 
   return (
     <Container>
       <h3 className="page_title">Portfolio</h3>
 
-      {selectedStack && (
-        <div>
+      {selectedStack.length > 0 && (
+        <div className={styles.selectedStack}>
           <p>
             Showing{" "}
-            <span
-              style={{
-                background: "#07f",
-                color: "#fff",
-                padding: "5px",
-                borderRadius: "3px",
-              }}
-            >
-              {selectedStack}
-            </span>{" "}
-            projects
+            {selectedStack.map((sst, idx) => {
+              const selectedStackClassName = ["chip", "blueBg"].join(" ");
+              return (
+                <span key={idx} className={selectedStackClassName}>
+                  {sst}
+                </span>
+              );
+            })}
           </p>
         </div>
       )}
@@ -50,21 +57,30 @@ export const PortfolioComponent = () => {
             </div>
 
             <div className={styles.single_project_meta}>
-              <div className={styles.single_project_category}>
+              <div className={["mb_5"].join(" ")}>
                 {categories.map((ct, idx) => {
-                  return <span key={idx}>{ct}</span>;
+                  const categoryClassName = ["chip", "greyBg"].join(" ");
+                  return (
+                    <span key={idx} className={categoryClassName}>
+                      {ct}
+                    </span>
+                  );
                 })}
               </div>
 
-              <div className={styles.single_project_stack}>
+              <div className={["mb_5"].join(" ")}>
                 {stack.map((st, idx) => {
+                  const stackClassName = [
+                    "chip",
+                    "lightGreyBg",
+                    "pointer",
+                    selectedStack.includes(st) ? "selected_stack" : "",
+                  ].join(" ");
                   return (
                     <span
                       key={idx}
-                      onClick={() => {
-                        handleStackClick(st);
-                        setSelectedStack(st);
-                      }}
+                      className={stackClassName}
+                      onClick={() => handleStackClick(st)}
                     >
                       {st}
                     </span>

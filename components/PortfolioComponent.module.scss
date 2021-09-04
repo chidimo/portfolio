@@ -5,6 +5,8 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
+.selectedStack {}
+
 .single_project_title {
   color: navy;
   font-size: 20px;
@@ -22,34 +24,6 @@
 
   p {
     margin: 0;
-  }
-}
-
-.single_project_category {
-  margin-bottom: 5px;
-
-  span {
-    display: inline-block;
-    margin-right: 5px;
-    border-radius: 3px;
-    padding: 2px 7px;
-    background-color: grey;
-    color: white;
-    cursor: pointer;
-  }
-}
-
-.single_project_stack {
-  margin-bottom: 5px;
-
-
-  span {
-    display: inline-block;
-    margin-right: 5px;
-    border-radius: 3px;
-    padding: 2px 7px;
-    background-color: lightgrey;
-    cursor: pointer;
   }
 }
 
