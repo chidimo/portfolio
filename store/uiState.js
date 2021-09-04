@@ -2,7 +2,7 @@ import { createSelector } from "reselect";
 import { TOGGLE_SIDEBAR } from "./actionTypes";
 
 const initState = {
-  sidebar_is_open: true,
+  sidebar_is_open: false,
 };
 
 export const uiStateReducer = (state = initState, action) => {
