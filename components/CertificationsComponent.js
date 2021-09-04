@@ -6,7 +6,7 @@ import styles from './CertificationsComponent.module.scss'
 export const CertificationsComponent = () => {
   return (
     <Container>
-      <h3 className="page_title">Certifications me.</h3>
+      <h3 className="page_title">Certifications</h3>
 
       {myCertifications.map((ct, idx) => {
         const { title } = ct;

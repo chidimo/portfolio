@@ -8,15 +8,17 @@ export const IndexComponent = () => {
     <Container>
       <div className={styles.social_container_style}>
         {mySocial.map((soc, idx) => {
-          const { badgeLink, badgeText } = soc;
+          const { badgeUrl, socialUrl } = soc;
+
+          const src = `${badgeUrl}&link=${socialUrl}`
 
           return (
             <div key={idx}>
-              <a href={badgeText} target="_blank" rel="noopener noreferrer">
+              <a href={socialUrl} target="_blank" rel="noopener noreferrer">
                 <Image
                   className={styles.image}
-                  src={badgeLink}
-                  alt={badgeText}
+                  src={src}
+                  alt={socialUrl}
                   width={75}
                   height={20}
                 />

@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
       >
         <TopNavigation />
 
-        <Container className={styles.components_wrapper_container}>
+        <Container className={styles.components_wrapper_container} style={{paddingLeft: '0'}}>
           <Component {...pageProps} />
         </Container>
         <Footer />
