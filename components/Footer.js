@@ -1,5 +1,4 @@
 import Container from "react-bootstrap/Container";
-import Image from "next/image";
 
 import styles from "./Footer.module.scss";
 

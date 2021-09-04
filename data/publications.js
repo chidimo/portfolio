@@ -38,7 +38,7 @@ export const myPublications = [
   {
     title: "React Error Handling And Reporting With Error Boundary And Sentry",
     platform: "smashing magazine",
-    publication_date: "jun 1 2020",
+    publication_date: "june 1 2020",
     link: "https://www.smashingmagazine.com/2020/06/react-error-handling-reporting-error-boundary-sentry/",
   },
   {
