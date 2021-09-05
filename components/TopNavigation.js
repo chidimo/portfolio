@@ -11,7 +11,7 @@ export const TopNavigation = () => {
     dispatch({ type: TOGGLE_SIDEBAR, sidebar_is_open: true });
 
   return (
-    <Navbar fixed="top" collapseOnSelect expand="xs" bg="primary" variant="dark">
+    <Navbar fixed="top" collapseOnSelect expand="xs" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">Orji Chidi Matthew</Navbar.Brand>
 
