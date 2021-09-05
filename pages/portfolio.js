@@ -11,6 +11,10 @@ export async function getStaticProps() {
 
     const imagesDir = path.join(process.cwd(), imagesPath);
 
+    if (!fs.existsSync(imagesDir)) {
+      fs.mkdirSync(imagesDir);
+    }
+
     const filenames = fs.readdirSync(imagesDir);
 
     const fileData = filenames.map((filename) => {

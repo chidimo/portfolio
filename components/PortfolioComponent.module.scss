@@ -26,21 +26,7 @@
 }
 
 .single_project_screenshots {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-
-@media screen and (min-width: 768px) {
-  .single_project_screenshots {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .single_project_screenshots {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+  max-width: 100%;
 }
 
 .screenshot_display {
@@ -48,7 +34,15 @@
   padding: 3px;
   border-radius: 3px;
   cursor: pointer;
+  display: inline-block;
+  max-width: 150px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.image_style {
+  max-width: 150px;
+  height: auto;
+  // position:relative;
 }
 
 .screenshot_mask {

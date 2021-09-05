@@ -108,7 +108,7 @@ export const myPortfolio = [
     title: "Url shortener",
     stack: ["React", "MeteorJS", "MongoDB"],
     description: "URL shortening service with automatic redirects.",
-    screenshotsFolder: "",
+    screenshotsFolder: "urlShortener",
     links: {
       "Live App": "https://basic-url-shortener.herokuapp.com",
       "Github Repo": "https://github.com/chidimo/Url-Shortener",
@@ -160,7 +160,7 @@ export const myPortfolio = [
       "Request YouTube and/or Google Drive access from within a Django web app",
     screenshotsFolder: "",
     links: {
-      "Github Repo": "https://github.com/chidimo/voidcoin",
+      "Github Repo": "https://github.com/chidimo/youtube-drive-api-v3-django",
     },
   },
   {
@@ -194,16 +194,6 @@ export const myPortfolio = [
     },
     screenshotsFolder: "",
     description: "Web development tools written in Python",
-  },
-  {
-    categories: [],
-    title: "Project Euler",
-    stack: ["Python"],
-    links: {
-      "Github Repo": "https://github.com/chidimo/Project-Euler-Sulutions",
-    },
-    screenshotsFolder: "euler",
-    description: "Adventures in algorithm design and analysis",
   },
   {
     categories: ["Data Science"],
@@ -256,8 +246,9 @@ export const myPortfolio = [
     title: "GDP and Inflation by year",
     stack: ["Python", "Pandas", "Matplotlib"],
     links: {
-      "Sample pdf":
+      "Plot image(pdf)":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.pdf",
+        "Plot image(png)": "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.png",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week4_solution.ipynb",
     },
@@ -270,8 +261,9 @@ export const myPortfolio = [
     title: "Temperature highs and lows",
     stack: ["Python", "Pandas", "Matplotlib"],
     links: {
-      "Sample pdf":
+      "Plot image(pdf)":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.pdf",
+      "Plot image(png)": "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.png",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week2_solution.ipynb",
     },
@@ -296,7 +288,7 @@ export const myPortfolio = [
     title: "Visualizing voting pattern",
     stack: ["ArcGIS Desktop"],
     links: {
-      "Sample pdf":
+      "Plot image(pdf)":
         "https://s3.amazonaws.com/coursera-uploads/peer-review/hESqA3EhEeWIfhKr_WcYsQ/514eb4ec558f3dea849094aec6a5eec0/California_Counties_Prop37_2012_Voting_Patterns.pdf",
     },
     screenshotsFolder: "voting",
@@ -318,7 +310,7 @@ export const myPortfolio = [
     title: "Visualizing ozone concentrations",
     stack: ["ArcGIS Desktop"],
     links: {
-      "Sample pdf":
+      "Plot image(pdf)":
         "https://s3.amazonaws.com/coursera-uploads/peer-review/zs3YSHQ6EeWrAxJQXw-8PQ/debaf9f5b41d0fe5707f52283be9ea8c/Ozone_Concentrations.pdf",
     },
     screenshotsFolder: "ozone",
@@ -332,3 +324,4 @@ export const categories = myPortfolio.map((mp) => mp.categories);
 export const imageDirectories = myPortfolio
   .map((mp) => mp.screenshotsFolder)
   .filter((ff) => ff !== "");
+

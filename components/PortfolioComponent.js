@@ -134,12 +134,8 @@ export const PortfolioComponent = ({ screenshots }) => {
               <div>
                 {Object.entries(links).map(([key, value], idx) => {
                   return (
-                    <span key={idx} className={['chip', 'link_chip'].join(' ')}>
-                      <a
-                        href={value}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                    <span key={idx} className={["chip", "link_chip"].join(" ")}>
+                      <a href={value} target="_blank" rel="noopener noreferrer">
                         {key}
                       </a>
                     </span>
@@ -152,6 +148,10 @@ export const PortfolioComponent = ({ screenshots }) => {
               <p>{description}</p>
             </div>
 
+            {shots.fileData?.length > 0 && (
+              <p>Screenshots [{shots.fileData?.length}]</p>
+            )}
+
             <div className={styles.single_project_screenshots}>
               {shots.fileData.map((sh, idx) => {
                 const { filename, imagePublicUrl, width, height } = sh;
@@ -163,6 +163,7 @@ export const PortfolioComponent = ({ screenshots }) => {
                       height={height}
                       src={imagePublicUrl}
                       alt={filename}
+                      // className={styles.image_style}
                     />
 
                     {/* <div className={styles.screenshot_mask}></div> */}
