@@ -153,16 +153,18 @@ export const PortfolioComponent = ({ screenshots }) => {
 
             <div className={styles.single_project_screenshots}>
               {shots.fileData.map((sh, idx) => {
-                const { filename, imagePath, width, height } = sh;
+                const { filename, imagePublicUrl, width, height } = sh;
 
                 return (
                   <div key={idx} className={styles.screenshot_display}>
                     <Image
                       width={width}
                       height={height}
-                      src={`/${imagePath}`}
+                      src={imagePublicUrl}
                       alt={filename}
                     />
+
+                    {/* <div className={styles.screenshot_mask}></div> */}
                   </div>
                 );
               })}

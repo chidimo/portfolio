@@ -8,21 +8,21 @@ export async function getStaticProps() {
   const directoriesToRead = ["ekeday", "identify", "koya", "dnd", "testx"];
 
   const images = directoriesToRead.map((name) => {
-    const imgUrlPath = `images/${name}`;
-    const imgPublicPath = `public/images/${name}`;
+    const imagesPath = `public/images/${name}`;
 
-    const imgDir = path.join(process.cwd(), imgPublicPath);
-    const filenames = fs.readdirSync(imgDir);
+    const imagesDir = path.join(process.cwd(), imagesPath);
+
+    const filenames = fs.readdirSync(imagesDir);
 
     const fileData = filenames.map((filename) => {
-      const imagePath = path.join(imgUrlPath, filename);
-      const imageFullPath = path.join(imgDir, filename);
-      const imageSizePath = path.join(imgPublicPath, filename);
+      const imageFullPath = path.join(imagesDir, filename);
+      const imageSizePath = path.join(imagesPath, filename);
 
+      const imagePublicUrl = path.join(`/images/${name}`, filename);
       // const imageSrc = fs.readFileSync(imageFullPath, "utf8");
 
       const { width, height } = sizeOf(imageSizePath);
-      return { width, height, filename, imagePath, imageFullPath };
+      return { width, height, filename, imagePublicUrl, imageFullPath };
     });
     return { projectName: name, fileData };
   });
