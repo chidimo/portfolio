@@ -3,11 +3,10 @@ import path from "path";
 import sizeOf from "image-size";
 
 import { PortfolioComponent } from "../components/PortfolioComponent";
+import { imageDirectories } from "../data/portfolio";
 
 export async function getStaticProps() {
-  const directoriesToRead = ["ekeday", "identify", "koya", "dnd", "testx"];
-
-  const images = directoriesToRead.map((name) => {
+  const images = imageDirectories.map((name) => {
     const imagesPath = `public/images/${name}`;
 
     const imagesDir = path.join(process.cwd(), imagesPath);

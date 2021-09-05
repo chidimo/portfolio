@@ -75,7 +75,7 @@ export const myPortfolio = [
         "https://www.npmjs.com/package/react-drag-drop-browser",
       "Github Repo": "https://github.com/chidimo/react-drag-drop-browser",
     },
-    screenshotsFolder: "react-dnd",
+    screenshotsFolder: "dragNdrop",
     description:
       "Simple, customizable React drag and drop component. Also comes with a file browser. It is highly configurable in terms of styling. Do checkout the docs on the Github repo.",
   },
@@ -108,6 +108,7 @@ export const myPortfolio = [
     title: "Url shortener",
     stack: ["React", "MeteorJS", "MongoDB"],
     description: "URL shortening service with automatic redirects.",
+    screenshotsFolder: "",
     links: {
       "Live App": "https://basic-url-shortener.herokuapp.com",
       "Github Repo": "https://github.com/chidimo/Url-Shortener",
@@ -118,6 +119,7 @@ export const myPortfolio = [
     title: "Mobile Flashcards",
     stack: ["React-Native", "Redux"],
     description: "A flashcard app for iOS and Android",
+    screenshotsFolder: "",
     links: {
       "Github Repo": "https://github.com/chidimo/Mobile-Flashcards",
     },
@@ -127,6 +129,7 @@ export const myPortfolio = [
     title: "Currency Analyzer",
     stack: ["MeteorJS", "React"],
     description: "A currency counting app. Available for web and mobile",
+    screenshotsFolder: "",
     links: {},
   },
   {
@@ -135,6 +138,7 @@ export const myPortfolio = [
     stack: ["Django"],
     description:
       "The app is a place for sharing choral music sheets and midi files.",
+    screenshotsFolder: "",
     links: {},
   },
   {
@@ -154,6 +158,7 @@ export const myPortfolio = [
     stack: ["Django", "YouTube API v3"],
     description:
       "Request YouTube and/or Google Drive access from within a Django web app",
+    screenshotsFolder: "",
     links: {
       "Github Repo": "https://github.com/chidimo/voidcoin",
     },
@@ -187,7 +192,7 @@ export const myPortfolio = [
     links: {
       "Github Repo": "https://github.com/chidimo/pywebber",
     },
-
+    screenshotsFolder: "",
     description: "Web development tools written in Python",
   },
   {
@@ -203,7 +208,7 @@ export const myPortfolio = [
   {
     categories: ["Data Science"],
     title: "Line of Balance",
-    stack: ["Python", "Matplotlib"],
+    stack: ["Python", "Pandas", "Matplotlib"],
     links: {
       "Github Repo": "https://github.com/chidimo/line_of_balance",
       "Sample plot":
@@ -221,6 +226,7 @@ export const myPortfolio = [
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%202%20solution.ipynb",
     },
+    screenshotsFolder: "olympics",
     description: "Analysing olympic gold medals from a wikipedia dataset",
   },
   {
@@ -231,6 +237,7 @@ export const myPortfolio = [
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%203%20solution.ipynb",
     },
+    screenshotsFolder: "energyAndGdp",
     description: "Analysing energy and GDP data of various countries",
   },
   {
@@ -241,44 +248,46 @@ export const myPortfolio = [
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%204%20solution.ipynb",
     },
+    screenshotsFolder: "hypothesis",
     description: "Testing a hypothesis via data analysis",
   },
   {
     categories: ["Data Science"],
     title: "GDP and Inflation by year",
-    stack: ["Python", "Pandas"],
+    stack: ["Python", "Pandas", "Matplotlib"],
     links: {
       "Sample pdf":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.pdf",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week4_solution.ipynb",
     },
-
+    screenshotsFolder: "gdpAndInflation",
     description:
       "Variation of GDP and Inflation rate of Nigeria and UAE between 2005 and 2016",
   },
   {
     categories: ["Data Science"],
     title: "Temperature highs and lows",
-    stack: ["Python", "Matplotlib"],
+    stack: ["Python", "Pandas", "Matplotlib"],
     links: {
       "Sample pdf":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.pdf",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week2_solution.ipynb",
     },
+    screenshotsFolder: "tempHigh",
     description:
       "Plotting temperature highs and lows for every calendar day of the year in Abu Dhabi, UAE for the ten-year period, 2005 and 2014",
   },
   {
     categories: ["Data Science"],
-    title: "Visualization",
+    title: "Visualization of probabilistic data",
     stack: [],
     links: {
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week3_solution.ipynb",
     },
-
+    screenshotsFolder: "dataVisualization",
     description:
       "Building a custom visualization from probabilistic data generated through samples in Matplotlib",
   },
@@ -290,7 +299,7 @@ export const myPortfolio = [
       "Sample pdf":
         "https://s3.amazonaws.com/coursera-uploads/peer-review/hESqA3EhEeWIfhKr_WcYsQ/514eb4ec558f3dea849094aec6a5eec0/California_Counties_Prop37_2012_Voting_Patterns.pdf",
     },
-
+    screenshotsFolder: "voting",
     description:
       'The "yes" vote patterns in California Counties on Proposition 37 in 2012',
   },
@@ -301,7 +310,7 @@ export const myPortfolio = [
     links: {
       "Live App": "http://arcg.is/2cPzy9r",
     },
-
+    screenshotsFolder: "valmeyer",
     description: "Map showing the location of the new and old Valmeyer towns",
   },
   {
@@ -312,7 +321,7 @@ export const myPortfolio = [
       "Sample pdf":
         "https://s3.amazonaws.com/coursera-uploads/peer-review/zs3YSHQ6EeWrAxJQXw-8PQ/debaf9f5b41d0fe5707f52283be9ea8c/Ozone_Concentrations.pdf",
     },
-
+    screenshotsFolder: "ozone",
     description:
       "Map of Hourly Average Ozone Concentrations around California in 2010-2011",
   },
@@ -320,3 +329,6 @@ export const myPortfolio = [
 
 export const stacks = myPortfolio.map((mp) => mp.stack);
 export const categories = myPortfolio.map((mp) => mp.categories);
+export const imageDirectories = myPortfolio
+  .map((mp) => mp.screenshotsFolder)
+  .filter((ff) => ff !== "");

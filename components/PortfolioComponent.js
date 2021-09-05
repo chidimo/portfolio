@@ -131,17 +131,18 @@ export const PortfolioComponent = ({ screenshots }) => {
                 })}
               </div>
 
-              <div className={styles.single_project_links}>
+              <div>
                 {Object.entries(links).map(([key, value], idx) => {
                   return (
-                    <a
-                      key={idx}
-                      href={value}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {key}
-                    </a>
+                    <span key={idx} className={['chip', 'link_chip'].join(' ')}>
+                      <a
+                        href={value}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {key}
+                      </a>
+                    </span>
                   );
                 })}
               </div>

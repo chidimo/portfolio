@@ -44,13 +44,15 @@ export const CertificationsComponent = () => {
             <div className={["mb_5"].join(" ")}>
               <span>
                 View{" "}
-                <a
-                  href={certificationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  certificate
-                </a>
+                <span className={["chip", "link_chip"].join(" ")}>
+                  <a
+                    href={certificationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Certificate
+                  </a>
+                </span>
               </span>
             </div>
           </div>

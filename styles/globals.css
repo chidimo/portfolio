@@ -29,27 +29,33 @@ a {
 }
 
 span.chip {
-  font-size: 12px;
+  font-size: 14px;
   padding: 2px 7px;
   border-radius: 10px;
   display: inline-block;
   margin: 3px 5px 3px 0;
 }
 
+.chip.link_chip {
+  background-color: #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .chip.blueBg {
-  background-color: #07f;
   color: #fff;
+  background-color: #07f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .chip.lightGreyBg {
   background-color: #e8e8e8;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .chip.greyBg {
   background-color: grey;
   color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .chip.selected_stack {
