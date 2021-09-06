@@ -6,8 +6,10 @@ import { PortfolioComponent } from "../components/PortfolioComponent";
 import { imageDirectories } from "../data/portfolio";
 
 export async function getStaticProps() {
+  const shotsFoler = "screenshots";
+
   const images = imageDirectories.map((name) => {
-    const imagesPath = `public/images/${name}`;
+    const imagesPath = `public/${shotsFoler}/${name}`;
 
     const imagesDir = path.join(process.cwd(), imagesPath);
 
@@ -21,7 +23,7 @@ export async function getStaticProps() {
       const imageFullPath = path.join(imagesDir, filename);
       const imageSizePath = path.join(imagesPath, filename);
 
-      const imagePublicUrl = path.join(`/images/${name}`, filename);
+      const imagePublicUrl = path.join(`/${shotsFoler}/${name}`, filename);
       // const imageSrc = fs.readFileSync(imageFullPath, "utf8");
 
       const { width, height } = sizeOf(imageSizePath);
