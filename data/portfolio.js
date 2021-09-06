@@ -2,13 +2,14 @@ export const myPortfolio = [
   {
     categories: ["Full-Stack", "Frontend", "Backend"],
     title: "Ekeday",
-    stack: ["React", "Redux", "ApolloClient", "Python", "Django", "Graphene"],
+    stack: ["React", "Redux", "ApolloClient", "Python", "Django", "Graphene", 'GraphQL'],
     links: {
       "Ekeday homepage": "https://ekeday.com",
       "Example organization": "https://fabsjewelry.ekeday.com/",
     },
     screenshotsFolder: "ekeday",
-    description: "",
+    description:
+      "Ekeday is a business management solution for SMEs. Ekeday abstracts away the boring paperwork carried out by business owners on a daily basis, allowing them to focus on growing their business.",
   },
   {
     categories: ["Frontend"],
@@ -18,7 +19,8 @@ export const myPortfolio = [
       "Identify homepage": "https://beta.identify.softcom.xyz/",
     },
     screenshotsFolder: "identify",
-    description: "",
+    description:
+      "Identify is a product of Softcom, which is used to control time and access to buildings, offices and apartments. With Identify, organizations can create, authorize and share digital identity cards.",
   },
   {
     categories: ["Frontend"],
@@ -30,6 +32,17 @@ export const myPortfolio = [
     screenshotsFolder: "koya",
     description:
       "Softcom Learning Management System (SLMS), aka Koya, is a learning management system for schools and organizations.",
+  },
+  {
+    categories: ["Frontend"],
+    title: "Egbe Igwe",
+    stack: ["React", "Redux"],
+    links: {
+      "Live App": "https://weather-ten-amber.vercel.app/",
+    },
+    screenshotsFolder: "egbe",
+    description:
+      "A minimal weather app showing current weather conditions of various cities. Also uses Geolocation to get the current user’s location weather information.",
   },
   {
     categories: ["Mobile", "Android"],
@@ -248,7 +261,8 @@ export const myPortfolio = [
     links: {
       "Plot image(pdf)":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.pdf",
-        "Plot image(png)": "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.png",
+      "Plot image(png)":
+        "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.png",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week4_solution.ipynb",
     },
@@ -263,7 +277,8 @@ export const myPortfolio = [
     links: {
       "Plot image(pdf)":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.pdf",
-      "Plot image(png)": "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.png",
+      "Plot image(png)":
+        "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.png",
       "Jupyter Notebook":
         "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week2_solution.ipynb",
     },
@@ -324,4 +339,3 @@ export const categories = myPortfolio.map((mp) => mp.categories);
 export const imageDirectories = myPortfolio
   .map((mp) => mp.screenshotsFolder)
   .filter((ff) => ff !== "");
-

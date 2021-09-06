@@ -19,9 +19,11 @@ const LinkItem = (props) => {
   );
 };
 
-export const SideNavigation = () => {
+export const SidebarBody = () => {
   return (
     <Nav defaultActiveKey="/home" className="flex-column">
+      <LinkItem href="/" title="Home" />
+
       <LinkItem href="/portfolio" title="My Portfolio" />
 
       <LinkItem href="/publications" title="My Publications" />

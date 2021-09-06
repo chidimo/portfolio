@@ -8,7 +8,7 @@ body {
 
 a {
   color: #0a58ca;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 * {
@@ -17,7 +17,7 @@ a {
 
 .page_title {
   padding: 10px 0;
-  color: midnightblue;
+  font-weight: bold;
 }
 
 .mb_5 {
@@ -34,30 +34,28 @@ span.chip {
   border-radius: 10px;
   display: inline-block;
   margin: 3px 5px 3px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .chip.link_chip {
-  background-color: #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #eee;
 }
 
-.chip.blueBg {
-  color: #fff;
-  background-color: #07f;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.chip.lightGreyBg {
+.chip.lightgrey_chip {
   background-color: #e8e8e8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.chip.greyBg {
-  background-color: grey;
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.chip.grey_chip {
+  background-color: #ccc;
 }
 
-.chip.selected_stack {
-  border: 1px solid gold;
+.chip.selected_chip {
+  border: 1px solid rgb(255, 119, 0);
+}
+
+.list_item_container {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }

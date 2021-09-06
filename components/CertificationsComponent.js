@@ -4,17 +4,17 @@ import { myCertifications } from "../data/certifications";
 import styles from "./CertificationsComponent.module.scss";
 
 export const CertificationsComponent = () => {
+
+  const iversityURL = "https://iversity.org/verify";
+  const udacityURL = "https://graduation.udacity.com/confirm";
+  const courseraURL = "https://www.coursera.org/account/accomplishments/verify";
+
   return (
     <Container>
       <h3 className="page_title">Certifications</h3>
 
       {myCertifications.map((ct, idx) => {
         const { title, platform, certificate } = ct;
-
-        const iversityURL = "https://iversity.org/verify";
-        const udacityURL = "https://graduation.udacity.com/confirm";
-        const courseraURL =
-          "https://www.coursera.org/account/accomplishments/verify";
 
         let certificationLink = "";
         switch (platform) {
@@ -31,10 +31,11 @@ export const CertificationsComponent = () => {
             break;
         }
 
-        const platformClassName = ["chip", "greyBg"].join(" ");
+        const platformClassName = ["chip", "grey_chip"].join(" ");
+        const wrapperClassName = ['list_item_container'].join(' ');
 
         return (
-          <div key={idx} className={styles.single_cert_parent_container}>
+          <div key={idx} className={wrapperClassName}>
             <p className={styles.single_cert_title}>{title}</p>
 
             <div>

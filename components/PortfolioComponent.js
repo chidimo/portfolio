@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import { myPortfolio } from "../data/portfolio";
 import styles from "./PortfolioComponent.module.scss";
 import { useRouter } from "next/router";
+import { mergeURLParams } from "../utils/manipulateUrlParams";
+import { SocialInfo } from "./SocialInfo";
 
 export const PortfolioComponent = ({ screenshots }) => {
   const router = useRouter();
@@ -18,16 +20,12 @@ export const PortfolioComponent = ({ screenshots }) => {
     [router.query]
   );
 
-  const getProjectsToShow = (filterArray) =>
-    myPortfolio.filter((pf) => filterArray.some((el) => pf.stack.includes(el)));
-
-  useEffect(() => {
-    if (selectedStack.length > 0) {
-      setVisibleProjects(getProjectsToShow(selectedStack));
-    } else {
-      setVisibleProjects(myPortfolio);
-    }
-  }, [selectedStack]);
+  const selectedCategory = useMemo(
+    () =>
+      router.query.selectedCategory?.split(",").filter((name) => name !== "") ||
+      [],
+    [router.query]
+  );
 
   const handleStackClick = (stackName) => {
     let newStack = [];
@@ -38,45 +36,95 @@ export const PortfolioComponent = ({ screenshots }) => {
       newStack = selectedStack.concat(stackName);
     }
 
-    setVisibleProjects(getProjectsToShow(newStack));
-    router.push(`/portfolio?selectedStack=${newStack?.join(",")}`);
+    const computedRoute = mergeURLParams(router.query, "/portfolio", {
+      selectedStack: newStack?.join(","),
+    });
+    router.push(computedRoute);
   };
 
-  const clearFilter = () => {
-    setVisibleProjects(myPortfolio);
-    router.push("/portfolio");
+  const handleCategoryClick = (stackName) => {
+    let newStack = [];
+
+    if (selectedCategory.includes(stackName)) {
+      newStack = selectedCategory.filter((sn) => sn !== stackName);
+    } else {
+      newStack = selectedCategory.concat(stackName);
+    }
+
+    const computedRoute = mergeURLParams(router.query, "/portfolio", {
+      selectedCategory: newStack?.join(","),
+    });
+    router.push(computedRoute);
   };
+
+  const clearFilter = () => router.push("/portfolio");
+
+  useEffect(() => {
+    let visibleProjects = myPortfolio;
+
+    if (selectedStack.length > 0) {
+      visibleProjects = visibleProjects.filter((pf) =>
+        selectedStack.some((el) => pf.stack.includes(el))
+      );
+    }
+
+    if (selectedCategory.length > 0) {
+      visibleProjects = visibleProjects.filter((pf) =>
+        selectedCategory.some((el) => pf.categories.includes(el))
+      );
+    }
+
+    setVisibleProjects(visibleProjects);
+  }, [selectedStack, selectedCategory]);
+
+  const filterClassName = ['list_item_container', styles.portfolio_filter_container].join(' ')
 
   return (
     <Container>
+      <SocialInfo />
+
       <h3 className="page_title">Portfolio</h3>
 
-      {selectedStack.length > 0 && (
-        <>
+      {visibleProjects.length < myPortfolio.length && (
+        <div className={filterClassName}>
           <div>
             <span
-              className={["chip", "blueBg", "pointer"].join(" ")}
+              className={["chip", "pointer"].join(" ")}
               onClick={clearFilter}
             >
-              Clear filter
+              Clear all filter
             </span>
           </div>
-          <hr />
 
-          <div className={styles.selectedStack}>
-            <p>
-              Showing projects built with{" "}
+          {selectedStack?.length > 0 && (
+            <div>
+              Selected stack(s){" "}
               {selectedStack.map((sst, idx) => {
-                const selectedStackClassName = ["chip", "blueBg"].join(" ");
+                const selectedStackClassName = ["chip"].join(" ");
                 return (
                   <span key={idx} className={selectedStackClassName}>
                     {sst}
                   </span>
                 );
               })}
-            </p>
-          </div>
-        </>
+            </div>
+          )}
+
+          {selectedCategory?.length > 0 && (
+            <div>
+              Selected category(s){" "}
+              {selectedCategory.map((sst, idx) => {
+                const selectedStackClassName = ["chip"].join(" ");
+                return (
+                  <span key={idx} className={selectedStackClassName}>
+                    {sst}
+                  </span>
+                );
+              })}
+            </div>
+          )}
+          {/* <hr /> */}
+        </div>
       )}
 
       {visibleProjects.map((pf, idx) => {
@@ -93,8 +141,10 @@ export const PortfolioComponent = ({ screenshots }) => {
           (ssh) => ssh.projectName === screenshotsFolder
         )[0] || { fileData: [] };
 
+        const wrapperClassName = ['list_item_container'].join(' ');
+
         return (
-          <div key={idx} className={styles.single_project_parent_container}>
+          <div key={idx} className={wrapperClassName}>
             <div className={styles.single_project_title}>
               <p>{title}</p>
             </div>
@@ -102,9 +152,19 @@ export const PortfolioComponent = ({ screenshots }) => {
             <div className={styles.single_project_meta}>
               <div className={["mb_5"].join(" ")}>
                 {categories.map((ct, idx) => {
-                  const categoryClassName = ["chip", "greyBg"].join(" ");
+                  const categoryClassName = [
+                    "chip",
+                    "grey_chip",
+                    "pointer",
+                    selectedCategory?.includes(ct) ? "selected_chip" : "",
+                  ].join(" ");
                   return (
-                    <span key={idx} className={categoryClassName}>
+                    <span
+                      key={idx}
+                      title={`Click to show ${ct} projects`}
+                      className={categoryClassName}
+                      onClick={() => handleCategoryClick(ct)}
+                    >
                       {ct}
                     </span>
                   );
@@ -115,13 +175,14 @@ export const PortfolioComponent = ({ screenshots }) => {
                 {stack.map((st, idx) => {
                   const stackClassName = [
                     "chip",
-                    "lightGreyBg",
+                    "lightgrey_chip",
                     "pointer",
-                    selectedStack?.includes(st) ? "selected_stack" : "",
+                    selectedStack?.includes(st) ? "selected_chip" : "",
                   ].join(" ");
                   return (
                     <span
                       key={idx}
+                      title={`Click to show ${st} projects`}
                       className={stackClassName}
                       onClick={() => handleStackClick(st)}
                     >
@@ -149,7 +210,7 @@ export const PortfolioComponent = ({ screenshots }) => {
             </div>
 
             {shots.fileData?.length > 0 && (
-              <p>Screenshots [{shots.fileData?.length}]</p>
+              <p>{shots.fileData?.length} screenshots</p>
             )}
 
             <div className={styles.single_project_screenshots}>

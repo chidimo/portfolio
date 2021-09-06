@@ -2,7 +2,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch, useSelector } from "react-redux";
 import { TOGGLE_SIDEBAR } from "../store/actionTypes";
 import { getSidebarState } from "../store/uiState";
-import { SideNavigation } from "./SideNavigation";
+import { SidebarBody } from "./SidebarBody";
 import styles from "./Sidebar.module.scss";
 
 export const Sidebar = () => {
@@ -17,12 +17,12 @@ export const Sidebar = () => {
       <Offcanvas show={sidebarState} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className={styles.canvas_title}>
-            Orji Chidi Matthew
+            Orji Chidi
           </Offcanvas.Title>
         </Offcanvas.Header>
 
         <Offcanvas.Body className={styles.body}>
-          <SideNavigation />
+          <SidebarBody />
         </Offcanvas.Body>
       </Offcanvas>
     </>

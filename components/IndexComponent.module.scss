@@ -1,11 +1,11 @@
-.social_container_style {
-  display: flex;
-
-  &>div {
-    margin-right: 5px;
+.about_me {
+  p {
+    margin-bottom: 0.5rem;
   }
 }
 
-.image {
-  border-radius: 3px;
+.contact_information {
+  padding: 12px;
+  font-size: 15px;
+
 }
