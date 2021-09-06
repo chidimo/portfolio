@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import Container from "react-bootstrap/Container";
 import styles from "./_app.module.scss";
 import { PageHead } from "../components/PageHead";
+import { SocialInfo } from "../components/SocialInfo";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }) {
           className={styles.components_wrapper_container}
           style={{ paddingLeft: "0" }}
         >
+          <SocialInfo />
           <Component {...pageProps} />
         </Container>
         <Footer />

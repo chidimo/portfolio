@@ -81,7 +81,6 @@ export const PortfolioComponent = ({ screenshots }) => {
 
   return (
     <Container>
-      <SocialInfo />
 
       <h3 className="page_title">Portfolio</h3>
 

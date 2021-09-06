@@ -1,10 +1,11 @@
 import { mySocial } from "../data/social";
 import Image from "next/image";
 import styles from "./SocialInfo.module.scss";
+import Container from "react-bootstrap/Container";
 
 export const SocialInfo = () => {
   return (
-    <div className={styles.social_container_style}>
+    <Container className={styles.social_container_style}>
       {mySocial.map((soc, idx) => {
         const { badgeUrl, socialUrl } = soc;
 
@@ -28,6 +29,6 @@ export const SocialInfo = () => {
           </a>
         );
       })}
-    </div>
+    </Container>
   );
 };

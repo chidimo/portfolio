@@ -11,7 +11,6 @@ const resumeLink =
 export const IndexComponent = () => {
   return (
     <Container>
-      <SocialInfo />
 
       <div>
         <h4 className="page_title">Hi, I am Chidi Orji</h4>

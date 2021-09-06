@@ -1,7 +1,7 @@
 .nav_header {
   color: #fff;
-  
-  a {
-    color: #fff;
+
+  &:hover {
+    color: lightgray !important;
   }
 }
