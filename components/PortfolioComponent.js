@@ -6,7 +6,7 @@ import { myPortfolio } from "../data/portfolio";
 import styles from "./PortfolioComponent.module.scss";
 import { useRouter } from "next/router";
 import { mergeURLParams } from "../utils/manipulateUrlParams";
-import { SocialInfo } from "./SocialInfo";
+import { Modal } from "./Modal";
 
 export const PortfolioComponent = ({ screenshots }) => {
   const router = useRouter();
@@ -77,11 +77,25 @@ export const PortfolioComponent = ({ screenshots }) => {
     setVisibleProjects(visibleProjects);
   }, [selectedStack, selectedCategory]);
 
-  const filterClassName = ['list_item_container', styles.portfolio_filter_container].join(' ')
+  const filterClassName = [
+    "list_item_container",
+    styles.portfolio_filter_container,
+  ].join(" ");
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState({});
+
+  const closeModal = () => {
+    setModalImage({});
+    setModalOpen(false);
+  };
+  const openModal = (img) => {
+    setModalImage(img);
+    setModalOpen(true);
+  };
 
   return (
     <Container>
-
       <h3 className="page_title">Portfolio</h3>
 
       {visibleProjects.length < myPortfolio.length && (
@@ -140,7 +154,7 @@ export const PortfolioComponent = ({ screenshots }) => {
           (ssh) => ssh.projectName === screenshotsFolder
         )[0] || { fileData: [] };
 
-        const wrapperClassName = ['list_item_container'].join(' ');
+        const wrapperClassName = ["list_item_container"].join(" ");
 
         return (
           <div key={idx} className={wrapperClassName}>
@@ -223,6 +237,7 @@ export const PortfolioComponent = ({ screenshots }) => {
                       height={height}
                       src={imagePublicUrl}
                       alt={filename}
+                      onClick={() => openModal(sh)}
                       // className={styles.image_style}
                     />
 
@@ -234,6 +249,18 @@ export const PortfolioComponent = ({ screenshots }) => {
           </div>
         );
       })}
+
+      <Modal isOpen={modalOpen} onRequestClose={closeModal}>
+        <div>
+          <Image
+            width={modalImage.width}
+            height={modalImage.height}
+            src={modalImage.imagePublicUrl}
+            alt={modalImage.filename}
+            onClick={closeModal}
+          />
+        </div>
+      </Modal>
     </Container>
   );
 };
