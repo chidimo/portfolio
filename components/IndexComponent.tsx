@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import styles from "./IndexComponent.module.scss";
+import { SocialInfo } from "./SocialInfo";
 import Link from "next/link";
 
 const myPhone = "+2349036650603";
