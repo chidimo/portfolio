@@ -1,38 +1,22 @@
-import { Provider } from "react-redux";
-import { Footer } from "../components/Footer";
-import Sidebar from "../components/Sidebar";
-import { TopNavigation } from "../components/TopNavigation";
-import { store } from "../store/store";
 import "../styles/globals.css";
-import Container from "react-bootstrap/Container";
-import styles from "./_app.module.scss";
-import { PageHead } from "../components/PageHead";
-import { SocialInfo } from "../components/SocialInfo";
 
-function MyApp({ Component, pageProps }) {
+import { PageHead } from "../components/PageHead";
+import { TopNavigation } from "components/TopNavigation";
+
+function MyApp({ Component, pageProps }: any) {
   return (
-    <Provider store={store}>
+    <div>
       <PageHead />
 
-      <Container
-        fluid
-        className={styles.top_level_container}
-        style={{ padding: 0 }}
-      >
+      <div className="">
         <TopNavigation />
 
-        <Container
-          className={styles.components_wrapper_container}
-          style={{ paddingLeft: "0" }}
-        >
-          <SocialInfo />
+        <div className="px-2 md:px-8 lg:px-20 pt-8">
+          {/* <SocialInfo /> */}
           <Component {...pageProps} />
-        </Container>
-        <Footer />
-        <Sidebar />
-        {/* <ScrollToTop /> */}
-      </Container>
-    </Provider>
+        </div>
+      </div>
+    </div>
   );
 }
 
