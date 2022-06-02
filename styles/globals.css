@@ -1,61 +1,7 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: #0a58ca;
-  text-decoration: none !important;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.page_title {
-  padding: 10px 0;
-  font-weight: 500;
-}
-
-.mb_5 {
-  margin-bottom: 5px;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-span.chip {
-  font-size: 14px;
-  padding: 2px 7px;
-  border-radius: 10px;
-  display: inline-block;
-  margin: 3px 5px 3px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.chip.link_chip {
-  background-color: #eee;
-}
-
-.chip.lightgrey_chip {
-  background-color: #e8e8e8;
-}
-
-.chip.grey_chip {
-  background-color: #ccc;
-}
-
-.chip.selected_chip {
-  border: 1px solid rgb(255, 119, 0);
-}
-
-.list_item_container {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 2px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+#__next {
+  height: 100%
 }
