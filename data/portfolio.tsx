@@ -1,3 +1,4 @@
+import { appendFile } from "fs";
 import { Project } from "types/index";
 
 export const portfolio_projects: Project[] = [
@@ -14,8 +15,16 @@ export const portfolio_projects: Project[] = [
     ],
     links: [
       {
-        "Bluelines homepage": "https://bluelines.io",
-        "Example organization": "https://fabsjewelry.bluelines.com/",
+        name: "Android app",
+        url: "https://play.google.com/store/apps/details?id=com.bluelines",
+      },
+      {
+        name: "Homepage",
+        url: "https://bluelines.io",
+      },
+      {
+        name: "Example organization",
+        url: "https://fabsjewelry.bluelines.io/",
       },
     ],
     screenshotsFolder: "bluelines",
@@ -27,7 +36,8 @@ export const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        "Identify homepage": "https://beta.identify.softcom.xyz/",
+        name: "Homepage",
+        url: "https://beta.identify.softcom.xyz/",
       },
     ],
     screenshotsFolder: "identify",
@@ -39,7 +49,8 @@ export const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        "Koya homepage": "https://koya.co/",
+        name: "Homepage",
+        url: "https://koya.co/",
       },
     ],
     screenshotsFolder: "koya",
@@ -51,7 +62,8 @@ export const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        "Live App": "https://weather-ten-amber.vercel.app/",
+        name: "Homepage",
+        url: "https://weather-ten-amber.vercel.app/",
       },
     ],
     screenshotsFolder: "egbe",
@@ -61,7 +73,7 @@ export const portfolio_projects: Project[] = [
   {
     title: "test x",
     stack: ["React-Native", "Redux"],
-    links: [{}],
+    links: [],
     screenshotsFolder: "testx",
     description:
       "I built the Android app for the testX platform owned by Traindemy. The app is being developed as the educational testing platform of the 21st century, to be used remotely. I am the mobile Lead developer, both for Android and iOS, using React Native. The app and its sister site helped the team secure a $5,000 of AWS credit in a startup fare.",
@@ -71,10 +83,14 @@ export const portfolio_projects: Project[] = [
     stack: ["ExpressJS", "HTML5", "MeteorJS", "CSS3", "JavaScript"],
     links: [
       {
-        "Live App": "https://chidimo.github.io/Quick-Credit/UI/index.html",
-        "Github Repo": "https://github.com/chidimo/Quick-Credit",
-        "API Doc": "https://qcredit.docs.apiary.io/",
+        name: "Homepage",
+        url: "https://chidimo.github.io/Quick-Credit/UI/index.html",
       },
+      {
+        name: "On Github",
+        url: "https://github.com/chidimo/Quick-Credit",
+      },
+      { name: "API Doc", url: "https://qcredit.docs.apiary.io/" },
     ],
     screenshotsFolder: "qcredit",
     description:
@@ -85,9 +101,10 @@ export const portfolio_projects: Project[] = [
     stack: ["DjangoRestFramework", "Django", "React"],
     links: [
       {
-        "Live App": "http://chidimo.github.io/Ethodoxy/",
-        "Github Repo": "https://github.com/chidimo/Ethodoxy",
+        name: "Homepage",
+        url: "http://chidimo.github.io/Ethodoxy/",
       },
+      { name: "On Github", url: "https://github.com/chidimo/Ethodoxy" },
     ],
     screenshotsFolder: "ethodoxy",
     description:
@@ -98,10 +115,16 @@ export const portfolio_projects: Project[] = [
     stack: ["React"],
     links: [
       {
-        "Demo App": "https://codesandbox.io/s/react-drag-and-drop-fs06e",
-        "NPM Package URL":
-          "https://www.npmjs.com/package/react-drag-drop-browser",
-        "Github Repo": "https://github.com/chidimo/react-drag-drop-browser",
+        name: "Demo",
+        url: "https://codesandbox.io/s/react-drag-and-drop-fs06e",
+      },
+      {
+        name: "NPM Package URL",
+        url: "https://www.npmjs.com/package/react-drag-drop-browser",
+      },
+      {
+        name: "On Github",
+        url: "https://github.com/chidimo/react-drag-drop-browser",
       },
     ],
     screenshotsFolder: "dragNdrop",
@@ -113,9 +136,10 @@ export const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        "Live App": "https://react-shelf.herokuapp.com",
-        "Github Repo": "https://github.com/chidimo/My-Reads",
+        name: "Homepage",
+        url: "https://react-shelf.herokuapp.com",
       },
+      { name: "On Github", url: "https://github.com/chidimo/My-Reads" },
     ],
     screenshotsFolder: "myread",
     description:
@@ -126,8 +150,12 @@ export const portfolio_projects: Project[] = [
     stack: ["React"],
     links: [
       {
-        "Live App": "https://wud-u-rada.herokuapp.com/",
-        "Github Repo": "https://github.com/chidimo/Would-You-Rather",
+        name: "Homepage",
+        url: "https://wud-u-rada.herokuapp.com/",
+      },
+      {
+        name: "On Github",
+        url: "https://github.com/chidimo/Would-You-Rather",
       },
     ],
     screenshotsFolder: "wudURada",
@@ -141,9 +169,10 @@ export const portfolio_projects: Project[] = [
     screenshotsFolder: "urlShortener",
     links: [
       {
-        "Live App": "https://basic-url-shortener.herokuapp.com",
-        "Github Repo": "https://github.com/chidimo/Url-Shortener",
+        name: "Homepage",
+        url: "https://basic-url-shortener.herokuapp.com",
       },
+      { name: "On Github", url: "https://github.com/chidimo/Url-Shortener" },
     ],
   },
   {
@@ -153,7 +182,8 @@ export const portfolio_projects: Project[] = [
     screenshotsFolder: "",
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/Mobile-Flashcards",
+        name: "On Github",
+        url: "https://github.com/chidimo/Mobile-Flashcards",
       },
     ],
   },
@@ -162,7 +192,7 @@ export const portfolio_projects: Project[] = [
     stack: ["MeteorJS", "React"],
     description: "A currency counting app. Available for web and mobile",
     screenshotsFolder: "",
-    links: [{}],
+    links: [],
   },
   {
     title: "choral central",
@@ -170,16 +200,17 @@ export const portfolio_projects: Project[] = [
     description:
       "The app is a place for sharing choral music sheets and midi files.",
     screenshotsFolder: "",
-    links: [{}],
+    links: [],
   },
   {
     title: "voidcoin",
     stack: ["Python", "Django", "bootstrap"],
     links: [
       {
-        "Live App": "http://voidcoin.herokuapp.com/",
-        "Github Repo": "https://github.com/chidimo/voidcoin",
+        name: "Homepage",
+        url: "http://voidcoin.herokuapp.com/",
       },
+      { name: "On Github", url: "https://github.com/chidimo/voidcoin" },
     ],
     screenshotsFolder: "voidcoin",
     description: "A simple blockchain implementation in Python",
@@ -192,7 +223,8 @@ export const portfolio_projects: Project[] = [
     screenshotsFolder: "",
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/youtube-drive-api-v3-django",
+        name: "On Github",
+        url: "https://github.com/chidimo/youtube-drive-api-v3-django",
       },
     ],
   },
@@ -201,7 +233,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/python-git",
+        name: "On Github",
+        url: "https://github.com/chidimo/python-git",
       },
     ],
     screenshotsFolder: "pygit",
@@ -213,7 +246,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/hack-nairaland",
+        name: "On Github",
+        url: "https://github.com/chidimo/hack-nairaland",
       },
     ],
     screenshotsFolder: "nairaland",
@@ -225,7 +259,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/pywebber",
+        name: "On Github",
+        url: "https://github.com/chidimo/pywebber",
       },
     ],
     screenshotsFolder: "",
@@ -236,9 +271,12 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
-        "Github Repo": "https://github.com/chidimo/line_of_balance",
-        "Sample plot":
-          "https://github.com/chidimo/line_of_balance/blob/master/graph.pdf",
+        name: "On Github",
+        url: "https://github.com/chidimo/line_of_balance",
+      },
+      {
+        name: "Sample plot",
+        url: "https://github.com/chidimo/line_of_balance/blob/master/graph.pdf",
       },
     ],
     screenshotsFolder: "lob",
@@ -250,8 +288,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas"],
     links: [
       {
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%202%20solution.ipynb",
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%202%20solution.ipynb",
       },
     ],
     screenshotsFolder: "olympics",
@@ -262,8 +300,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas"],
     links: [
       {
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%203%20solution.ipynb",
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%203%20solution.ipynb",
       },
     ],
     screenshotsFolder: "energyAndGdp",
@@ -274,8 +312,8 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas"],
     links: [
       {
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%204%20solution.ipynb",
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_pandas/Week%204%20solution.ipynb",
       },
     ],
     screenshotsFolder: "hypothesis",
@@ -286,12 +324,16 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
-        "Plot image(pdf)":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.pdf",
-        "Plot image(png)":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.png",
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week4_solution.ipynb",
+        name: "Plot image(pdf)",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.pdf",
+      },
+      {
+        name: "Plot image(png)",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/comparing_gdp_inflation.png",
+      },
+      {
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week4_solution.ipynb",
       },
     ],
     screenshotsFolder: "gdpAndInflation",
@@ -303,12 +345,16 @@ export const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
-        "Plot image(pdf)":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.pdf",
-        "Plot image(png)":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.png",
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week2_solution.ipynb",
+        name: "Plot image(pdf)",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.pdf",
+      },
+      {
+        name: "Plot image(png)",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/output/Temperature_Abu_Dhabi.png",
+      },
+      {
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week2_solution.ipynb",
       },
     ],
     screenshotsFolder: "tempHigh",
@@ -320,8 +366,8 @@ export const portfolio_projects: Project[] = [
     stack: [],
     links: [
       {
-        "Jupyter Notebook":
-          "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week3_solution.ipynb",
+        name: "Jupyter Notebook",
+        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week3_solution.ipynb",
       },
     ],
     screenshotsFolder: "dataVisualization",
@@ -333,8 +379,8 @@ export const portfolio_projects: Project[] = [
     stack: ["ArcGIS Desktop"],
     links: [
       {
-        "Plot image(pdf)":
-          "https://s3.amazonaws.com/coursera-uploads/peer-review/hESqA3EhEeWIfhKr_WcYsQ/514eb4ec558f3dea849094aec6a5eec0/California_Counties_Prop37_2012_Voting_Patterns.pdf",
+        name: "Plot image(pdf)",
+        url: "https://s3.amazonaws.com/coursera-uploads/peer-review/hESqA3EhEeWIfhKr_WcYsQ/514eb4ec558f3dea849094aec6a5eec0/California_Counties_Prop37_2012_Voting_Patterns.pdf",
       },
     ],
     screenshotsFolder: "voting",
@@ -346,7 +392,8 @@ export const portfolio_projects: Project[] = [
     stack: ["ArcGIS Desktop"],
     links: [
       {
-        "Live App": "http://arcg.is/2cPzy9r",
+        name: "Homepage",
+        url: "http://arcg.is/2cPzy9r",
       },
     ],
     screenshotsFolder: "valmeyer",
@@ -357,8 +404,8 @@ export const portfolio_projects: Project[] = [
     stack: ["ArcGIS Desktop"],
     links: [
       {
-        "Plot image(pdf)":
-          "https://s3.amazonaws.com/coursera-uploads/peer-review/zs3YSHQ6EeWrAxJQXw-8PQ/debaf9f5b41d0fe5707f52283be9ea8c/Ozone_Concentrations.pdf",
+        name: "Plot image(pdf)",
+        url: "https://s3.amazonaws.com/coursera-uploads/peer-review/zs3YSHQ6EeWrAxJQXw-8PQ/debaf9f5b41d0fe5707f52283be9ea8c/Ozone_Concentrations.pdf",
       },
     ],
     screenshotsFolder: "ozone",

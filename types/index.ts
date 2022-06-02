@@ -12,7 +12,10 @@ export interface Project {
   description: string;
   stack: string[];
   screenshotsFolder: string;
-  links: Record<string, string>[];
+  links: {
+    name: string;
+    url: string;
+  }[];
 }
 
 export interface Publication {

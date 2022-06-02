@@ -9,6 +9,7 @@ import { Project, Screenshot } from "types/index";
 import Modal from "components/Modal";
 import { mergeURLParams } from "utils/manipulateUrlParams";
 import { imageDirectories, portfolio_projects } from "../data/portfolio";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const shotsFoler = "screenshots";
@@ -63,8 +64,8 @@ const Portfolio = (props: Props) => {
 
   const [selectedImage, setSelectedImage] = useState<Screenshot | null>(null);
 
-  const chipClass =
-    "bg-gray-200 px-2 py-1 mr-2 rounded cursor-pointer flex justify-center";
+  const badgeClass =
+    "bg-gray-200 px-2 py-1 rounded cursor-pointer flex justify-center";
 
   const techs = useMemo(
     () =>
@@ -126,12 +127,28 @@ const Portfolio = (props: Props) => {
                     <li
                       key={idx}
                       title={`Click to show ${st} projects`}
-                      className={clsx([chipClass], {
+                      className={clsx([badgeClass], {
                         "border-2 border-green-400": techs.includes(st),
                       })}
                       onClick={() => handleStackClick(st)}
                     >
                       {st}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <ul
+                role="list"
+                className="grid grid-cols-3 gap-x-2 gap-y-2 sm:grid-cols-4 lg:grid-cols-6 my-4"
+              >
+                {project.links.map((link, idx) => {
+                  if (!link.url) alert(JSON.stringify(link, null, 2))
+                  return (
+                    <li key={idx} className="">
+                      <Link href={link.url}>
+                        <a target='_blank' rel='noreferrer noopener' className='text-sm text-blue-600'>{link.name}</a>
+                      </Link>
                     </li>
                   );
                 })}
