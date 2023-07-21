@@ -7,7 +7,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "React Nanodegree",
     platform: "Udacity",
-    platform_url: "https://graduation.udacity.com/confirm",
+    certificate_url: "https://graduation.udacity.com/confirm",
     about: "build web and mobile apps with react, redux, and react native",
   },
   {
@@ -15,7 +15,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Responsive Web Design",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -23,7 +23,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Responsive Website Basics: Code with HTML, CSS, and JavaScript",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -31,7 +31,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Introduction to meteor.js Development",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -39,7 +39,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Web application development with JavaScript and MongoDB",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -47,7 +47,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Responsive website tutorials and examples",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -55,7 +55,7 @@ export const certificates: Certificate[] = [
     relevance: 2,
     title: "Introduction to Data Science in Python",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -63,7 +63,7 @@ export const certificates: Certificate[] = [
     relevance: 2,
     title: "Applied Plotting, Charting & Data Representation in Python",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -71,7 +71,7 @@ export const certificates: Certificate[] = [
     relevance: 3,
     title: "GIS Data Formats, Design and Quality",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -79,7 +79,7 @@ export const certificates: Certificate[] = [
     relevance: 3,
     title: "Fundamentals of GIS",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -87,7 +87,7 @@ export const certificates: Certificate[] = [
     relevance: 3,
     title: "Geospatial and Environmental Analysis",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -95,7 +95,7 @@ export const certificates: Certificate[] = [
     relevance: 1,
     title: "Successful Negotiation: Essential Strategies and Skills",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -103,7 +103,7 @@ export const certificates: Certificate[] = [
     relevance: 4,
     title: "Fundamentals of Project Planning and Management",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -111,7 +111,7 @@ export const certificates: Certificate[] = [
     relevance: 4,
     title: "Initiating and Planning Projects",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -119,7 +119,7 @@ export const certificates: Certificate[] = [
     relevance: 4,
     title: "Construction Project Management",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -127,7 +127,7 @@ export const certificates: Certificate[] = [
     relevance: 4,
     title: "Construction Scheduling",
     platform: "Coursera",
-    platform_url: "https://www.coursera.org/account/accomplishments/verify",
+    certificate_url: "https://www.coursera.org/account/accomplishments/verify",
     about: "",
   },
   {
@@ -135,7 +135,7 @@ export const certificates: Certificate[] = [
     relevance: 4,
     title: "Modelling and Simulation using Simulink",
     platform: "Iversity",
-    platform_url: "https://iversity.org/verify",
+    certificate_url: "https://iversity.org/verify",
     about: "",
   },
 ];

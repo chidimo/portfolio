@@ -1,9 +1,8 @@
-import { appendFile } from "fs";
 import { Project } from "types/index";
 
-export const portfolio_projects: Project[] = [
+const portfolio_projects: Project[] = [
   {
-    title: "Bluelines",
+    name: "Bluelines",
     stack: [
       "React",
       "Redux",
@@ -32,7 +31,7 @@ export const portfolio_projects: Project[] = [
       "Bluelines is a business management solution for SMEs. Bluelines abstracts away the boring paperwork carried out by business owners on a daily basis, allowing them to focus on growing their business.",
   },
   {
-    title: "Identify",
+    name: "Identify",
     stack: ["React", "Redux"],
     links: [
       {
@@ -45,7 +44,7 @@ export const portfolio_projects: Project[] = [
       "Identify is a product of Softcom, which is used to control time and access to buildings, offices and apartments. With Identify, organizations can create, authorize and share digital identity cards.",
   },
   {
-    title: "Koya Schools",
+    name: "Koya Schools",
     stack: ["React", "Redux"],
     links: [
       {
@@ -58,7 +57,7 @@ export const portfolio_projects: Project[] = [
       "Softcom Learning Management System (SLMS), aka Koya, is a learning management system for schools and organizations.",
   },
   {
-    title: "Egbe Igwe",
+    name: "Egbe Igwe",
     stack: ["React", "Redux"],
     links: [
       {
@@ -71,7 +70,7 @@ export const portfolio_projects: Project[] = [
       "A minimal weather app showing current weather conditions of various cities. Also uses Geolocation to get the current user’s location weather information.",
   },
   {
-    title: "test x",
+    name: "test x",
     stack: ["React-Native", "Redux"],
     links: [],
     screenshotsFolder: "testx",
@@ -79,8 +78,8 @@ export const portfolio_projects: Project[] = [
       "I built the Android app for the testX platform owned by Traindemy. The app is being developed as the educational testing platform of the 21st century, to be used remotely. I am the mobile Lead developer, both for Android and iOS, using React Native. The app and its sister site helped the team secure a $5,000 of AWS credit in a startup fare.",
   },
   {
-    title: "quick credit",
-    stack: ["ExpressJS", "HTML5", "MeteorJS", "CSS3", "JavaScript"],
+    name: "Quick Credit",
+    stack: ["ExpressJS", "HTML5", "CSS3", "JavaScript"],
     links: [
       {
         name: "Homepage",
@@ -97,7 +96,7 @@ export const portfolio_projects: Project[] = [
       "Quick Credit is an online lending platform that provides short term soft loans to individuals. This helps solve problems of financial inclusion as a way to alleviate poverty and empower low income earners.",
   },
   {
-    title: "Ethodoxy",
+    name: "Ethodoxy",
     stack: ["DjangoRestFramework", "Django", "React"],
     links: [
       {
@@ -111,7 +110,7 @@ export const portfolio_projects: Project[] = [
       "The name is a short form for Electronic Orthodoxy. The current database features the Douay-Rheims version of the bible and the Challoner commentary. The app exposes a set of API endpoints, and the frontend app consumes these endpoints. These are still works in progress.",
   },
   {
-    title: "react-drag-drop-browser",
+    name: "react-drag-drop-browser",
     stack: ["React"],
     links: [
       {
@@ -132,7 +131,7 @@ export const portfolio_projects: Project[] = [
       "Simple, customizable React drag and drop component. Also comes with a file browser. It is highly configurable in terms of styling. Do checkout the docs on the Github repo.",
   },
   {
-    title: "My Reads",
+    name: "My Reads",
     stack: ["React", "Redux"],
     links: [
       {
@@ -146,7 +145,7 @@ export const portfolio_projects: Project[] = [
       "A simple book tracking app which I built as part of my React nanodegree program with Udacity.",
   },
   {
-    title: "Would You Rather",
+    name: "Would You Rather",
     stack: ["React"],
     links: [
       {
@@ -163,7 +162,7 @@ export const portfolio_projects: Project[] = [
       "A would you rather game I built as part of my React nanodegree program at Udacity. Game description is available in the repo.",
   },
   {
-    title: "Url shortener",
+    name: "Url shortener",
     stack: ["React", "MeteorJS", "MongoDB"],
     description: "URL shortening service with automatic redirects.",
     screenshotsFolder: "urlShortener",
@@ -176,7 +175,7 @@ export const portfolio_projects: Project[] = [
     ],
   },
   {
-    title: "Mobile Flashcards",
+    name: "Mobile Flashcards",
     stack: ["React-Native", "Redux"],
     description: "A flashcard app for iOS and Android",
     screenshotsFolder: "",
@@ -188,14 +187,14 @@ export const portfolio_projects: Project[] = [
     ],
   },
   {
-    title: "Currency Analyzer",
+    name: "Currency Analyzer",
     stack: ["MeteorJS", "React"],
     description: "A currency counting app. Available for web and mobile",
     screenshotsFolder: "",
     links: [],
   },
   {
-    title: "choral central",
+    name: "choral central",
     stack: ["Django"],
     description:
       "The app is a place for sharing choral music sheets and midi files.",
@@ -203,7 +202,7 @@ export const portfolio_projects: Project[] = [
     links: [],
   },
   {
-    title: "voidcoin",
+    name: "voidcoin",
     stack: ["Python", "Django", "bootstrap"],
     links: [
       {
@@ -216,7 +215,7 @@ export const portfolio_projects: Project[] = [
     description: "A simple blockchain implementation in Python",
   },
   {
-    title: "YouTube and Drive API v3",
+    name: "YouTube and Drive API v3",
     stack: ["Django", "YouTube API v3"],
     description:
       "Request YouTube and/or Google Drive access from within a Django web app",
@@ -229,7 +228,7 @@ export const portfolio_projects: Project[] = [
     ],
   },
   {
-    title: "Python-git",
+    name: "Python-git",
     stack: ["Python"],
     links: [
       {
@@ -242,7 +241,7 @@ export const portfolio_projects: Project[] = [
       "This project aims to control git.exe with Python subprocess module.",
   },
   {
-    title: "Hack nairaland",
+    name: "Hack nairaland",
     stack: ["Python"],
     links: [
       {
@@ -255,7 +254,7 @@ export const portfolio_projects: Project[] = [
       "An exercise in webscraping using nairaland.com as a case study",
   },
   {
-    title: "Pywebber",
+    name: "Pywebber",
     stack: ["Python"],
     links: [
       {
@@ -267,7 +266,7 @@ export const portfolio_projects: Project[] = [
     description: "Web development tools written in Python",
   },
   {
-    title: "Line of Balance",
+    name: "Line of Balance",
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
@@ -284,7 +283,7 @@ export const portfolio_projects: Project[] = [
       "Plotting a line of balance plot/curve (in project management) using Matplotlib",
   },
   {
-    title: "Olympic medals",
+    name: "Olympic medals",
     stack: ["Python", "Pandas"],
     links: [
       {
@@ -296,7 +295,7 @@ export const portfolio_projects: Project[] = [
     description: "Analysing olympic gold medals from a wikipedia dataset",
   },
   {
-    title: "Energy and GDP",
+    name: "Energy and GDP",
     stack: ["Python", "Pandas"],
     links: [
       {
@@ -308,7 +307,7 @@ export const portfolio_projects: Project[] = [
     description: "Analysing energy and GDP data of various countries",
   },
   {
-    title: "Hypothesis testing",
+    name: "Hypothesis testing",
     stack: ["Python", "Pandas"],
     links: [
       {
@@ -320,7 +319,7 @@ export const portfolio_projects: Project[] = [
     description: "Testing a hypothesis via data analysis",
   },
   {
-    title: "GDP and Inflation by year",
+    name: "GDP and Inflation by year",
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
@@ -341,7 +340,7 @@ export const portfolio_projects: Project[] = [
       "Variation of GDP and Inflation rate of Nigeria and UAE between 2005 and 2016",
   },
   {
-    title: "Temperature highs and lows",
+    name: "Temperature highs and lows",
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
@@ -362,7 +361,7 @@ export const portfolio_projects: Project[] = [
       "Plotting temperature highs and lows for every calendar day of the year in Abu Dhabi, UAE for the ten-year period, 2005 and 2014",
   },
   {
-    title: "Visualization of probabilistic data",
+    name: "Visualization of probabilistic data",
     stack: [],
     links: [
       {
@@ -375,12 +374,16 @@ export const portfolio_projects: Project[] = [
       "Building a custom visualization from probabilistic data generated through samples in Matplotlib",
   },
   {
-    title: "Visualizing voting pattern",
+    name: "Visualizing voting pattern",
     stack: ["ArcGIS Desktop"],
     links: [
       {
         name: "Plot image(pdf)",
         url: "https://s3.amazonaws.com/coursera-uploads/peer-review/hESqA3EhEeWIfhKr_WcYsQ/514eb4ec558f3dea849094aec6a5eec0/California_Counties_Prop37_2012_Voting_Patterns.pdf",
+      },
+      {
+        name: "Raw map",
+        url: "https://www.arcgis.com/home/item.html?id=c73d81e08f654f6a9769e3876065c6ac",
       },
     ],
     screenshotsFolder: "voting",
@@ -388,19 +391,23 @@ export const portfolio_projects: Project[] = [
       'The "yes" vote patterns in California Counties on Proposition 37 in 2012',
   },
   {
-    title: "Moving Valmeyer",
+    name: "Moving Valmeyer",
     stack: ["ArcGIS Desktop"],
     links: [
       {
         name: "Homepage",
         url: "http://arcg.is/2cPzy9r",
       },
+      {
+        name: "Raw map",
+        url: "https://www.arcgis.com/home/item.html?id=f9c08c6d13464c62bc787ec3bd2a20c1#overview",
+      },
     ],
     screenshotsFolder: "valmeyer",
     description: "Map showing the location of the new and old Valmeyer towns",
   },
   {
-    title: "Visualizing ozone concentrations",
+    name: "Visualizing ozone concentrations",
     stack: ["ArcGIS Desktop"],
     links: [
       {
@@ -423,8 +430,8 @@ portfolio_projects.forEach((entry: Project) => {
   });
 });
 
-export { techStacks };
-
-export const imageDirectories = portfolio_projects
+const imageDirectories = portfolio_projects
   .map((mp) => mp.screenshotsFolder)
   .filter((ff) => ff !== "");
+
+export { portfolio_projects, techStacks, imageDirectories };

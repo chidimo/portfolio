@@ -143,11 +143,16 @@ const Portfolio = (props: Props) => {
                 className="grid grid-cols-3 gap-x-2 gap-y-2 sm:grid-cols-4 lg:grid-cols-6 my-4"
               >
                 {project.links.map((link, idx) => {
-                  if (!link.url) alert(JSON.stringify(link, null, 2))
+                  if (!link.url) alert(JSON.stringify(link, null, 2));
                   return (
                     <li key={idx} className="">
-                      <Link href={link.url}>
-                        <a target='_blank' rel='noreferrer noopener' className='text-sm text-blue-600'>{link.name}</a>
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="text-sm text-blue-600"
+                      >
+                        {link.name}
                       </Link>
                     </li>
                   );

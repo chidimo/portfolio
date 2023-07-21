@@ -54,14 +54,14 @@ export default function Home() {
 
               return (
                 <li key={idx} className="mb-4">
-                  <Link href={social.socialUrl}>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={clsx()}
-                    >
-                      <img className="h-[30px]" src={src} alt={social.title} />
-                    </a>
+                  <Link
+                    passHref
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={clsx()}
+                  >
+                    <img className="h-[30px]" src={src} alt={social.title} />
                   </Link>
                 </li>
               );
