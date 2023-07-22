@@ -6,7 +6,7 @@ import { ProjectList } from "components/project-list";
 import { imageDirectories } from "data/portfolio";
 import { Screenshot } from "types";
 
-export async function getPhotos() {
+async function getPhotos() {
   const shotsFoler = "screenshots";
 
   const images = imageDirectories.map((name) => {
