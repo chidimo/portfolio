@@ -33,6 +33,11 @@ export interface Screenshot {
   imageFullPath: string;
 }
 
+export interface ProjectNameAndImage {
+  projectName: string;
+  fileData: Screenshot[];
+}
+
 export interface Social {
   title: string;
   socialUrl: string;

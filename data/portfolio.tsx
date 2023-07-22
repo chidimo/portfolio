@@ -2,23 +2,33 @@ import { Project } from "types/index";
 
 const portfolio_projects: Project[] = [
   {
+    name: "My portfolio",
+    stack: ["React", "TypeScript", "Next.js"],
+    links: [{ name: "Home page", url: "https://chidimo.netlify.app" }],
+    screenshotsFolder: "port",
+    description: "My portfolio site",
+  },
+  {
+    name: "Autumn AI",
+    stack: ["React", "TypeScript", "Next.js"],
+    links: [{ name: "Home page", url: "https://getautumn.com" }],
+    description:
+      "Autumn AI is an early-stage startup based in Canada working on the future of preventative mental healthcare",
+    screenshotsFolder: "autumn",
+  },
+  {
     name: "Bluelines",
     stack: [
       "React",
-      "Redux",
+      "TypeScript",
       "ApolloClient",
       "Python",
       "Django",
       "Graphene",
-      "GraphQL",
     ],
     links: [
       {
-        name: "Android app",
-        url: "https://play.google.com/store/apps/details?id=com.bluelines",
-      },
-      {
-        name: "Homepage",
+        name: "Home page",
         url: "https://bluelines.io",
       },
       {
@@ -35,8 +45,8 @@ const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        name: "Homepage",
-        url: "https://beta.identify.softcom.xyz/",
+        name: "Home page",
+        url: "https://softcom.xyz/usepass",
       },
     ],
     screenshotsFolder: "identify",
@@ -48,7 +58,7 @@ const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://koya.co/",
       },
     ],
@@ -61,7 +71,7 @@ const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://weather-ten-amber.vercel.app/",
       },
     ],
@@ -70,8 +80,8 @@ const portfolio_projects: Project[] = [
       "A minimal weather app showing current weather conditions of various cities. Also uses Geolocation to get the current user’s location weather information.",
   },
   {
-    name: "test x",
-    stack: ["React-Native", "Redux"],
+    name: "Test x",
+    stack: ["React Native", "Redux"],
     links: [],
     screenshotsFolder: "testx",
     description:
@@ -79,14 +89,14 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Quick Credit",
-    stack: ["ExpressJS", "HTML5", "CSS3", "JavaScript"],
+    stack: ["Express.js", "HTML5", "CSS3", "JavaScript"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://chidimo.github.io/Quick-Credit/UI/index.html",
       },
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/Quick-Credit",
       },
       { name: "API Doc", url: "https://qcredit.docs.apiary.io/" },
@@ -100,10 +110,10 @@ const portfolio_projects: Project[] = [
     stack: ["DjangoRestFramework", "Django", "React"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "http://chidimo.github.io/Ethodoxy/",
       },
-      { name: "On Github", url: "https://github.com/chidimo/Ethodoxy" },
+      { name: "Github page", url: "https://github.com/chidimo/Ethodoxy" },
     ],
     screenshotsFolder: "ethodoxy",
     description:
@@ -114,15 +124,15 @@ const portfolio_projects: Project[] = [
     stack: ["React"],
     links: [
       {
-        name: "Demo",
+        name: "Demo page",
         url: "https://codesandbox.io/s/react-drag-and-drop-fs06e",
       },
       {
-        name: "NPM Package URL",
+        name: "On NPM",
         url: "https://www.npmjs.com/package/react-drag-drop-browser",
       },
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/react-drag-drop-browser",
       },
     ],
@@ -135,10 +145,10 @@ const portfolio_projects: Project[] = [
     stack: ["React", "Redux"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://react-shelf.herokuapp.com",
       },
-      { name: "On Github", url: "https://github.com/chidimo/My-Reads" },
+      { name: "Github page", url: "https://github.com/chidimo/My-Reads" },
     ],
     screenshotsFolder: "myread",
     description:
@@ -149,11 +159,11 @@ const portfolio_projects: Project[] = [
     stack: ["React"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://wud-u-rada.herokuapp.com/",
       },
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/Would-You-Rather",
       },
     ],
@@ -168,20 +178,20 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "urlShortener",
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "https://basic-url-shortener.herokuapp.com",
       },
-      { name: "On Github", url: "https://github.com/chidimo/Url-Shortener" },
+      { name: "Github page", url: "https://github.com/chidimo/Url-Shortener" },
     ],
   },
   {
     name: "Mobile Flashcards",
-    stack: ["React-Native", "Redux"],
+    stack: ["React Native", "Redux"],
     description: "A flashcard app for iOS and Android",
     screenshotsFolder: "",
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/Mobile-Flashcards",
       },
     ],
@@ -206,10 +216,10 @@ const portfolio_projects: Project[] = [
     stack: ["Python", "Django", "bootstrap"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "http://voidcoin.herokuapp.com/",
       },
-      { name: "On Github", url: "https://github.com/chidimo/voidcoin" },
+      { name: "Github page", url: "https://github.com/chidimo/voidcoin" },
     ],
     screenshotsFolder: "voidcoin",
     description: "A simple blockchain implementation in Python",
@@ -222,7 +232,7 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "",
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/youtube-drive-api-v3-django",
       },
     ],
@@ -232,7 +242,7 @@ const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/python-git",
       },
     ],
@@ -245,7 +255,7 @@ const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/hack-nairaland",
       },
     ],
@@ -258,7 +268,7 @@ const portfolio_projects: Project[] = [
     stack: ["Python"],
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/pywebber",
       },
     ],
@@ -270,7 +280,7 @@ const portfolio_projects: Project[] = [
     stack: ["Python", "Pandas", "Matplotlib"],
     links: [
       {
-        name: "On Github",
+        name: "Github page",
         url: "https://github.com/chidimo/line_of_balance",
       },
       {
@@ -395,7 +405,7 @@ const portfolio_projects: Project[] = [
     stack: ["ArcGIS Desktop"],
     links: [
       {
-        name: "Homepage",
+        name: "Home page",
         url: "http://arcg.is/2cPzy9r",
       },
       {

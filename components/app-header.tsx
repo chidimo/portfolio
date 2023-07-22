@@ -14,7 +14,7 @@ const navigation = [
 ];
 
 export function AppHeader() {
-  const pathName = usePathname()
+  const pathName = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -54,7 +54,9 @@ export function AppHeader() {
               )}
             >
               <span>{item.name}</span>
-              {pathName?.includes(item.href) &&<div className="bg-white w-1.5 h-1.5 rounded"></div>}
+              {pathName?.includes(item.href) && (
+                <div className="bg-white w-1.5 h-1.5 rounded"></div>
+              )}
             </a>
           ))}
         </div>
@@ -94,9 +96,12 @@ export function AppHeader() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    className="-mx-3 flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
-                    {item.name}
+                    {pathName?.includes(item.href) && (
+                      <div className="bg-white w-1.5 h-1.5 mr-3 rounded"></div>
+                    )}
+                    <span>{item.name}</span>
                   </a>
                 ))}
               </div>

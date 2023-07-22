@@ -1,6 +1,5 @@
 import { Certificate } from "types/index";
 
-2;
 export const certificates: Certificate[] = [
   {
     id: "2K6692SR",
@@ -8,7 +7,7 @@ export const certificates: Certificate[] = [
     title: "React Nanodegree",
     platform: "Udacity",
     certificate_url: "https://graduation.udacity.com/confirm",
-    about: "build web and mobile apps with react, redux, and react native",
+    about: "Build web and mobile apps with react, redux, and react native",
   },
   {
     id: "6MDY43NVV2PM",
