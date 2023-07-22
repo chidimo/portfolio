@@ -4,11 +4,11 @@ export interface Certificate {
   platform: string;
   title: string;
   about: string;
-  platform_url: string;
+  certificate_url: string;
 }
 
 export interface Project {
-  title: string;
+  name: string;
   description: string;
   stack: string[];
   screenshotsFolder: string;
@@ -31,6 +31,11 @@ export interface Screenshot {
   filename: string;
   imagePublicUrl: string;
   imageFullPath: string;
+}
+
+export interface ProjectNameAndImage {
+  projectName: string;
+  fileData: Screenshot[];
 }
 
 export interface Social {
