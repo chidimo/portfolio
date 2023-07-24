@@ -55,7 +55,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Koya Schools",
-    stack: ["React", "Redux"],
+    stack: ["React", "Redux", "JavaScript"],
     links: [
       {
         name: "Home page",
@@ -68,7 +68,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Egbe Igwe",
-    stack: ["React", "Redux"],
+    stack: ["React", "Redux", "JavaScript"],
     links: [
       {
         name: "Home page",
@@ -81,7 +81,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Test x",
-    stack: ["React Native", "Redux"],
+    stack: ["React Native", "Redux", "JavaScript"],
     links: [],
     screenshotsFolder: "testx",
     description:
@@ -121,7 +121,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "react-drag-drop-browser",
-    stack: ["React"],
+    stack: ["React", "JavaScript"],
     links: [
       {
         name: "Demo page",
@@ -142,7 +142,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "My Reads",
-    stack: ["React", "Redux"],
+    stack: ["React", "Redux", "JavaScript"],
     links: [
       {
         name: "Home page",
@@ -156,7 +156,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Would You Rather",
-    stack: ["React"],
+    stack: ["React", "Redux", "JavaScript"],
     links: [
       {
         name: "Home page",
@@ -186,7 +186,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Mobile Flashcards",
-    stack: ["React Native", "Redux"],
+    stack: ["React Native", "Redux", "JavaScript"],
     description: "A flashcard app for iOS and Android",
     screenshotsFolder: "",
     links: [
@@ -198,7 +198,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Currency Analyzer",
-    stack: ["MeteorJS", "React"],
+    stack: ["MeteorJS", "React", "JavaScript"],
     description: "A currency counting app. Available for web and mobile",
     screenshotsFolder: "",
     links: [],
@@ -226,7 +226,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "YouTube and Drive API v3",
-    stack: ["Django", "YouTube API v3"],
+    stack: ["Django", "YouTube API v3", "Python"],
     description:
       "Request YouTube and/or Google Drive access from within a Django web app",
     screenshotsFolder: "",
