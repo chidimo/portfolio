@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { mySocial } from "data/social";
 import { Social } from "types/index";
+import { Badge } from "components/badge";
 
 const about = [
   "Experienced full-stack engineer specializing in frontend development, with a track record of over 5 years. Possessing a strong passion for design, I excel at delivering pixel-perfect UIs with impeccable attention to detail and creating awe-inspiring UX. I am committed to providing exceptional value for your investment and thrive on leveraging technology to fulfill business requirements.",
@@ -25,23 +26,18 @@ export default function Page() {
               Chidi Orji
             </p>
             <p className="text-2xl">Software Engineer</p>
-            <div className="">
+            <div className="flex items-center">
               {[
                 "React/Next.js (TypeScript)",
                 "Node.js/Express",
                 "Django/Python",
               ].map((t, idx) => {
                 return (
-                  <span
+                  <Badge
                     key={t}
-                    className={clsx(
-                      { "ml-1": idx > 0 },
-                      "mr-1 my-1",
-                      "inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
-                    )}
-                  >
-                    {t}
-                  </span>
+                    text={t}
+                    containerClassNames={clsx({ "ml-1": idx > 0 })}
+                  />
                 );
               })}
             </div>
@@ -51,11 +47,11 @@ export default function Page() {
             <p className="text-lg leading-8 text-gray-600">{about[0]}</p>
 
             <div className="mt-10 flex items-center gap-x-6">
-              {mySocial.map((social: Social, idx: number) => {
+              {mySocial.map((social: Social) => {
                 const src = `${social.badgeUrl}&link=${social.socialUrl}`;
 
                 return (
-                  <span key={idx}>
+                  <span key={social.title}>
                     <Link
                       passHref
                       href={social.socialUrl}
@@ -83,7 +79,6 @@ export default function Page() {
           />
         </div>
       </div>
-      {/* <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" /> */}
     </div>
   );
 }

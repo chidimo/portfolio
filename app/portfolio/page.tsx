@@ -43,9 +43,5 @@ async function getPhotos() {
 }
 
 export default async function ProjectsPage() {
-  return (
-    <>
-      <ProjectList projectImages={await getPhotos()} />
-    </>
-  );
+  return <ProjectList projectImages={await getPhotos()} />;
 }

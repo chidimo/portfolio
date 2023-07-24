@@ -42,7 +42,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Identify",
-    stack: ["React", "Redux"],
+    stack: ["React", "Redux", "TypeScript"],
     links: [
       {
         name: "Home page",

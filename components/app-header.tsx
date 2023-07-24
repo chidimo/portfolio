@@ -27,7 +27,7 @@ export function AppHeader() {
           <Link href={"/"} passHref className="-m-1.5 p-1.5">
             <span className="sr-only">Chidi Orji</span>
             <img
-              className="h-8 w-auto rounded full"
+              className="h-8 w-auto rounded-md"
               src="/images/headshot.JPG"
               alt=""
             />
@@ -96,7 +96,7 @@ export function AppHeader() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    className="-mx-3 flex items-center rounded-md px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
                     {pathName?.includes(item.href) && (
                       <div className="bg-white w-1.5 h-1.5 mr-3 rounded"></div>

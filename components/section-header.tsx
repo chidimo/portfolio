@@ -14,7 +14,7 @@ export const SectionHeader = (props: Props) => {
   return (
     <div className="flex gap-x-4">
       <img
-        className="h-12 w-12 flex-none rounded-full bg-gray-50"
+        className="h-12 w-12 flex-none rounded-md bg-gray-50"
         src={imageURl}
         alt=""
       />

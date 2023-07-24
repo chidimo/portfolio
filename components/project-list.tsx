@@ -6,6 +6,7 @@ import { portfolio_projects, techStacks } from "data/portfolio";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ProjectNameAndImage, Project as ProjectType } from "types/index";
+import { Badge } from "./badge";
 
 const intro = [
   "Below is a list of my projects. I have worked with quite a number of technologies before settling for a full-stack developer role. You can filter by the technologies shown on the right.",
@@ -85,9 +86,14 @@ export const ProjectList = ({ projectImages }: Props) => {
         <div className="bg-white px-1 flex flex-col h-40 md:h-full overflow-y-auto md:overflow-y-visible">
           {techStacks.map((stack) => {
             return (
-              <p
+              <Badge
                 key={stack}
-                onClick={() => {
+                text={stack}
+                containerClassNames={clsx(
+                  { "text-md font-bold": stack === tch },
+                  { "text-xs font-medium": stack !== tch }
+                )}
+                onBadgeClick={() => {
                   if (stack === tch) {
                     router.push(pathname as unknown as string);
                   } else {
@@ -96,15 +102,7 @@ export const ProjectList = ({ projectImages }: Props) => {
                     );
                   }
                 }}
-                className={clsx(
-                  "cursor-pointer text-center my-1",
-                  "rounded-md bg-green-50 px-2 py-1 text-green-700 ring-1 ring-inset ring-green-600/20",
-                  { "text-md font-bold": stack === tch },
-                  { "text-xs font-medium": stack !== tch }
-                )}
-              >
-                {stack}
-              </p>
+              />
             );
           })}
         </div>

@@ -3,11 +3,12 @@
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 import type { Project as ProjectType, Screenshot } from "types/index";
 import { SectionHeader } from "./section-header";
 import Modal from "./Modal";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { Badge } from "./badge";
 
 type Props = {
   images: Screenshot[];
@@ -37,16 +38,11 @@ export const Project = (props: Props) => {
           <div className="mt-5">
             {projectItem.stack.map((st, idx) => {
               return (
-                <p
+                <Badge
                   key={st}
-                  className={clsx(
-                    { "ml-1": idx !== 0 },
-                    "my-1 mr-1",
-                    "inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
-                  )}
-                >
-                  {st}
-                </p>
+                  text={st}
+                  containerClassNames={clsx({ "mx-1 my-1": idx !== 0 })}
+                />
               );
             })}
           </div>
@@ -75,9 +71,14 @@ export const Project = (props: Props) => {
               </h2>
               <p className="mb-2">{selectedProject.description}</p>
 
-              <p className="mb-2">
-                Built with {selectedProject.stack?.join(", ")}
-              </p>
+              <div className="mb-2 flex flex-wrap items-center">
+                Made with{" "}
+                {selectedProject.stack?.map((st) => {
+                  return (
+                    <Badge key={st} text={st} containerClassNames={"ml-1"} />
+                  );
+                })}
+              </div>
 
               <h3 className="text-l font-semibold leading-6 text-gray-700">
                 Project links
