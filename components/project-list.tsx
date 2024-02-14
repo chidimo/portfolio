@@ -8,11 +8,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ProjectNameAndImage, Project as ProjectType } from "types/index";
 import { Badge } from "./badge";
 
-const intro = [
-  "Below is a list of my projects. I have worked with quite a number of technologies before settling for a full-stack developer role. You can filter by the technologies shown on the right.",
-  "Click on a technology to show all projects for which I used said technology.",
-];
-
 type Props = {
   projectImages: ProjectNameAndImage[];
 };
@@ -58,13 +53,17 @@ export const ProjectList = ({ projectImages }: Props) => {
   return (
     <div>
       <div className="mb-10">
-        {intro.map((item) => {
-          return (
-            <p key={item} className="text-gray-500">
-              {item}
-            </p>
-          );
-        })}
+        <p className="text-gray-500">
+          Below is a list of my projects. I have worked with quite a number of
+          technologies before settling for a full-stack developer role.
+        </p>
+        <p className="text-gray-500">
+          You can filter by the technologies shown on the right.
+        </p>
+        <p className="text-gray-500">
+          Click on a technology to show all projects for which I used said
+          technology.
+        </p>
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-between gap-x-8">

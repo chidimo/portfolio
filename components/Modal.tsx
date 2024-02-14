@@ -11,7 +11,7 @@ type Props = {
   actions?: ReactElement;
 };
 
-export default function Modal(props: Props) {
+export default function Modal(props: Readonly<Props>) {
   const { isOpen, onClose, title, content, actions } = props;
   return (
     <Transition.Root show={isOpen} as={Fragment}>
