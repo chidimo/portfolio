@@ -3,7 +3,7 @@ import path from "path";
 import sizeOf from "image-size";
 
 import { ProjectList } from "components/project-list";
-import { imageDirectories } from "data/portfolio";
+import { imageDirectories } from "lib/portfolio";
 import { Screenshot } from "types";
 
 async function getPhotos() {

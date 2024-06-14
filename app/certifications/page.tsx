@@ -1,5 +1,5 @@
 import { Certificate } from "types/index";
-import { certificates } from "data/certifications";
+import { certificates } from "lib/certifications";
 import { SectionHeader } from "components/section-header";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";

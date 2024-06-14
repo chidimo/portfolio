@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { mySocial } from "data/social";
+import { mySocial } from "lib/social";
 import { Social, TBadgeColor } from "types/index";
 import { Badge } from "components/badge";
 
@@ -12,9 +12,9 @@ const about = [
 const myEmail = "orjichidi95@gmail.com";
 
 const techs = [
-  { title: "React/Next.js (TypeScript)", color: "blue" },
+  { title: "TypeScript/React/Next.js", color: "blue" },
   { title: "Node.js/Express", color: "green" },
-  { title: "Django/Python", color: "gray" },
+  { title: "Python/Django", color: "gray" },
 ];
 
 export const HomeLeft = () => {

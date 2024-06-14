@@ -1,5 +1,5 @@
 import { Publication } from "types/index";
-import { publications } from "data/publications";
+import { publications } from "lib/publications";
 import { SectionHeader } from "components/section-header";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";

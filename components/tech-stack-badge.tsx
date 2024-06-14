@@ -2,7 +2,7 @@
 
 import { BadgeColor, TechnologyStack } from "types";
 import { Badge } from "./badge";
-import { stackReadableNames } from "data/constants";
+import { stackReadableNames } from "lib/constants";
 
 interface Props {
   stack?: TechnologyStack;

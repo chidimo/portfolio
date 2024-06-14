@@ -2,7 +2,7 @@
 
 import { BadgeColor, LearningPlatform } from "types";
 import { Badge } from "./badge";
-import { platformReadableNames } from "data/constants";
+import { platformReadableNames } from "lib/constants";
 
 interface Props {
   platform?: LearningPlatform;
