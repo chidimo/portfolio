@@ -22,7 +22,7 @@ export default function Certifications() {
                 href={`${cert.certificate_url}/${cert.id}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-l leading-5 text-gray-500"
+                className="flex items-center text-l leading-5 default-body-text"
               >
                 View certificate
                 <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />

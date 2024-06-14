@@ -83,12 +83,12 @@ export const ProjectList = ({ projectImages }: Props) => {
 
   return (
     <div>
-      <div className="mb-10">
-        <p className="text-gray-500">
+      <div className="mb-10 default-body-text">
+        <p className="">
           Below is a non-exhaustime list of projects I have done in the course
           of my career.
         </p>
-        <p className="text-gray-500">
+        <p className="">
           You can filter the projects by clicking on any of the technologies
           listed on the right.
         </p>
@@ -148,7 +148,7 @@ export const ProjectList = ({ projectImages }: Props) => {
         content={
           <div className="space-y-5">
             <div className="space-y-5">
-              <h2 className="mb-2 text-xl font-semibold leading-6 text-blue-900">
+              <h2 className="mb-2 text-xl font-semibold leading-6 default-header-text">
                 {selectedProject.name}
               </h2>
               <p className="mb-2">{selectedProject.description}</p>
@@ -159,17 +159,15 @@ export const ProjectList = ({ projectImages }: Props) => {
                   return <TechStackBadge key={st} stack={st} />;
                 })}
               </div>
+              <hr />
 
-              <h3 className="text-l font-semibold leading-6 text-gray-700">
-                Project links
-              </h3>
               <div className="">
                 {selectedProject.links?.map((link) => {
                   return (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center leading-5 text-blue-500"
+                      className="flex items-center leading-5 default-body-text text-md"
                       key={link.name}
                       href={link.url}
                     >

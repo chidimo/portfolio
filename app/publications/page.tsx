@@ -12,7 +12,7 @@ export default function Publications() {
   return (
     <div>
       <ul className="divide-y divide-gray-200">
-        {publications.map((pub: Publication, idx: number) => {
+        {publications.map((pub: Publication) => {
           return (
             <li key={pub.title} className="py-4 space-y-4">
               <SectionHeader
@@ -24,7 +24,7 @@ export default function Publications() {
                 href={pub.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-l leading-5 text-gray-500"
+                className="flex items-center text-l leading-5 default-body-text"
               >
                 View publication
                 <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />

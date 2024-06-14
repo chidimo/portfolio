@@ -34,7 +34,7 @@ export const Project = (props: Props) => {
         <button
           type="button"
           onClick={onClick}
-          className="flex items-center text-l leading-5 text-gray-500 cursor-pointer mt-5"
+          className="flex items-center text-l leading-5 default-body-text cursor-pointer mt-5"
         >
           View project information
         </button>

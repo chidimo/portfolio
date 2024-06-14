@@ -53,7 +53,7 @@ export default function Modal(props: Readonly<Props>) {
               <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
                 <button
                   type="button"
-                  className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
+                  className="bg-white rounded-md text-gray-900 hover:default-body-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                   onClick={onClose}
                 >
                   <span className="sr-only">{"closeCopy"}</span>
@@ -71,7 +71,7 @@ export default function Modal(props: Readonly<Props>) {
                   </Dialog.Title>
                 )}
                 <div className="mt-2">
-                  <div className="text-sm text-gray-500">{content}</div>
+                  <div className="text-sm default-body-text">{content}</div>
                 </div>
               </div>
 
