@@ -1,7 +1,8 @@
 import { Publication } from "types/index";
 import { publications } from "data/publications";
 import { SectionHeader } from "components/section-header";
-import { ResourceLink } from "components/resource-link";
+import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 export default function Publications() {
   publications.sort((a, b) => {
@@ -10,15 +11,24 @@ export default function Publications() {
 
   return (
     <div>
-      <ul role="list" className="divide-y divide-gray-200">
+      <ul className="divide-y divide-gray-200">
         {publications.map((pub: Publication, idx: number) => {
           return (
-            <li key={pub.title} className="py-4">
+            <li key={pub.title} className="py-4 space-y-4">
               <SectionHeader
                 title={pub.title}
                 imageURl={`https://ui-avatars.com/api/?name=${pub.platform}`}
               />
-              <ResourceLink title="View publication" href={pub.link} />
+
+              <Link
+                href={pub.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-l leading-5 text-gray-500"
+              >
+                View publication
+                <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
+              </Link>
             </li>
           );
         })}

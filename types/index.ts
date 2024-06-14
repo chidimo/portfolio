@@ -1,7 +1,38 @@
+export enum LearningPlatform {
+  udacity = "Udacity",
+  coursera = "Coursera",
+  iversity = "Iversity",
+}
+
+export enum TechnologyStack {
+  reactNative = "React Native",
+  redux = "Redux",
+  javascript = "JavaScript",
+  web3 = "Web3",
+  react = "React",
+  nextJs = "Next.js",
+  typescript = "Typescript",
+  arcgisDesktop = "ArcGIS Desktop",
+  mongoDb = "MongoDB",
+  meteorJs = "MeteorJS",
+  python = "Python",
+  django = "Django",
+  bootstrap = "bootstrap",
+  graphene = "Graphene",
+  apolloClient = "ApolloClient",
+  expressJs = "Express.js",
+  html5 = "HTML5",
+  css3 = "CSS3",
+  djangoRestFramework = "DjangoRestFramework",
+  pandas = "Pandas",
+  matplotlib = "Matplotlib",
+  youtubeApiV3 = "YouTube API v3",
+}
+
 export interface Certificate {
   id: string;
   relevance: number;
-  platform: string;
+  platform: LearningPlatform;
   title: string;
   about: string;
   certificate_url: string;
@@ -10,7 +41,7 @@ export interface Certificate {
 export interface Project {
   name: string;
   description: string;
-  stack: string[];
+  stack: TechnologyStack[];
   screenshotsFolder: string;
   links: {
     name: string;
@@ -43,3 +74,15 @@ export interface Social {
   socialUrl: string;
   badgeUrl: string;
 }
+
+export enum BadgeColor {
+  gray = "gray",
+  red = "red",
+  blue = "blue",
+  green = "green",
+  yellow = "yellow",
+  indigo = "indigo",
+  purple = "purple",
+  pink = "pink",
+}
+export type TBadgeColor = keyof typeof BadgeColor

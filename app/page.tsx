@@ -1,9 +1,9 @@
-import clsx from "clsx";
 import Link from "next/link";
 
 import { mySocial } from "data/social";
-import { Social } from "types/index";
+import { Social, TBadgeColor } from "types/index";
 import { Badge } from "components/badge";
+import clsx from "clsx";
 
 const about = [
   "Experienced full-stack engineer specializing in frontend development, with a track record of over 5 years. Possessing a strong passion for design, I excel at delivering pixel-perfect UIs with impeccable attention to detail and creating awe-inspiring UX. I am committed to providing exceptional value for your investment and thrive on leveraging technology to fulfill business requirements.",
@@ -11,6 +11,12 @@ const about = [
   "You can reach me on my personal email at orjichidi95@gmail.com",
 ];
 const myEmail = "orjichidi95@gmail.com";
+
+const techs = [
+  { title: "React/Next.js (TypeScript)", color: "blue" },
+  { title: "Node.js/Express", color: "green" },
+  { title: "Django/Python", color: "gray" },
+];
 
 export default function Page() {
   return (
@@ -21,22 +27,18 @@ export default function Page() {
       />
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-          <div className="max-w-2xl tracking-tight lg:col-span-2 xl:col-auto">
-            <p className="text-4xl font-bold text-gray-900 sm:text-6xl">
+          <div className="max-w-2xl tracking-tight lg:col-span-2 xl:col-auto space-y-5">
+            <p className="text-4xl font-bold text-blue-900 sm:text-6xl">
               Chidi Orji
             </p>
-            <p className="text-2xl">Software Engineer</p>
-            <div className="flex items-center">
-              {[
-                "React/Next.js (TypeScript)",
-                "Node.js/Express",
-                "Django/Python",
-              ].map((t, idx) => {
+            <p className="text-2xl text-blue-900">Software Engineer</p>
+            <div className="flex items-center gap-4">
+              {techs.map((t) => {
                 return (
                   <Badge
-                    key={t}
-                    text={t}
-                    containerClassNames={clsx({ "ml-1": idx > 0 })}
+                    key={t.title}
+                    text={t.title}
+                    color={t.color as TBadgeColor}
                   />
                 );
               })}
@@ -66,7 +68,7 @@ export default function Page() {
 
               <a
                 href={`mailto:${myEmail}`}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-md font-semibold leading-6 text-blue-900"
               >
                 Hire me <span aria-hidden="true">→</span>
               </a>
@@ -75,7 +77,9 @@ export default function Page() {
           <img
             src="/images/headshot.JPG"
             alt=""
-            className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
+            className={clsx(
+              "aspect-[6/5] w-full max-w-lg rounded-2xl object-cover lg:max-w-none xl:row-span-2 xl:row-end-2"
+            )}
           />
         </div>
       </div>

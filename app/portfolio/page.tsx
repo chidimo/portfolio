@@ -26,7 +26,6 @@ async function getPhotos() {
 
       const imagePublicUrl = path.join(`/${shotsFoler}/${name}`, filename);
       // const imageSrc = fs.readFileSync(imageFullPath, "utf8");
-
       const { width, height } = sizeOf(imageSizePath);
       return {
         width,

@@ -8,11 +8,14 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { portfolio_projects, techStacks } from "data/portfolio";
 
-import type { ProjectNameAndImage, Project as ProjectType } from "types/index";
+import type {
+  ProjectNameAndImage,
+  Project as ProjectType,
+  TechnologyStack,
+} from "types/index";
 import { Project } from "components/project";
-
 import Modal from "./Modal";
-import { Badge } from "./badge";
+import { TechStackBadge } from "./tech-stack-badge";
 
 type Props = {
   projectImages: ProjectNameAndImage[];
@@ -21,7 +24,7 @@ type Props = {
 export const ProjectList = ({ projectImages }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams()!;
+  const searchParams = useSearchParams();
 
   const tch = searchParams.get("stack");
   const projectId = searchParams.get("projectId");
@@ -63,7 +66,7 @@ export const ProjectList = ({ projectImages }: Props) => {
 
     if (techs.length > 0) {
       visibleProjects = visibleProjects.filter((pf) => {
-        return techs.some((el) => pf.stack.includes(el));
+        return techs.some((el) => pf.stack.includes(el as TechnologyStack));
       });
     }
 
@@ -82,8 +85,8 @@ export const ProjectList = ({ projectImages }: Props) => {
     <div>
       <div className="mb-10">
         <p className="text-gray-500">
-          Below is a list (not exhaustive) of projects I&apos;ve done in the
-          course of my career.
+          Below is a non-exhaustime list of projects I have done in the course
+          of my career.
         </p>
         <p className="text-gray-500">
           You can filter the projects by clicking on any of the technologies
@@ -92,7 +95,7 @@ export const ProjectList = ({ projectImages }: Props) => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-between gap-x-8">
-        <ul role="list" className="divide-y divide-gray-100">
+        <ul className="divide-y divide-gray-100">
           {visibleProjects.map((projectItem) => (
             <Project
               key={projectItem.name}
@@ -108,17 +111,20 @@ export const ProjectList = ({ projectImages }: Props) => {
             />
           ))}
         </ul>
-        <div className="bg-white px-1 flex flex-col h-40 md:h-full overflow-y-auto md:overflow-y-visible">
+        <div
+          className={clsx(
+            "flex flex-wrap",
+            "bg-white px-1 h-40 space-y-3",
+            "flex-col overflow-y-auto",
+            "md:h-full md:overflow-y-visible"
+          )}
+        >
           {techStacks.map((stack) => {
             return (
-              <Badge
+              <TechStackBadge
                 key={stack}
-                text={stack}
-                containerClassNames={clsx(
-                  { "text-md font-bold": stack === tch },
-                  { "text-xs font-medium": stack !== tch }
-                )}
-                onBadgeClick={() => {
+                stack={stack as TechnologyStack}
+                onClick={() => {
                   if (stack === tch) {
                     router.push(pathname as unknown as string);
                   } else {
@@ -140,19 +146,17 @@ export const ProjectList = ({ projectImages }: Props) => {
           router.push(`${pathname}?${createQueryString("projectId", null)}`);
         }}
         content={
-          <div>
-            <div className="mb-5">
-              <h2 className="mb-2 text-xl font-semibold leading-6 text-gray-900">
+          <div className="space-y-5">
+            <div className="space-y-5">
+              <h2 className="mb-2 text-xl font-semibold leading-6 text-blue-900">
                 {selectedProject.name}
               </h2>
               <p className="mb-2">{selectedProject.description}</p>
 
-              <div className="mb-2 flex flex-wrap items-center">
+              <div className="mb-2 flex flex-wrap gap-2 items-center">
                 Made with{" "}
                 {selectedProject.stack?.map((st) => {
-                  return (
-                    <Badge key={st} text={st} containerClassNames={"ml-1"} />
-                  );
+                  return <TechStackBadge key={st} stack={st} />;
                 })}
               </div>
 

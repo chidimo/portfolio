@@ -1,9 +1,14 @@
-import { Project } from "types/index";
+import { Project, TechnologyStack } from "types/index";
 
 const portfolio_projects: Project[] = [
   {
     name: "Taking Payments IRL with Solana Pay",
-    stack: ["web3", "React", "Next.js", "TypeScript"],
+    stack: [
+      TechnologyStack.web3,
+      TechnologyStack.react,
+      TechnologyStack.nextJs,
+      TechnologyStack.typescript,
+    ],
     links: [
       {
         name: "Codebase",
@@ -19,7 +24,12 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Create a Web3 Forum with Polygon",
-    stack: ["web3", "React", "Next.js", "TypeScript"],
+    stack: [
+      TechnologyStack.web3,
+      TechnologyStack.react,
+      TechnologyStack.nextJs,
+      TechnologyStack.typescript,
+    ],
     links: [
       {
         name: "Codebase",
@@ -35,7 +45,12 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Build a NFT Lootbox with thirdweb",
-    stack: ["web3", "React", "Next.js", "TypeScript"],
+    stack: [
+      TechnologyStack.web3,
+      TechnologyStack.react,
+      TechnologyStack.nextJs,
+      TechnologyStack.typescript,
+    ],
     links: [
       { name: "Codebase", url: "https://github.com/chidimo/Lootbox-on-3rdweb" },
       {
@@ -52,14 +67,22 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "My portfolio",
-    stack: ["React", "TypeScript", "Next.js"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.nextJs,
+    ],
     links: [{ name: "Home page", url: "https://chidimo.netlify.app" }],
     screenshotsFolder: "port",
     description: "My portfolio site",
   },
   {
     name: "Autumn AI",
-    stack: ["React", "TypeScript", "Next.js"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.nextJs,
+    ],
     links: [{ name: "Home page", url: "https://getautumn.com" }],
     description:
       "Autumn AI is an early-stage startup based in Canada working on the future of preventative mental healthcare",
@@ -68,12 +91,12 @@ const portfolio_projects: Project[] = [
   {
     name: "Bluelines",
     stack: [
-      "React",
-      "TypeScript",
-      "ApolloClient",
-      "Python",
-      "Django",
-      "Graphene",
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.apolloClient,
+      TechnologyStack.python,
+      TechnologyStack.django,
+      TechnologyStack.graphene,
     ],
     links: [
       {
@@ -91,7 +114,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Identify",
-    stack: ["React", "Redux", "TypeScript"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.redux,
+      TechnologyStack.typescript,
+    ],
     links: [
       {
         name: "Home page",
@@ -104,7 +131,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Koya Schools",
-    stack: ["React", "Redux", "JavaScript"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.redux,
+      TechnologyStack.javascript,
+    ],
     links: [
       {
         name: "Home page",
@@ -117,7 +148,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Egbe Igwe",
-    stack: ["React", "Redux", "JavaScript"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.redux,
+      TechnologyStack.javascript,
+    ],
     links: [
       {
         name: "Home page",
@@ -129,8 +164,32 @@ const portfolio_projects: Project[] = [
       "A minimal weather app showing current weather conditions of various cities. Also uses Geolocation to get the current user’s location weather information.",
   },
   {
+    name: "Mobile Flashcards",
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.reactNative,
+      TechnologyStack.typescript,
+    ],
+    description: "A flashcard app for iOS and Android",
+    screenshotsFolder: "",
+    links: [
+      {
+        name: "Google Playstore",
+        url: "https://play.google.com/store/apps/details?id=com.chidimo.mobileflashcards&pcampaignid=web_share",
+      },
+      {
+        name: "Github page",
+        url: "https://github.com/chidimo/Mobile-Flashcards",
+      },
+    ],
+  },
+  {
     name: "Test x",
-    stack: ["React Native", "Redux", "JavaScript"],
+    stack: [
+      TechnologyStack.reactNative,
+      TechnologyStack.redux,
+      TechnologyStack.javascript,
+    ],
     links: [],
     screenshotsFolder: "testx",
     description:
@@ -138,7 +197,12 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Quick Credit",
-    stack: ["Express.js", "HTML5", "CSS3", "JavaScript"],
+    stack: [
+      TechnologyStack.expressJs,
+      TechnologyStack.html5,
+      TechnologyStack.css3,
+      TechnologyStack.javascript,
+    ],
     links: [
       {
         name: "Home page",
@@ -156,7 +220,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Ethodoxy",
-    stack: ["DjangoRestFramework", "Django", "React"],
+    stack: [
+      TechnologyStack.djangoRestFramework,
+      TechnologyStack.django,
+      TechnologyStack.react,
+    ],
     links: [
       {
         name: "Home page",
@@ -170,7 +238,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "react-drag-drop-browser",
-    stack: ["React", "JavaScript"],
+    stack: [TechnologyStack.react, TechnologyStack.javascript],
     links: [
       {
         name: "Demo page",
@@ -191,7 +259,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "My Reads",
-    stack: ["React", "Redux", "JavaScript"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.redux,
+      TechnologyStack.javascript,
+    ],
     links: [
       {
         name: "Home page",
@@ -205,7 +277,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Would You Rather",
-    stack: ["React", "Redux", "JavaScript"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.redux,
+      TechnologyStack.javascript,
+    ],
     links: [
       {
         name: "Home page",
@@ -222,7 +298,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Url shortener",
-    stack: ["React", "MeteorJS", "MongoDB"],
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.meteorJs,
+      TechnologyStack.mongoDb,
+    ],
     description: "URL shortening service with automatic redirects.",
     screenshotsFolder: "urlShortener",
     links: [
@@ -234,27 +314,19 @@ const portfolio_projects: Project[] = [
     ],
   },
   {
-    name: "Mobile Flashcards",
-    stack: ["React Native", "Redux", "JavaScript"],
-    description: "A flashcard app for iOS and Android",
-    screenshotsFolder: "",
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/Mobile-Flashcards",
-      },
-    ],
-  },
-  {
     name: "Currency Analyzer",
-    stack: ["MeteorJS", "React", "JavaScript"],
+    stack: [
+      TechnologyStack.meteorJs,
+      TechnologyStack.react,
+      TechnologyStack.javascript,
+    ],
     description: "A currency counting app. Available for web and mobile",
     screenshotsFolder: "",
     links: [],
   },
   {
     name: "choral central",
-    stack: ["Django"],
+    stack: [TechnologyStack.django],
     description:
       "The app is a place for sharing choral music sheets and midi files.",
     screenshotsFolder: "",
@@ -262,7 +334,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "voidcoin",
-    stack: ["Python", "Django", "bootstrap"],
+    stack: [
+      TechnologyStack.python,
+      TechnologyStack.django,
+      TechnologyStack.bootstrap,
+    ],
     links: [
       {
         name: "Home page",
@@ -275,7 +351,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "YouTube and Drive API v3",
-    stack: ["Django", "YouTube API v3", "Python"],
+    stack: [
+      TechnologyStack.django,
+      TechnologyStack.youtubeApiV3,
+      TechnologyStack.python,
+    ],
     description:
       "Request YouTube and/or Google Drive access from within a Django web app",
     screenshotsFolder: "",
@@ -288,7 +368,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Python-git",
-    stack: ["Python"],
+    stack: [TechnologyStack.python],
     links: [
       {
         name: "Github page",
@@ -301,7 +381,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Hack nairaland",
-    stack: ["Python"],
+    stack: [TechnologyStack.python],
     links: [
       {
         name: "Github page",
@@ -314,7 +394,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Pywebber",
-    stack: ["Python"],
+    stack: [TechnologyStack.python],
     links: [
       {
         name: "Github page",
@@ -326,7 +406,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Line of Balance",
-    stack: ["Python", "Pandas", "Matplotlib"],
+    stack: [
+      TechnologyStack.python,
+      TechnologyStack.pandas,
+      TechnologyStack.matplotlib,
+    ],
     links: [
       {
         name: "Github page",
@@ -343,7 +427,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Olympic medals",
-    stack: ["Python", "Pandas"],
+    stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
         name: "Jupyter Notebook",
@@ -355,7 +439,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Energy and GDP",
-    stack: ["Python", "Pandas"],
+    stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
         name: "Jupyter Notebook",
@@ -367,7 +451,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Hypothesis testing",
-    stack: ["Python", "Pandas"],
+    stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
         name: "Jupyter Notebook",
@@ -379,7 +463,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "GDP and Inflation by year",
-    stack: ["Python", "Pandas", "Matplotlib"],
+    stack: [
+      TechnologyStack.python,
+      TechnologyStack.pandas,
+      TechnologyStack.matplotlib,
+    ],
     links: [
       {
         name: "Plot image(pdf)",
@@ -400,7 +488,11 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Temperature highs and lows",
-    stack: ["Python", "Pandas", "Matplotlib"],
+    stack: [
+      TechnologyStack.python,
+      TechnologyStack.pandas,
+      TechnologyStack.matplotlib,
+    ],
     links: [
       {
         name: "Plot image(pdf)",
@@ -434,7 +526,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Visualizing voting pattern",
-    stack: ["ArcGIS Desktop"],
+    stack: [TechnologyStack.arcgisDesktop],
     links: [
       {
         name: "Plot image(pdf)",
@@ -451,7 +543,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Moving Valmeyer",
-    stack: ["ArcGIS Desktop"],
+    stack: [TechnologyStack.arcgisDesktop],
     links: [
       {
         name: "Home page",
@@ -467,7 +559,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Visualizing ozone concentrations",
-    stack: ["ArcGIS Desktop"],
+    stack: [TechnologyStack.arcgisDesktop],
     links: [
       {
         name: "Plot image(pdf)",
@@ -480,7 +572,7 @@ const portfolio_projects: Project[] = [
   },
 ];
 
-let techStacks: string[] = [];
+const techStacks: string[] = [];
 portfolio_projects.forEach((entry: Project) => {
   entry.stack.forEach((ent: string) => {
     if (!techStacks.includes(ent)) {

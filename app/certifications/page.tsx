@@ -1,24 +1,34 @@
 import { Certificate } from "types/index";
 import { certificates } from "data/certifications";
 import { SectionHeader } from "components/section-header";
-import { ResourceLink } from "components/resource-link";
+import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { PlatformBadge } from "components/platform-badge";
 
 export default function Certifications() {
   return (
     <div>
-      <ul role="list" className="divide-y divide-gray-200">
+      <ul className="divide-y divide-gray-200">
         {certificates.map((cert: Certificate) => {
           return (
-            <li key={cert.id} className="py-4">
+            <li key={cert.id} className="py-4 space-y-4">
               <SectionHeader
                 title={cert.title}
                 description={cert.about}
                 imageURl={`https://ui-avatars.com/api/?name=${cert.platform}`}
               />
-              <ResourceLink
-                title="View certificate"
-                href={cert.certificate_url}
-              />
+
+              <Link
+                href={`${cert.certificate_url}/${cert.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-l leading-5 text-gray-500"
+              >
+                View certificate
+                <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
+              </Link>
+
+              <PlatformBadge platform={cert.platform} />
             </li>
           );
         })}
