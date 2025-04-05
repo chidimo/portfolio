@@ -1,10 +1,10 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import sizeOf from "image-size";
 
 import { ProjectList } from "components/project-list";
 import { imageDirectories } from "lib/portfolio";
-import { Screenshot } from "types";
+import type { Screenshot } from "types";
 
 async function getPhotos() {
   const shotsFoler = "screenshots";

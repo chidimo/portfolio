@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -16,6 +16,7 @@ import type {
 import { Project } from "components/project";
 import Modal from "./Modal";
 import { TechStackBadge } from "./tech-stack-badge";
+import { useQueryString } from "lib/use-query-string";
 
 type Props = {
   projectImages: ProjectNameAndImage[];
@@ -27,14 +28,15 @@ export const ProjectList = ({ projectImages }: Props) => {
   const searchParams = useSearchParams();
 
   const tch = searchParams.get("stack");
-  const projectId = searchParams.get("projectId");
 
-  const [selectedProject, setSelectedProject] = useState<ProjectType>(
-    {} as ProjectType
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const selectedProject = portfolio_projects.find(
+    (pp) => pp.name === selectedId
   );
 
   const images = projectImages.filter((pImg) => {
-    if (pImg.projectName === selectedProject.screenshotsFolder) {
+    if (pImg.projectName === selectedProject?.screenshotsFolder) {
       return true;
     }
   })[0]?.fileData;
@@ -44,20 +46,7 @@ export const ProjectList = ({ projectImages }: Props) => {
     [tch]
   );
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
-  const createQueryString = useCallback(
-    (name: string, value: string | null) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (value === null) {
-        params.delete(name);
-      } else {
-        params.set(name, value);
-      }
-      return params.toString();
-    },
-    [searchParams]
-  );
+  const { createQueryString } = useQueryString();
 
   const [visibleProjects, setVisibleProjects] = useState<ProjectType[]>([]);
 
@@ -72,14 +61,6 @@ export const ProjectList = ({ projectImages }: Props) => {
 
     setVisibleProjects(visibleProjects);
   }, [techs]);
-
-  useEffect(() => {
-    if (projectId) {
-      setSelectedProject(
-        portfolio_projects.filter((pp) => pp.name === projectId)[0]
-      );
-    }
-  }, [projectId]);
 
   return (
     <div>
@@ -101,12 +82,7 @@ export const ProjectList = ({ projectImages }: Props) => {
               key={projectItem.name}
               projectItem={projectItem}
               onClick={() => {
-                router.push(
-                  `${pathname}?${createQueryString(
-                    "projectId",
-                    projectItem.name
-                  )}`
-                );
+                setSelectedId(projectItem.name);
               }}
             />
           ))}
@@ -139,65 +115,67 @@ export const ProjectList = ({ projectImages }: Props) => {
         </div>
       </div>
 
-      <Modal
-        title=""
-        isOpen={!!projectId}
-        onClose={() => {
-          router.push(`${pathname}?${createQueryString("projectId", null)}`);
-        }}
-        content={
-          <div className="space-y-5">
+      {selectedId && selectedProject && (
+        <Modal
+          title=""
+          isOpen={!!selectedId}
+          onClose={() => {
+            setSelectedId(null);
+          }}
+          content={
             <div className="space-y-5">
-              <h2 className="mb-2 text-xl font-semibold leading-6 default-header-text">
-                {selectedProject.name}
-              </h2>
-              <p className="mb-2">{selectedProject.description}</p>
+              <div className="space-y-5">
+                <h2 className="mb-2 text-xl font-semibold leading-6 default-header-text">
+                  {selectedProject.name}
+                </h2>
+                <p className="mb-2">{selectedProject.description}</p>
 
-              <div className="mb-2 flex flex-wrap gap-2 items-center">
-                Made with{" "}
-                {selectedProject.stack?.map((st) => {
-                  return <TechStackBadge key={st} stack={st} />;
-                })}
+                <div className="mb-2 flex flex-wrap gap-2 items-center">
+                  Made with{" "}
+                  {selectedProject.stack?.map((st) => {
+                    return <TechStackBadge key={st} stack={st} />;
+                  })}
+                </div>
+                <hr />
+
+                <div className="">
+                  {selectedProject.links?.map((link) => {
+                    return (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center leading-5 default-body-text text-md"
+                        key={link.name}
+                        href={link.url}
+                      >
+                        {link.name}{" "}
+                        <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-              <hr />
 
-              <div className="">
-                {selectedProject.links?.map((link) => {
+              <div className="pictures">
+                {images?.map((image) => {
                   return (
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center leading-5 default-body-text text-md"
-                      key={link.name}
-                      href={link.url}
+                    <div
+                      key={image.imagePublicUrl}
+                      className="mb-5 border border-gray-300 rounded-md"
                     >
-                      {link.name}{" "}
-                      <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
-                    </Link>
+                      <img
+                        src={image.imagePublicUrl}
+                        alt=""
+                        className="rounded border border-gray-300"
+                      />
+                    </div>
                   );
                 })}
               </div>
             </div>
-
-            <div className="pictures">
-              {images?.map((image) => {
-                return (
-                  <div
-                    key={image.imagePublicUrl}
-                    className="mb-5 border border-gray-300 rounded-md"
-                  >
-                    <img
-                      src={image.imagePublicUrl}
-                      alt=""
-                      className="rounded border border-gray-300"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        }
-      />
+          }
+        />
+      )}
     </div>
   );
 };
