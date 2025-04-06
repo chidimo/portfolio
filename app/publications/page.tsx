@@ -3,13 +3,9 @@ import { publications } from "lib/publications";
 import { SectionHeader } from "components/section-header";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
-import type { Metadata } from "next";
-import { siteDescription } from "lib/constants";
+import { getMetadata } from "lib/constants";
 
-export const metadata: Metadata = {
-  title: "Chidi Orji | Publications",
-  description: siteDescription,
-};
+export const metadata = getMetadata({ title: "Chidi Orji | Publications" });
 
 export default function Publications() {
   publications.sort((a, b) => {

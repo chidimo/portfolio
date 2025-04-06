@@ -55,12 +55,12 @@ export function AppHeader() {
             >
               <span>{item.name}</span>
               {pathName?.includes(item.href) && (
-                <div className="bg-white w-1.5 h-1.5 rounded"></div>
+                <div className="bg-white w-1.5 h-1.5 rounded" />
               )}
             </a>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end"></div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end" />
       </nav>
       <Dialog
         as="div"
@@ -99,7 +99,7 @@ export function AppHeader() {
                     className="-mx-3 flex items-center rounded-md px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                   >
                     {pathName?.includes(item.href) && (
-                      <div className="bg-white w-1.5 h-1.5 mr-3 rounded"></div>
+                      <div className="bg-white w-1.5 h-1.5 mr-3 rounded" />
                     )}
                     <span>{item.name}</span>
                   </a>

@@ -4,13 +4,9 @@ import { SectionHeader } from "components/section-header";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { PlatformBadge } from "components/platform-badge";
-import type { Metadata } from "next";
-import { siteDescription } from "lib/constants";
+import { getMetadata } from "lib/constants";
 
-export const metadata: Metadata = {
-  title: "Chidi Orji | Certifications",
-  description: siteDescription,
-};
+export const metadata = getMetadata({ title: "Chidi Orji | Certifications" });
 
 export default function Certifications() {
   return (

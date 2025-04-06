@@ -1,33 +1,8 @@
-import type { Metadata } from "next";
 import "./index.css";
 import { AppHeader } from "components/app-header";
-import { siteDescription } from "lib/constants";
+import { getMetadata } from "lib/constants";
 
-export const metadata: Metadata = {
-  title: "Chidi Orji | My Personal Website",
-  description: siteDescription,
-  keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
-  openGraph: {
-    title: "Chidi Orji | My Personal Website",
-    description: siteDescription,
-    type: "website",
-    url: "https://chidimo.netlify.app",
-    images: ["/images/headshot.JPG"],
-  },
-  twitter: {
-    title: "Chidi Orji | My Personal Website",
-    description: siteDescription,
-    card: "summary_large_image",
-    site: "@chidiorji",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  manifest: "/site.webmanifest",
-  alternates: {
-    canonical: "https://chidimo.netlify.app",
-  },
-};
+export const metadata = getMetadata({});
 
 export default function RootLayout({
   children,

@@ -35,3 +35,31 @@ export const stackReadableNames = {
   [TechnologyStack.solidJs]: "SolidJS",
   [TechnologyStack.tailwindCSS]: "TailwindCSS",
 };
+
+type MetaArgs = {
+  title?: string;
+};
+export const getMetadata = ({ title }: MetaArgs) => {
+  return {
+    title: title || "Chidi Orji | My Personal Website",
+    description: siteDescription,
+    keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
+    openGraph: {
+      title: title || "Chidi Orji | My Personal Website",
+      description: siteDescription,
+      type: "website",
+      url: "https://chidimo.netlify.app",
+      images: ["/images/headshot.JPG"],
+    },
+    twitter: {
+      title: "Chidi Orji | My Personal Website",
+      description: siteDescription,
+      card: "summary_large_image",
+      site: "@chidiorji",
+      images: ["/images/headshot.JPG"],
+    },
+    alternates: {
+      canonical: "https://chidimo.netlify.app",
+    },
+  };
+};
