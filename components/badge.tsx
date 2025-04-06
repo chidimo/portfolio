@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { BadgeColor, TBadgeColor } from "types";
+import { BadgeColor, type TBadgeColor } from "types";
 
 interface Props {
   text: string;
@@ -35,6 +35,16 @@ export const Badge = (props: Props) => {
             color === BadgeColor.purple,
           "bg-pink-100 text-pink-700 border-pink-400":
             color === BadgeColor.pink,
+          "bg-white text-[#4e88c6] border-[#4e88c6]":
+            color === BadgeColor.solidjsblue,
+          "bg-white text-[#00b4d8] border-[#00b4d8]":
+            color === BadgeColor.tailwindcssblue,
+          "bg-white text-[#3178C6] border-[#3178C6]":
+            color === BadgeColor.typescriptblue,
+          "bg-blue-100 text-blue-700/90 border-blue-400":
+            color === BadgeColor.reactblue,
+          "bg-blue-100 text-blue-700/75 border-blue-400":
+            color === BadgeColor.pythonblue,
         }
       )}
     >

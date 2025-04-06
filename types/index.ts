@@ -27,6 +27,8 @@ export enum TechnologyStack {
   pandas = "Pandas",
   matplotlib = "Matplotlib",
   youtubeApiV3 = "YouTube API v3",
+  solidJs = "SolidJS",
+  tailwindCSS = "TailwindCSS",
 }
 
 export interface Certificate {
@@ -84,5 +86,10 @@ export enum BadgeColor {
   indigo = "indigo",
   purple = "purple",
   pink = "pink",
+  pythonblue = "pythonblue",
+  reactblue = "reactblue",
+  typescriptblue = "typescriptblue",
+  solidjsblue = "solidjsblue",
+  tailwindcssblue = "tailwindcssblue",
 }
-export type TBadgeColor = keyof typeof BadgeColor
+export type TBadgeColor = keyof typeof BadgeColor;

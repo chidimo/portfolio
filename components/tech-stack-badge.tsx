@@ -22,7 +22,7 @@ export const TechStackBadge = (props: Props) => {
   if (stack === TechnologyStack.web3) color = BadgeColor.green;
   if (stack === TechnologyStack.react) color = BadgeColor.blue;
   if (stack === TechnologyStack.nextJs) color = BadgeColor.gray;
-  if (stack === TechnologyStack.typescript) color = BadgeColor.blue;
+  if (stack === TechnologyStack.typescript) color = BadgeColor.typescriptblue;
   if (stack === TechnologyStack.arcgisDesktop) color = BadgeColor.blue;
   if (stack === TechnologyStack.mongoDb) color = BadgeColor.green;
   if (stack === TechnologyStack.meteorJs) color = BadgeColor.indigo;
@@ -38,6 +38,8 @@ export const TechStackBadge = (props: Props) => {
   if (stack === TechnologyStack.pandas) color = BadgeColor.blue;
   if (stack === TechnologyStack.matplotlib) color = BadgeColor.blue;
   if (stack === TechnologyStack.youtubeApiV3) color = BadgeColor.red;
+  if (stack === TechnologyStack.solidJs) color = BadgeColor.solidjsblue;
+  if (stack === TechnologyStack.tailwindCSS) color = BadgeColor.tailwindcssblue;
   return (
     <Badge
       text={stackReadableNames[stack]}

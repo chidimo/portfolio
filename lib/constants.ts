@@ -1,4 +1,4 @@
-import { LearningPlatform, TechnologyStack } from "types";
+import { BadgeColor, LearningPlatform, TechnologyStack } from "types";
 
 export const platformReadableNames = {
   [LearningPlatform.iversity]: "Iversity",
@@ -29,4 +29,6 @@ export const stackReadableNames = {
   [TechnologyStack.pandas]: "Pandas",
   [TechnologyStack.matplotlib]: "Matplotlib",
   [TechnologyStack.youtubeApiV3]: "YouTube API v3",
+  [TechnologyStack.solidJs]: "SolidJS",
+  [TechnologyStack.tailwindCSS]: "TailwindCSS",
 };

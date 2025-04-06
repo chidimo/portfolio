@@ -1,6 +1,25 @@
-import { Project, TechnologyStack } from "types/index";
+import { type Project, TechnologyStack } from "types/index";
 
 const portfolio_projects: Project[] = [
+  {
+    name: "TeachShare",
+    stack: [TechnologyStack.solidJs, TechnologyStack.tailwindCSS],
+    screenshotsFolder: "teachshare",
+    description: "The world’s largest platform for Personalized Learning",
+    links: [{ name: "Home page", url: "https://www.teachshare.com/" }],
+  },
+  {
+    name: "Evolve AI",
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.nextJs,
+      TechnologyStack.tailwindCSS,
+    ],
+    screenshotsFolder: "evolve",
+    description: "Revolutionize Your Game with Evolve AI",
+    links: [{ name: "Home page", url: "https://app.evolveai.com/login" }],
+  },
   {
     name: "Taking Payments IRL with Solana Pay",
     stack: [
@@ -572,14 +591,15 @@ const portfolio_projects: Project[] = [
   },
 ];
 
-const techStacks: string[] = [];
-portfolio_projects.forEach((entry: Project) => {
-  entry.stack.forEach((ent: string) => {
+const techStacks: TechnologyStack[] = [];
+
+for (const entry of portfolio_projects) {
+  for (const ent of entry.stack) {
     if (!techStacks.includes(ent)) {
       techStacks.push(ent);
     }
-  });
-});
+  }
+}
 
 const imageDirectories = portfolio_projects
   .map((mp) => mp.screenshotsFolder)
