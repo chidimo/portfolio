@@ -5,6 +5,13 @@ import sizeOf from "image-size";
 import { ProjectList } from "components/project-list";
 import { imageDirectories } from "lib/portfolio";
 import type { Screenshot } from "types";
+import type { Metadata } from "next";
+import { siteDescription } from "lib/constants";
+
+export const metadata: Metadata = {
+  title: "Chidi Orji | Portfolio",
+  description: siteDescription,
+};
 
 async function getPhotos() {
   const shotsFoler = "screenshots";

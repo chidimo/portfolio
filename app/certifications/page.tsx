@@ -1,9 +1,16 @@
-import { Certificate } from "types/index";
+import type { Certificate } from "types/index";
 import { certificates } from "lib/certifications";
 import { SectionHeader } from "components/section-header";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { PlatformBadge } from "components/platform-badge";
+import type { Metadata } from "next";
+import { siteDescription } from "lib/constants";
+
+export const metadata: Metadata = {
+  title: "Chidi Orji | Certifications",
+  description: siteDescription,
+};
 
 export default function Certifications() {
   return (

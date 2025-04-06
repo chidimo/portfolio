@@ -1,4 +1,7 @@
-import { BadgeColor, LearningPlatform, TechnologyStack } from "types";
+import { LearningPlatform, TechnologyStack } from "types";
+
+export const siteDescription =
+  "Welcome to the personal website of Orji Chidi Matthew";
 
 export const platformReadableNames = {
   [LearningPlatform.iversity]: "Iversity",

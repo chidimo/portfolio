@@ -1,8 +1,13 @@
 "use client";
 
-import type { Project as ProjectType } from "types/index";
+import type {
+  Project as ProjectType,
+  TBadgeColor,
+  TechnologyStack,
+} from "types/index";
 import { SectionHeader } from "./section-header";
-import { TechStackBadge } from "./tech-stack-badge";
+import { TechStackBadge, getColorFromStack } from "./tech-stack-badge";
+import { stackReadableNames } from "lib/constants";
 
 type Props = {
   onClick: () => void;
@@ -25,7 +30,13 @@ export const Project = (props: Props) => {
           {projectItem.stack.map((st) => {
             return (
               <div key={st}>
-                <TechStackBadge key={st} stack={st} />
+                <TechStackBadge
+                  key={st}
+                  text={stackReadableNames[st as TechnologyStack]}
+                  color={
+                    getColorFromStack(st as TechnologyStack) as TBadgeColor
+                  }
+                />
               </div>
             );
           })}

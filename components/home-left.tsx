@@ -1,13 +1,16 @@
 import Link from "next/link";
 
 import { mySocial } from "lib/social";
-import { Social, TBadgeColor } from "types/index";
-import { Badge } from "components/badge";
+import type { Social, TBadgeColor } from "types/index";
+import { TechStackBadge } from "components/tech-stack-badge";
 
 const about = [
-  "Experienced full-stack engineer specializing in frontend development, with a track record of delivering bespoke software for the past 6 years. Possessing a strong passion for design, I excel at delivering pixel-perfect UIs with impeccable attention to detail and creating awe-inspiring UX. I am committed to providing exceptional value for your investment and thrive on leveraging technology to fulfill business requirements.",
-  "I write tech articles in my spare time and you can find some of my writings on smashingmagazine https://www.smashingmagazine.com/author/chidi-orji/",
-  "You can reach me on my personal email at orjichidi95@gmail.com",
+  `
+  Experienced full-stack engineer with a frontend focus.
+  Known for crafting responsive, pixel-perfect UIs and exceptional user experiences that strikes a fine balance between aesthetics and performance.
+  Passionate about design systems and scalable architecture.
+  Delivers high ROI through a mix of technical depth, cross-functional collaboration, product thinking, and aligning technical solutions with business goals.
+  `,
 ];
 const myEmail = "orjichidi95@gmail.com";
 
@@ -27,7 +30,7 @@ export const HomeLeft = () => {
       <div className="flex flex-wrap items-center gap-4">
         {techs.map((t) => {
           return (
-            <Badge
+            <TechStackBadge
               key={t.title}
               text={t.title}
               color={t.color as TBadgeColor}

@@ -1,15 +1,35 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import "./index.css";
 import { AppHeader } from "components/app-header";
+import { siteDescription } from "lib/constants";
 
 export const metadata: Metadata = {
-  title: "Chidi Orji (orjichidi95@gmail.com)",
-  description: "Welcome to my portfolio",
+  title: "Chidi Orji | My Personal Website",
+  description: siteDescription,
+  keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
+  openGraph: {
+    title: "Chidi Orji | My Personal Website",
+    description: siteDescription,
+    type: "website",
+    url: "https://chidimo.netlify.app",
+    images: ["/images/headshot.JPG"],
+  },
+  twitter: {
+    title: "Chidi Orji | My Personal Website",
+    description: siteDescription,
+    card: "summary_large_image",
+    site: "@chidiorji",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "https://chidimo.netlify.app",
+  },
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode;

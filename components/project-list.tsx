@@ -2,34 +2,27 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
 import { portfolio_projects, techStacks } from "lib/portfolio";
-
 import type {
   ProjectNameAndImage,
   Project as ProjectType,
+  TBadgeColor,
   TechnologyStack,
 } from "types/index";
 import { Project } from "components/project";
 import Modal from "./Modal";
-import { TechStackBadge } from "./tech-stack-badge";
-import { useQueryString } from "lib/use-query-string";
+import { TechStackBadge, getColorFromStack } from "./tech-stack-badge";
+import { stackReadableNames } from "lib/constants";
 
 type Props = {
   projectImages: ProjectNameAndImage[];
 };
 
 export const ProjectList = ({ projectImages }: Props) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const tch = searchParams.get("stack");
-
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedStack, setSelectedStack] = useState<string[]>([]);
 
   const selectedProject = portfolio_projects.find(
     (pp) => pp.name === selectedId
@@ -41,26 +34,21 @@ export const ProjectList = ({ projectImages }: Props) => {
     }
   })[0]?.fileData;
 
-  const techs = useMemo(
-    () => (tch ?? "").split(",").filter((n) => n !== ""),
-    [tch]
-  );
-
-  const { createQueryString } = useQueryString();
-
   const [visibleProjects, setVisibleProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
     let visibleProjects = portfolio_projects;
 
-    if (techs.length > 0) {
+    if (selectedStack.length > 0) {
       visibleProjects = visibleProjects.filter((pf) => {
-        return techs.some((el) => pf.stack.includes(el as TechnologyStack));
+        return selectedStack.some((el) =>
+          pf.stack.includes(el as TechnologyStack)
+        );
       });
     }
 
     setVisibleProjects(visibleProjects);
-  }, [techs]);
+  }, [selectedStack]);
 
   return (
     <div>
@@ -99,14 +87,16 @@ export const ProjectList = ({ projectImages }: Props) => {
             return (
               <TechStackBadge
                 key={stack}
-                stack={stack as TechnologyStack}
+                text={stackReadableNames[stack as TechnologyStack]}
+                color={
+                  getColorFromStack(stack as TechnologyStack) as TBadgeColor
+                }
+                isSelected={selectedStack.includes(stack)}
                 onClick={() => {
-                  if (stack === tch) {
-                    router.push(pathname as unknown as string);
+                  if (selectedStack.includes(stack)) {
+                    setSelectedStack((prev) => prev.filter((s) => s !== stack));
                   } else {
-                    router.push(
-                      `${pathname}?${createQueryString("stack", stack)}`
-                    );
+                    setSelectedStack((prev) => [...prev, stack]);
                   }
                 }}
               />
@@ -133,7 +123,17 @@ export const ProjectList = ({ projectImages }: Props) => {
                 <div className="mb-2 flex flex-wrap gap-2 items-center">
                   Made with{" "}
                   {selectedProject.stack?.map((st) => {
-                    return <TechStackBadge key={st} stack={st} />;
+                    return (
+                      <TechStackBadge
+                        key={st}
+                        text={stackReadableNames[st as TechnologyStack]}
+                        color={
+                          getColorFromStack(
+                            st as TechnologyStack
+                          ) as TBadgeColor
+                        }
+                      />
+                    );
                   })}
                 </div>
                 <hr />
