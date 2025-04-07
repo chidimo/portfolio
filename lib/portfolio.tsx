@@ -33,10 +33,6 @@ const portfolio_projects: Project[] = [
         name: "Codebase",
         url: "https://github.com/chidimo/Solana-pay-tutorial",
       },
-      {
-        name: "Certificate",
-        url: "https://www.pointer.gg/tutorial-certificates/7d9126ec-6482-42d5-a197-e83c13b31dbc",
-      },
     ],
     screenshotsFolder: "web3-solana-pay",
     description: "",
@@ -54,10 +50,6 @@ const portfolio_projects: Project[] = [
         name: "Codebase",
         url: "https://github.com/chidimo/web3-polygon-forum",
       },
-      {
-        name: "Certificate",
-        url: "https://www.pointer.gg/tutorial-certificates/3c57a688-3cbf-4b00-a84d-5ada22207121",
-      },
     ],
     screenshotsFolder: "web3-polygon-forum",
     description: "",
@@ -72,10 +64,7 @@ const portfolio_projects: Project[] = [
     ],
     links: [
       { name: "Codebase", url: "https://github.com/chidimo/Lootbox-on-3rdweb" },
-      {
-        name: "Certificate",
-        url: "https://www.pointer.gg/tutorial-certificates/ad725e42-968f-4ef6-99b5-8bbc04a857cc",
-      },
+
       {
         name: "NFT Reward",
         url: "https://opensea.io/assets/matic/0x8b86d9766db4ace3801cd085ec4174afddfc9956/297/",
