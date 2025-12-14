@@ -4,14 +4,53 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { mergeClasses } from "utils/class-merge";
 
 const navigation = [
   { name: "Porfolio", href: "/portfolio" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
 ];
+
+const Avatar = () => {
+  return (
+    <Link href={"/"} passHref className="-">
+      <span className="sr-only">Chidi Orji</span>
+      <img
+        className="h-10 w-auto rounded full"
+        src="/images/headshot.JPG"
+        alt=""
+      />
+    </Link>
+  );
+};
+
+const NavItem = ({
+  item,
+  pathName,
+  classNames = "",
+}: {
+  item: any;
+  pathName: string;
+  classNames?: string;
+}) => {
+  return (
+    <a
+      key={item.name}
+      href={item.href}
+      className={mergeClasses(
+        "text-sm font-semibold text-white py-1 px-1.5",
+        pathName?.includes(item.href)
+          ? "border border-gray-50 rounded-md opacity-100"
+          : "opacity-90",
+        classNames
+      )}
+    >
+      <span>{item.name}</span>
+    </a>
+  );
+};
 
 export function AppHeader() {
   const pathName = usePathname();
@@ -20,18 +59,11 @@ export function AppHeader() {
   return (
     <header className="bg-blue-900">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex items-center justify-between py-6 px-8 md:px-20"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href={"/"} passHref className="-m-1.5 p-1.5">
-            <span className="sr-only">Chidi Orji</span>
-            <img
-              className="h-8 w-auto rounded-md"
-              src="/images/headshot.JPG"
-              alt=""
-            />
-          </Link>
+          <Avatar />
         </div>
         <div className="flex lg:hidden">
           <button
@@ -40,27 +72,14 @@ export function AppHeader() {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-8 w-8 text-white" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className={clsx(
-                "text-sm font-semibold leading-6 text-white",
-                "flex flex-col items-center"
-              )}
-            >
-              <span>{item.name}</span>
-              {pathName?.includes(item.href) && (
-                <div className="bg-white w-1.5 h-1.5 rounded" />
-              )}
-            </a>
+            <NavItem key={item.name} item={item} pathName={pathName} />
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end" />
       </nav>
       <Dialog
         as="div"
@@ -71,38 +90,26 @@ export function AppHeader() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
           <div className="flex items-center justify-between">
-            <Link href={"/"} passHref className="-m-1.5 p-1.5">
-              <span className="sr-only">Chidi Orji</span>
-              <img
-                className="h-8 w-auto rounded full"
-                src="/images/headshot.JPG"
-                alt=""
-              />
-            </Link>
-
+            <Avatar />
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-900"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-8 w-8 text-white" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/25">
-              <div className="space-y-2 py-6">
+              <div className="flex flex-col space-y-6 py-6">
                 {navigation.map((item) => (
-                  <a
+                  <NavItem
                     key={item.name}
-                    href={item.href}
-                    className="-mx-3 flex items-center rounded-md px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-                  >
-                    {pathName?.includes(item.href) && (
-                      <div className="bg-white w-1.5 h-1.5 mr-3 rounded" />
-                    )}
-                    <span>{item.name}</span>
-                  </a>
+                    item={item}
+                    pathName={pathName}
+                    classNames="py-2"
+                  />
                 ))}
               </div>
             </div>

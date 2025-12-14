@@ -16,7 +16,8 @@
     "next": "^13.4.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-modal": "^3.14.3"
+    "react-modal": "^3.14.3",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.36",
