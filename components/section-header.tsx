@@ -19,7 +19,7 @@ export const SectionHeader = (props: Props) => {
         alt=""
       />
       <div className={clsx({ "flex items-center": !description })}>
-        <p className="text-xl font-semibold leading-6 default-header-text">{title}</p>
+        <p className="text-xl font-semibold leading-6 text-blue-900">{title}</p>
         {description && (
           <p className="mt-1 text-sm flex leading-5 default-body-text">
             {description}

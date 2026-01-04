@@ -78,10 +78,11 @@ interface Props {
   color?: TBadgeColor;
   onClick?: () => void;
   isSelected?: boolean;
+  className?: string;
 }
 
 export const TechStackBadge = (props: Props) => {
-  const { text, color = "blue", onClick, isSelected } = props;
+  const { text, color = "blue", onClick, isSelected, className } = props;
 
   return (
     <button
@@ -90,7 +91,8 @@ export const TechStackBadge = (props: Props) => {
       className={clsx(
         "inline-flex w-fit text-center items-center justify-center border rounded-full px-2 py-1 text-xs font-medium whitespace-nowrap",
         onClick ? "cursor-pointer" : "cursor-default",
-        getBadgeColor(color)
+        getBadgeColor(color),
+        className
       )}
       title={text}
     >

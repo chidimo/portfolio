@@ -115,7 +115,7 @@ export const ProjectList = ({ projectImages }: Props) => {
           content={
             <div className="space-y-5">
               <div className="space-y-5">
-                <h2 className="mb-2 text-xl font-semibold leading-6 default-header-text">
+                <h2 className="mb-2 text-xl font-semibold leading-6 text-blue-900">
                   {selectedProject.name}
                 </h2>
                 <p className="mb-2">{selectedProject.description}</p>

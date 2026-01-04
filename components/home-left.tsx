@@ -1,47 +1,61 @@
 import Link from "next/link";
 
 import { mySocial } from "lib/social";
-import type { Social, TBadgeColor } from "types/index";
-import { TechStackBadge } from "components/tech-stack-badge";
+import type { Social } from "types/index";
+// import { ToptalBadge } from "./toptal-badge";
 
 const about = [
-  `
-  Experienced full-stack engineer with a frontend focus.
-  Known for crafting responsive, pixel-perfect UIs and exceptional user experiences that strikes a fine balance between aesthetics and performance.
-  Passionate about design systems and scalable architecture.
-  Delivers high ROI through a mix of technical depth, cross-functional collaboration, product thinking, and aligning technical solutions with business goals.
-  `,
+  "Experienced full-stack engineer with a frontend focus.",
+  "I craft responsive, pixel-perfect UIs that balance aesthetics and performance, with a strong focus on design systems and scalable architecture.",
+  "I deliver high ROI through technical depth, cross-functional collaboration, and aligning engineering decisions with business goals.",
 ];
 const myEmail = "orjichidi95@gmail.com";
 
 const techs = [
-  { title: "TypeScript/React/Next.js", color: "blue" },
-  { title: "Node.js/Express", color: "green" },
-  { title: "Python/Django", color: "gray" },
+  { title: "React", className: "text-[#087EA4]" },
+  { title: "Next.js", className: "text-[#087EA4]" },
+  { title: "Node.js", className: "text-[#1F7A1F]" },
+  { title: "Django", className: "text-[#1F4E79]" },
 ];
 
 export const HomeLeft = () => {
   return (
-    <div className="space-y-5">
-      <p className="text-4xl font-semibold default-header-text sm:text-6xl">
-        Chidi Orji
-      </p>
-      <p className="text-2xl default-header-text">Software Engineer</p>
-      <div className="flex flex-wrap items-center gap-4">
-        {techs.map((t) => {
+    <div>
+      <div className="space-y-4">
+        <div>
+          <p className="text-4xl font-bold text-blue-800">Chidi Orji</p>
+          <p className="mt-1 text-lg text-blue-700">
+            Product-Focused Software Engineer
+          </p>
+        </div>
+
+        <p className="text-2xl text-blue-800">
+          I help teams build scalable web applications that drive engagement and
+          conversions.
+        </p>
+        <p className="">
+          {techs.map((tech, i) => (
+            <span key={tech.title} className={tech.className}>
+              {tech.title}
+              {i < techs.length - 1 && (
+                <span className="mx-1 text-slate-400">•</span>
+              )}
+            </span>
+          ))}
+        </p>
+      </div>
+
+      <div className="my-5 h-px w-full bg-slate-200" />
+
+      <div className="space-y-3">
+        {about.map((a) => {
           return (
-            <TechStackBadge
-              key={t.title}
-              text={t.title}
-              color={t.color as TBadgeColor}
-            />
+            <p key={a} className="text-md leading-7 text-slate-700">
+              {a}
+            </p>
           );
         })}
       </div>
-
-      <p className="text-md leading-8 default-header-text text-opacity-80">
-        {about[0]}
-      </p>
 
       <div className="mt-10 flex items-center gap-x-6">
         {mySocial.map((social: Social) => {
@@ -63,11 +77,13 @@ export const HomeLeft = () => {
 
         <a
           href={`mailto:${myEmail}`}
-          className="text-md font-semibold leading-6 default-header-text"
+          className="text-md font-semibold leading-6 text-blue-800"
         >
-          Hire me <span aria-hidden="true">→</span>
+          Let&apos;s work together <span aria-hidden="true">→</span>
         </a>
       </div>
+
+      {/* <ToptalBadge /> */}
     </div>
   );
 };
