@@ -11,6 +11,7 @@ const navigation = [
   { name: "Porfolio", href: "/portfolio" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
+  { name: "Applications", href: "/applications" },
 ];
 
 const Avatar = () => {
