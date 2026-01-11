@@ -1,6 +1,5 @@
 "use client";
 
-import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Show } from "lib/series-tracker/types";
@@ -11,13 +10,17 @@ import { useSeriesTracker } from "components/series-tracker/series-tracker-conte
 import { Progress } from "components/progress";
 import { UpcomingBanner } from "components/series-tracker/upcoming-banner";
 
-export const SeriesDetailPage = () => {
-  const params = useParams() as { slug?: string; imdbId?: string };
-  const imdbId = params?.imdbId;
+export const SeriesDetailPage = ({
+  slug,
+  imdbId,
+}: {
+  slug: string;
+  imdbId: string;
+}) => {
   const { state } = useSeriesTracker();
   const [hideWatched, setHideWatched] = useState(false);
 
-  console.log({params})
+  console.log({ slug, imdbId });
   const show = useMemo<Show | undefined>(
     () => state.shows.find((s) => s.imdbId === imdbId),
     [state, imdbId]
