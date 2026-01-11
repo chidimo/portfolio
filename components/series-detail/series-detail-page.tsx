@@ -17,6 +17,7 @@ export const SeriesDetailPage = () => {
   const { state } = useSeriesTracker();
   const [hideWatched, setHideWatched] = useState(false);
 
+  console.log({params})
   const show = useMemo<Show | undefined>(
     () => state.shows.find((s) => s.imdbId === imdbId),
     [state, imdbId]
@@ -40,7 +41,7 @@ export const SeriesDetailPage = () => {
     return { watched, total };
   }, [show]);
 
-  if (params?.slug !== "series-movie-tracker") return notFound();
+  // if (params?.slug !== "series-movie-tracker") return notFound();
 
   if (!show) {
     return (
