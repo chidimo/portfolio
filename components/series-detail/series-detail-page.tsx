@@ -20,7 +20,6 @@ export const SeriesDetailPage = ({
   const { state } = useSeriesTracker();
   const [hideWatched, setHideWatched] = useState(false);
 
-  console.log({ slug, imdbId });
   const show = useMemo<Show | undefined>(
     () => state.shows.find((s) => s.imdbId === imdbId),
     [state, imdbId]

@@ -17,8 +17,6 @@ export const mergeQueryParams = (prevParams, newParams) => {
 };
 
 export const mergeURLParams = (prevParams, route, newParams) => {
-  // console.log(prevParams, route, newParams);
-
   const finalParams = mergeQueryParams(prevParams, newParams);
   return `${route}?${finalParams}`;
 };

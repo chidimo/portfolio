@@ -6,6 +6,5 @@ export default async function ShowDetailsPage({
   params: Promise<{ slug: string; imdbId: string }>;
 }) {
   const { slug, imdbId } = await params;
-  console.log({ slug, imdbId });
   return <SeriesDetailPage slug={slug} imdbId={imdbId} />;
 }
