@@ -13,9 +13,9 @@
     "@heroicons/react": "^2.0.18",
     "clsx": "^2.0.0",
     "image-size": "^1.0.0",
-    "next": "^13.4.11",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-modal": "^3.14.3",
     "tailwind-merge": "^3.4.0"
   },

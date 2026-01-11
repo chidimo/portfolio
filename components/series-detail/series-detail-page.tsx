@@ -44,8 +44,6 @@ export const SeriesDetailPage = ({
     return { watched, total };
   }, [show]);
 
-  // if (params?.slug !== "series-movie-tracker") return notFound();
-
   if (!show) {
     return (
       <main>
@@ -59,6 +57,7 @@ export const SeriesDetailPage = ({
       </main>
     );
   }
+
   return (
     <main>
       <div className="mb-4">

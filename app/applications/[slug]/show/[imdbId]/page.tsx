@@ -1,10 +1,11 @@
 import { SeriesDetailPage } from "components/series-detail/series-detail-page";
 
-export default function ShowDetailsPage({
+export default async function ShowDetailsPage({
   params,
 }: {
-  params: { slug: string; imdbId: string };
+  params: Promise<{ slug: string; imdbId: string }>;
 }) {
-  console.log({ params });
-  return <SeriesDetailPage slug={params.slug} imdbId={params.imdbId} />;
+  const { slug, imdbId } = await params;
+  console.log({ slug, imdbId });
+  return <SeriesDetailPage slug={slug} imdbId={imdbId} />;
 }

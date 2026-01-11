@@ -4,15 +4,17 @@ import type { Metadata } from "next";
 import { applications, getAppBySlug } from "lib/applications";
 import { SeriesTrackerPage } from "components/series-tracker/series-tracker-page";
 
-export default function ApplicationPage({
+export default async function ApplicationPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+
+  const app = getAppBySlug(slug);
   if (!app) return notFound();
 
-  if (params.slug === "series-movie-tracker") {
+  if (slug === "series-movie-tracker") {
     return <SeriesTrackerPage />;
   }
 
