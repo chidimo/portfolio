@@ -8,6 +8,7 @@ import { FetchSeasons } from "./fetch-seasons";
 import { ScheduleSetter } from "./schedule-setter";
 import { SeasonContainer } from "./season-container";
 import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
+import { Progress } from "components/progress";
 
 export const SeriesDetailPage = () => {
   const params = useParams() as { slug?: string; imdbId?: string };
@@ -91,23 +92,14 @@ export const SeriesDetailPage = () => {
               ))}
             </div>
           ) : null}
-          <div className="mt-3 text-sm text-gray-700">
-            Overall progress: {showProgress.watched}/{showProgress.total}
-            <div className="mt-1 h-2 w-full bg-gray-200 rounded overflow-hidden">
-              <div
-                className="h-full bg-green-600"
-                style={{
-                  width: `${
-                    showProgress.total
-                      ? Math.round(
-                          (showProgress.watched / showProgress.total) * 100
-                        )
-                      : 0
-                  }%`,
-                }}
-              />
-            </div>
-          </div>
+          <Progress
+            className="mt-3"
+            label="Overall progress"
+            current={showProgress.watched}
+            total={showProgress.total}
+            showFraction
+            showPercentage
+          />
           <div className="mt-3 flex gap-3">
             <a
               href={show.imdbUrl}

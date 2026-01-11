@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Season, Show } from "lib/series-tracker/types";
 import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 import { EpisodeCard } from "./episode-card";
+import { Progress } from "components/progress";
 
 export const SeasonContainer = ({
   season,
@@ -54,28 +55,14 @@ export const SeasonContainer = ({
         <div>
           <h2 className="font-semibold">{season.title}</h2>
 
-          <div className="mt-2">
-            <div className="text-xs text-gray-600 mb-1">
-              Progress: {season.episodes.filter((e) => e.watched).length}/
-              {season.episodes.length}
-            </div>
-            <div className="h-2 w-full bg-gray-200 rounded overflow-hidden">
-              <div
-                className="h-full bg-green-600"
-                style={{
-                  width: `${
-                    season.episodes.length
-                      ? Math.round(
-                          (season.episodes.filter((e) => e.watched).length /
-                            season.episodes.length) *
-                            100
-                        )
-                      : 0
-                  }%`,
-                }}
-              />
-            </div>
-          </div>
+          <Progress
+            className="mt-2"
+            label="Progress"
+            current={season.episodes.filter((e) => e.watched).length}
+            total={season.episodes.length}
+            showFraction
+            showPercentage
+          />
         </div>
         <div className="flex items-center gap-3">
           <div className="flex flex-col gap-2">
