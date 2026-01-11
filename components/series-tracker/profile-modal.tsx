@@ -54,12 +54,6 @@ export const ProfileModal = () => {
           />
           <div className="flex justify-end gap-2">
             <button
-              className="px-4 py-2 rounded bg-gray-200"
-              onClick={() => setOpen(false)}
-            >
-              Skip
-            </button>
-            <button
               className="px-4 py-2 rounded bg-blue-600 text-white"
               onClick={onSave}
             >
