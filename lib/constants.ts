@@ -40,19 +40,20 @@ type MetaArgs = {
   title?: string;
 };
 export const getMetadata = ({ title }: MetaArgs) => {
+  const fullTitle = title ? `${title} – Chidi Orji` : "Chidi Orji | My Personal Website";
   return {
-    title: title || "Chidi Orji | My Personal Website",
+    title: fullTitle,
     description: siteDescription,
     keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
     openGraph: {
-      title: title || "Chidi Orji | My Personal Website",
+      title: fullTitle,
       description: siteDescription,
       type: "website",
       url: "https://chidimo.netlify.app",
       images: ["/images/headshot.JPG"],
     },
     twitter: {
-      title: "Chidi Orji | My Personal Website",
+      title: fullTitle,
       description: siteDescription,
       card: "summary_large_image",
       site: "@chidiorji",

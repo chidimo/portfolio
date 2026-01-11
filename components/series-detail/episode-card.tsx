@@ -1,35 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { StorageRepo } from "lib/series-tracker/storage";
-import type {
-  Episode,
-  Season,
-  Show,
-  TrackerState,
-} from "lib/series-tracker/types";
+import { useMemo } from "react";
+import type { Episode, Season, Show } from "lib/series-tracker/types";
 import { isWithinDays } from "utils/datetime-utils";
+import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
+import { formatTentative } from "utils/formatters";
 
 export const EpisodeCard = ({
-  episode,
-  season,
   show,
+  season,
+  episode,
 }: {
-  episode: Episode;
-  season: Season;
   show: Show;
+  season: Season;
+  episode: Episode;
 }) => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
-
-  const saveShow = (next: Show) => {
-    const updated: TrackerState = {
-      ...state,
-      shows: state.shows.map((s) => (s.imdbId === next.imdbId ? next : s)),
-    };
-
-    StorageRepo.setState(updated);
-    setState(updated);
-  };
+  const { updateShow } = useSeriesTracker();
 
   const toggleEpisode = (
     seasonNumber: number,
@@ -49,7 +35,7 @@ export const EpisodeCard = ({
         ),
       };
     });
-    saveShow({ ...show, seasons: nextSeasons });
+    updateShow({ ...show, seasons: nextSeasons });
   };
 
   const mostRecentSeasonNumber = useMemo(() => {
@@ -86,8 +72,9 @@ export const EpisodeCard = ({
   }, [show, mostRecentSeasonNumber]);
 
   const tentativeDates = useMemo(() => {
-    if (!show || !show.tentativeNextAirDate || !show.tentativeNextEpisode)
+    if (!show?.tentativeNextAirDate || !show.tentativeNextEpisode) {
       return new Map<string, string>();
+    }
     const startDate = Date.parse(show.tentativeNextAirDate);
     const freq = Math.max(1, show.tentativeFrequencyDays || 7);
     if (Number.isNaN(startDate)) return new Map<string, string>();
@@ -112,50 +99,13 @@ export const EpisodeCard = ({
     return map;
   }, [show, allEpisodesFlat]);
 
-  const formatTentative = (iso: string) => {
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return "";
-    const weekdays = [
-      "sunday",
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-    ];
-    const months = [
-      "january",
-      "february",
-      "march",
-      "april",
-      "may",
-      "june",
-      "july",
-      "august",
-      "september",
-      "october",
-      "november",
-      "december",
-    ];
-    const day = d.getDate();
-    const suffix = (n: number) => {
-      const j = n % 10,
-        k = n % 100;
-      if (j === 1 && k !== 11) return "st";
-      if (j === 2 && k !== 12) return "nd";
-      if (j === 3 && k !== 13) return "rd";
-      return "th";
-    };
-    return `${weekdays[d.getDay()]} ${day}${suffix(day)} ${
-      months[d.getMonth()]
-    }, ${d.getFullYear()}`;
-  };
-
   return (
     <li
       key={episode.episodeNumber ?? episode.title}
-      className="py-2 flex items-center justify-between"
+      className={
+        "py-2 px-3 flex items-center justify-between rounded " +
+        (episode.watched ? "bg-gray-50 opacity-70" : "")
+      }
     >
       <div>
         <div className="text-sm font-medium">
@@ -166,7 +116,7 @@ export const EpisodeCard = ({
           <div className="text-xs text-gray-600 flex items-center gap-2">
             <span>Air date: {formatTentative(episode.releaseDate)}</span>
             {isWithinDays(episode.releaseDate, 3) ? (
-              <span className="inline-flex items-center rounded bg-yellow-100 text-yellow-800 px-2 py-0.5 text-[10px] uppercase tracking-wide">
+              <span className="inline-flex items-center rounded bg-blue-100 text-blue-800 px-2 py-0.5 text-[10px] uppercase tracking-wide">
                 Soon
               </span>
             ) : null}
@@ -181,7 +131,7 @@ export const EpisodeCard = ({
                 <div className="text-xs text-blue-700 flex items-center gap-2">
                   <span>Tentative air date: {formatTentative(val)}</span>
                   {isWithinDays(val, 3) ? (
-                    <span className="inline-flex items-center rounded bg-yellow-100 text-yellow-800 px-2 py-0.5 text-[10px] uppercase tracking-wide">
+                    <span className="inline-flex items-center rounded bg-blue-100 text-blue-800 px-2 py-0.5 text-[10px] uppercase tracking-wide">
                       Soon
                     </span>
                   ) : null}

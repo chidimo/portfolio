@@ -1,6 +1,7 @@
 "use client";
 
 import { RemoveShow } from "./remove-show";
+import { UpcomingRibbon } from "components/series-tracker/upcoming-ribbon";
 
 type Props = {
   show: any;
@@ -12,15 +13,22 @@ export const ShowCard = ({ show, onRemoveShow }: Props) => {
     <li className="relative border rounded p-3">
       <RemoveShow showId={show.imdbId} onRemove={onRemoveShow} />
       <div className="flex gap-3">
-        {show.thumbnail && show.thumbnail !== "N/A" ? (
-          <img
-            src={show.thumbnail}
-            alt="poster"
-            className="h-24 w-16 object-cover rounded md:h-40 md:w-28"
+        <div className="relative">
+          {show.thumbnail && show.thumbnail !== "N/A" ? (
+            <img
+              src={show.thumbnail}
+              alt="poster"
+              className="h-24 w-16 object-cover rounded md:h-40 md:w-28"
+            />
+          ) : (
+            <div className="h-24 w-16 bg-gray-200 rounded md:h-40 md:w-28" />
+          )}
+          <UpcomingRibbon
+            show={show}
+            days={3}
+            className="absolute top-1 left-1"
           />
-        ) : (
-          <div className="h-24 w-16 bg-gray-200 rounded md:h-40 md:w-28" />
-        )}
+        </div>
         <div className="flex-1">
           <div className="font-semibold">{show.title}</div>
           {show.releaseYear ? (

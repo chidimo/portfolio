@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import type {
   Episode,
   Season,
@@ -11,8 +11,10 @@ import { useSeriesTracker } from "components/series-tracker/series-tracker-conte
 
 export const FetchSeasons = ({ show }: { show: Show }) => {
   const { updateShow } = useSeriesTracker();
+  const [loading, setLoading] = useState(false);
 
   const fetchAllSeasons = useCallback(async () => {
+    setLoading(true);
     const full = await getTitle(show.imdbId);
     const total = full?.totalSeasons
       ? Number(full.totalSeasons)
@@ -68,11 +70,17 @@ export const FetchSeasons = ({ show }: { show: Show }) => {
       nextAirDate,
     };
     updateShow(updated);
+    setLoading(false);
   }, [show, updateShow]);
 
   return (
-    <button className="text-blue-700" onClick={fetchAllSeasons}>
-      Fetch seasons
+    <button
+      className="text-blue-700 disabled:opacity-60"
+      onClick={fetchAllSeasons}
+      disabled={loading}
+      aria-busy={loading}
+    >
+      {loading ? "Fetching..." : "Fetch seasons"}
     </button>
   );
 };

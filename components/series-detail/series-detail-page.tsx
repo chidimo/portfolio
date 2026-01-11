@@ -9,6 +9,7 @@ import { ScheduleSetter } from "./schedule-setter";
 import { SeasonContainer } from "./season-container";
 import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 import { Progress } from "components/progress";
+import { UpcomingBanner } from "components/series-tracker/upcoming-banner";
 
 export const SeriesDetailPage = () => {
   const params = useParams() as { slug?: string; imdbId?: string };
@@ -24,7 +25,7 @@ export const SeriesDetailPage = () => {
   // Update document title
   useEffect(() => {
     if (show?.title) {
-      document.title = `${show.title} – Series Tracker`;
+      document.title = `${show.title} – Series Tracker – Chidi Orji`;
     }
   }, [show?.title]);
 
@@ -92,6 +93,7 @@ export const SeriesDetailPage = () => {
               ))}
             </div>
           ) : null}
+          <UpcomingBanner show={show} days={3} className="mt-3" />
           <Progress
             className="mt-3"
             label="Overall progress"
