@@ -33,6 +33,10 @@ export type Show = {
   totalSeasons?: number;
   nextAirDate?: string; // ISO string for next upcoming episode release if known
   seasons: Season[];
+  // Tentative scheduling (user-entered)
+  tentativeNextAirDate?: string; // ISO date for the selected 'next air' baseline
+  tentativeNextEpisode?: { seasonNumber: number; episodeNumber: number };
+  tentativeFrequencyDays?: number; // default 7
 };
 
 export type TrackerState = {

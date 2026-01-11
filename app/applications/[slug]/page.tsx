@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { applications, getAppBySlug } from "lib/applications";
-import { SeriesTrackerApp } from "components/series-tracker/series-tracker";
+import { SeriesTrackerPage } from "components/series-tracker/series-tracker-page";
 
 export default function ApplicationPage({
   params,
@@ -13,7 +13,7 @@ export default function ApplicationPage({
   if (!app) return notFound();
 
   if (params.slug === "series-movie-tracker") {
-    return <SeriesTrackerApp />;
+    return <SeriesTrackerPage />;
   }
 
   return (
