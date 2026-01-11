@@ -1,27 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { ProfileModal } from "components/series-tracker/profile-modal";
-import { StorageRepo } from "lib/series-tracker/storage";
-import type { TrackerState } from "lib/series-tracker/types";
 import { ExportSeries } from "./export-series";
 import { ImportSeries } from "./import-series";
 import { ShowCard } from "./show-card";
 import { SeriesFinder } from "./series-finder";
+import { useSeriesTracker } from "./series-tracker-context";
 
 export const SeriesTrackerPage = () => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
-
-  useEffect(() => {
-    setState(StorageRepo.getState());
-  }, []);
+  const { state, removeShow, replaceState } = useSeriesTracker();
 
   const profileName = state.profile?.name ?? "Guest";
 
   const handleRemoveShow = (removeId: string) => {
-    StorageRepo.removeShow(removeId);
-    setState(StorageRepo.getState());
+    removeShow(removeId);
   };
 
   return (
@@ -53,9 +46,7 @@ export const SeriesTrackerPage = () => {
           <h3 className="text-lg font-semibold">Your Shows</h3>
           <div className="flex gap-2">
             <ImportSeries
-              onUpdateState={(s) => {
-                setState(s);
-              }}
+              onUpdateState={(s) => replaceState(s)}
             />
             <ExportSeries state={state} />
           </div>

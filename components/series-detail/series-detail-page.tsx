@@ -3,21 +3,17 @@
 import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { StorageRepo } from "lib/series-tracker/storage";
-import type { Show, TrackerState } from "lib/series-tracker/types";
+import type { Show } from "lib/series-tracker/types";
 import { FetchSeasons } from "./fetch-seasons";
 import { ScheduleSetter } from "./schedule-setter";
 import { SeasonContainer } from "./season-container";
+import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 
 export const SeriesDetailPage = () => {
   const params = useParams() as { slug?: string; imdbId?: string };
   const imdbId = params?.imdbId;
-  const [state, setState] = useState<TrackerState>({ shows: [] });
+  const { state } = useSeriesTracker();
   const [hideWatched, setHideWatched] = useState(false);
-
-  useEffect(() => {
-    setState(StorageRepo.getState());
-  }, []);
 
   const show = useMemo<Show | undefined>(
     () => state.shows.find((s) => s.imdbId === imdbId),

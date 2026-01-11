@@ -1,29 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import { StorageRepo } from "lib/series-tracker/storage";
+import { useCallback } from "react";
 import type {
   Episode,
   Season,
   Show,
-  TrackerState,
 } from "lib/series-tracker/types";
 import { getSeason, getTitle } from "lib/series-tracker/omdb";
+import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 
 export const FetchSeasons = ({ show }: { show: Show }) => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
+  const { updateShow } = useSeriesTracker();
 
-  const saveShow = (next: Show) => {
-    const updated: TrackerState = {
-      ...state,
-      shows: state.shows.map((s) => (s.imdbId === next.imdbId ? next : s)),
-    };
-
-    StorageRepo.setState(updated);
-    setState(updated);
-  };
-
-  const fetchAllSeasons = async () => {
+  const fetchAllSeasons = useCallback(async () => {
     const full = await getTitle(show.imdbId);
     const total = full?.totalSeasons
       ? Number(full.totalSeasons)
@@ -78,8 +67,8 @@ export const FetchSeasons = ({ show }: { show: Show }) => {
       totalSeasons: capped || show.totalSeasons,
       nextAirDate,
     };
-    saveShow(updated);
-  };
+    updateShow(updated);
+  }, [show, updateShow]);
 
   return (
     <button className="text-blue-700" onClick={fetchAllSeasons}>

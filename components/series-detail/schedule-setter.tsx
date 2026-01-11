@@ -2,25 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { StorageRepo } from "lib/series-tracker/storage";
-import type { Show, TrackerState } from "lib/series-tracker/types";
+import type { Show } from "lib/series-tracker/types";
+import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 
 export const ScheduleSetter = ({ show }: { show: Show }) => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
+  const { updateShow } = useSeriesTracker();
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [schedDate, setSchedDate] = useState<string>("");
   const [schedTarget, setSchedTarget] = useState<string>(""); // key: s{season}-e{episode}
   const [schedFreq, setSchedFreq] = useState<number>(7);
-
-  const saveShow = (next: Show) => {
-    const updated: TrackerState = {
-      ...state,
-      shows: state.shows.map((s) => (s.imdbId === next.imdbId ? next : s)),
-    };
-
-    StorageRepo.setState(updated);
-    setState(updated);
-  };
 
   const mostRecentSeasonNumber = useMemo(() => {
     const nums = (show?.seasons || [])
@@ -88,7 +78,7 @@ export const ScheduleSetter = ({ show }: { show: Show }) => {
         Number.isFinite(schedFreq) ? schedFreq : 7
       ),
     };
-    saveShow(updated);
+    updateShow(updated);
     setScheduleOpen(false);
   };
 

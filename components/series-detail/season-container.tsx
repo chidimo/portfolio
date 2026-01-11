@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { StorageRepo } from "lib/series-tracker/storage";
-import type { Season, Show, TrackerState } from "lib/series-tracker/types";
+import type { Season, Show } from "lib/series-tracker/types";
+import { useSeriesTracker } from "components/series-tracker/series-tracker-context";
 import { EpisodeCard } from "./episode-card";
 
 export const SeasonContainer = ({
@@ -14,18 +14,8 @@ export const SeasonContainer = ({
   show: Show;
   hideWatched: boolean;
 }) => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
+  const { updateShow } = useSeriesTracker();
   const [upTo, setUpTo] = useState<Record<number, string>>({});
-
-  const saveShow = (next: Show) => {
-    const updated: TrackerState = {
-      ...state,
-      shows: state.shows.map((s) => (s.imdbId === next.imdbId ? next : s)),
-    };
-
-    StorageRepo.setState(updated);
-    setState(updated);
-  };
 
   const toggleSeason = (seasonNumber: number, watched: boolean) => {
     if (!show) return;
@@ -36,7 +26,7 @@ export const SeasonContainer = ({
         episodes: (s.episodes || []).map((e) => ({ ...e, watched })),
       };
     });
-    saveShow({ ...show, seasons: nextSeasons });
+    updateShow({ ...show, seasons: nextSeasons });
   };
 
   const markUpTo = (seasonNumber: number, n: number) => {
@@ -52,7 +42,7 @@ export const SeasonContainer = ({
         })),
       };
     });
-    saveShow({ ...show, seasons: nextSeasons });
+    updateShow({ ...show, seasons: nextSeasons });
   };
 
   return (

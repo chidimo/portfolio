@@ -1,25 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { StorageRepo } from "lib/series-tracker/storage";
 import {
   searchSeries,
   getTitle,
   type OmdbSearchItem,
 } from "lib/series-tracker/omdb";
-import type { Show, TrackerState } from "lib/series-tracker/types";
+import type { Show } from "lib/series-tracker/types";
+import { useSeriesTracker } from "./series-tracker-context";
 
 export const SeriesFinder = () => {
-  const [state, setState] = useState<TrackerState>({ shows: [] });
+  const { state, addShow } = useSeriesTracker();
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<OmdbSearchItem[]>([]);
   const [error, setError] = useState<string | undefined>();
-
-  useEffect(() => {
-    setState(StorageRepo.getState());
-  }, []);
 
   const onSearch = async () => {
     setError(undefined);
@@ -52,8 +48,7 @@ export const SeriesFinder = () => {
       totalSeasons: full?.totalSeasons ? Number(full.totalSeasons) : undefined,
       seasons: [],
     };
-    StorageRepo.addShow(show);
-    setState(StorageRepo.getState());
+    addShow(show);
   };
 
   return (
