@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { applications, appHref } from "lib/applications";
+import { applications } from "lib/applications";
 
 export default function ApplicationsPage() {
   return (
@@ -9,19 +9,47 @@ export default function ApplicationsPage() {
         A curated list of apps I’m building. Click any to see details.
       </p>
       <ul className="space-y-6">
-        {applications.map((app) => (
-          <li key={app.slug}>
-            <div>
-              <Link
-                className="text-blue-700 hover:underline font-semibold"
-                href={appHref(app.slug)}
-              >
-                {app.name}
-              </Link>
-            </div>
-            <p className="text-gray-600 mt-1">{app.description}</p>
-          </li>
-        ))}
+        {applications.map((app) => {
+          return (
+            <li key={app.name} className="pb-2 border-b border-b-1">
+              <div>
+                {app.webUrl ? (
+                  <div>
+                    <Link
+                      className="text-blue-700 hover:underline font-semibold"
+                      href={app.webUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {app.name}
+                    </Link>
+                  </div>
+                ) : (
+                  <span className="text-gray-700 font-semibold">
+                    {app.name}
+                  </span>
+                )}
+              </div>
+              <p className="text-gray-600 mt-1">{app.description}</p>
+
+              {app.playStoreUrl ? (
+                <div className="flex my-4">
+                  <Link
+                    href={app.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/GetItOnGooglePlay_Badge_Web_color_English.png"
+                      alt="Get it on Google Play"
+                      className="h-12"
+                    />
+                  </Link>
+                </div>
+              ) : null}
+            </li>
+          );
+        })}
       </ul>
     </main>
   );
