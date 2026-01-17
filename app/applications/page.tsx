@@ -6,7 +6,8 @@ export default function ApplicationsPage() {
     <main>
       <h1 className="text-2xl font-bold mb-2">Applications</h1>
       <p className="text-gray-700 mb-8">
-        A curated list of apps I’m building. Click any to see details.
+        A list of hobby apps I&apos;m maintaining. Blue links are web apps, and
+        mobile icons indicate the appropriate platform.
       </p>
       <ul className="space-y-6">
         {applications.map((app) => {
