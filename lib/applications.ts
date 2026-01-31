@@ -8,7 +8,7 @@ export type AppInfo = {
 export const applications: AppInfo[] = [
   {
     name: "Mobile Flashcards",
-    // webUrl: "https://popcorn.chidiorji.com/",
+    // webUrl: "https://flashcards.chidiorji.com/",
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.chidimo.mobileflashcards&hl=en_US",
     description:
@@ -23,7 +23,8 @@ export const applications: AppInfo[] = [
       "Track TV series and movies, manage watched/next episodes, and get recommendations.",
   },
   {
-    name: "GitHub Ideas Pad",
+    name: "Scratch",
+    webUrl: "https://scratch.chidiorji.com/",
     description:
       "Capture and organize ideas for repositories and projects, ready to action later.",
   },
