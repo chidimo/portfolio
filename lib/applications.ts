@@ -2,6 +2,7 @@ export type AppInfo = {
   name: string;
   webUrl?: string;
   playStoreUrl?: string;
+  vsCode?: string;
   description: string;
 };
 
@@ -23,8 +24,9 @@ export const applications: AppInfo[] = [
       "Track TV series and movies, manage watched/next episodes, and get recommendations.",
   },
   {
-    name: "Scratch",
+    name: "Scratch (Gists)",
     webUrl: "https://scratch.chidiorji.com/",
+    vsCode: "https://marketplace.visualstudio.com/items?itemName=chidimo.scratch",
     description:
       "Capture and organize ideas for repositories and projects, ready to action later.",
   },
