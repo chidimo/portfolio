@@ -12,6 +12,7 @@ const about = [
 const myEmail = "orjichidi95@gmail.com";
 
 const techs = [
+  { title: "AI", className: "text-[#1F7A1F]" },
   { title: "React", className: "text-[#087EA4]" },
   { title: "Next.js", className: "text-[#087EA4]" },
   { title: "Node.js", className: "text-[#1F7A1F]" },
