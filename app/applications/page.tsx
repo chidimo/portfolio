@@ -39,7 +39,21 @@ export default function ApplicationsPage() {
                       rel="noopener noreferrer"
                     >
                       <span className="text-blue-700 hover:underline font-semibold">
-                        Get it on VS Code
+                        Get it on VS Code Marketplace
+                      </span>
+                    </Link>
+                  </div>
+                ) : null}
+
+                {app.openVsx ? (
+                  <div className="flex">
+                    <Link
+                      href={app.openVsx}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="text-blue-700 hover:underline font-semibold">
+                        Get it on the Open VSX Registry
                       </span>
                     </Link>
                   </div>

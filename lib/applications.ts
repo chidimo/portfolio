@@ -3,6 +3,7 @@ export type AppInfo = {
   webUrl?: string;
   playStoreUrl?: string;
   vsCode?: string;
+  openVsx?: string;
   description: string;
 };
 
@@ -26,7 +27,9 @@ export const applications: AppInfo[] = [
   {
     name: "Scratch (Gists)",
     webUrl: "https://scratch.chidiorji.com/",
-    vsCode: "https://marketplace.visualstudio.com/items?itemName=chidimo.scratch",
+    vsCode:
+      "https://marketplace.visualstudio.com/items?itemName=chidimo.scratch",
+    openVsx: "https://open-vsx.org/extension/chidimo/scratch",
     description:
       "Capture and organize ideas for repositories and projects, ready to action later.",
   },
