@@ -35,6 +35,7 @@ export const applications: AppInfo[] = [
   },
   {
     name: "Choral Central",
+    webUrl: "https://ensemblexchange.com/",
     description:
       "A central place for choral resources, arrangements, and rehearsal planning.",
   },
