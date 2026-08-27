@@ -1,6 +1,7 @@
 import type { Publication } from "types/index";
 import { publications } from "lib/publications";
 import { PageHeader } from "components/page-header";
+import { BrandMark } from "components/brand-mark";
 import { getMetadata } from "lib/constants";
 import { formatMonthYear } from "utils/format-date";
 
@@ -26,12 +27,16 @@ export default function Publications() {
               href={pub.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:gap-8"
+              className="group grid gap-x-4 gap-y-1 py-5 sm:grid-cols-[auto_1fr_auto] sm:gap-8"
             >
+              <BrandMark
+                name={pub.platform}
+                className="hidden h-9 w-9 text-xs sm:grid"
+              />
               <span className="font-serif text-lg transition-colors group-hover:text-accent">
                 {pub.title}
               </span>
-              <span className="font-sans text-[11px] uppercase tracking-[0.14em] text-faint sm:text-right">
+              <span className="self-center font-sans text-[11px] uppercase tracking-[0.14em] text-faint sm:text-right">
                 {pub.platform} — {formatMonthYear(pub.pub_date)}
               </span>
             </a>

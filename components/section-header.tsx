@@ -1,4 +1,4 @@
-import { Monogram } from "./monogram";
+import { BrandMark } from "./brand-mark";
 
 type Props = {
   title: string;
@@ -8,7 +8,7 @@ type Props = {
 
 export const SectionHeader = ({ title, description, badge }: Props) => (
   <div className="flex gap-4">
-    <Monogram name={badge || title} className="h-11 w-11 text-sm" />
+    <BrandMark name={badge || title} className="h-11 w-11 text-sm" />
     <div>
       <p className="font-serif text-lg font-bold leading-snug">{title}</p>
       {description ? (

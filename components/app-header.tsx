@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mergeClasses } from "utils/class-merge";
+import { ThemeToggle } from "./theme-toggle";
 
 const nav = [
   { name: "Portfolio", href: "/portfolio" },
@@ -21,7 +22,7 @@ export function AppHeader() {
 
   return (
     <header className="border-b border-rule">
-      <div className="measure flex items-baseline justify-between gap-6 py-5">
+      <div className="measure flex items-center justify-between gap-6 py-5">
         <Link
           href="/"
           className="font-serif text-lg font-bold tracking-tight text-ink"
@@ -29,30 +30,37 @@ export function AppHeader() {
           Chidi&nbsp;Orji
         </Link>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="label sm:hidden"
-        >
-          {open ? "Close" : "Menu"}
-        </button>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <nav
+            className="hidden items-baseline gap-6 sm:flex"
+            aria-label="Global"
+          >
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={mergeClasses(
+                  "font-sans text-xs font-semibold uppercase tracking-[0.16em] transition-colors",
+                  active(path, item.href)
+                    ? "text-accent"
+                    : "text-faint hover:text-ink"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-        <nav className="hidden items-baseline gap-6 sm:flex" aria-label="Global">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={mergeClasses(
-                "font-sans text-xs font-semibold uppercase tracking-[0.16em] transition-colors",
-                active(path, item.href)
-                  ? "text-accent"
-                  : "text-faint hover:text-ink"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+          <ThemeToggle />
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="label sm:hidden"
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
       </div>
 
       {open ? (

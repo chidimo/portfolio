@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light is the primary theme. */
+/*
+ * Light is the primary theme. Dark is a warm inversion.
+ * Resolution order: an explicit viewer choice (`.theme-dark` / `.theme-light`
+ * set on <html> by the inline script in the layout) wins; otherwise the OS
+ * `prefers-color-scheme` decides.
+ */
 :root {
+  color-scheme: light;
   --paper: 251 249 244;
   --card: 255 255 255;
   --ink: 24 23 21;
@@ -14,9 +20,10 @@
   --accent-ink: 255 250 246;
 }
 
-/* Dark is the secondary theme — a warm inversion. */
+/* Shared dark palette, applied for OS-dark (unless the viewer forced light)… */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.theme-light) {
+    color-scheme: dark;
     --paper: 22 21 19;
     --card: 29 27 24;
     --ink: 240 236 228;
@@ -26,6 +33,19 @@
     --accent: 232 138 128;
     --accent-ink: 22 21 19;
   }
+}
+
+/* …and whenever the viewer explicitly picks dark. */
+:root.theme-dark {
+  color-scheme: dark;
+  --paper: 22 21 19;
+  --card: 29 27 24;
+  --ink: 240 236 228;
+  --muted: 174 166 153;
+  --faint: 122 115 104;
+  --rule: 56 52 46;
+  --accent: 232 138 128;
+  --accent-ink: 22 21 19;
 }
 
 @layer base {
