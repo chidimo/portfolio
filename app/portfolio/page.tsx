@@ -8,7 +8,12 @@ import { imageDirectories } from "lib/portfolio";
 import type { Screenshot } from "types";
 import { getMetadata } from "lib/constants";
 
-export const metadata = getMetadata({ title: "Portfolio" });
+export const metadata = getMetadata({
+  title: "Portfolio",
+  path: "/portfolio",
+  description:
+    "Selected work by Chidi Orji — production ML systems, MSc AI research, and full-stack product engineering, filterable by technology.",
+});
 
 async function getPhotos() {
   const shotsFolder = "screenshots";

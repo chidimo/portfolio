@@ -5,7 +5,12 @@ import { BrandMark } from "components/brand-mark";
 import { getMetadata } from "lib/constants";
 import { formatMonthYear } from "utils/format-date";
 
-export const metadata = getMetadata({ title: "Publications" });
+export const metadata = getMetadata({
+  title: "Publications",
+  path: "/publications",
+  description:
+    "Articles by Chidi Orji for Smashing Magazine and elsewhere — React, testing, and frontend architecture.",
+});
 
 export default function Publications() {
   const sorted = [...publications].sort(

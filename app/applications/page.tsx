@@ -4,7 +4,12 @@ import { SectionHeader } from "components/section-header";
 import { PageHeader } from "components/page-header";
 import { getMetadata } from "lib/constants";
 
-export const metadata = getMetadata({ title: "Applications" });
+export const metadata = getMetadata({
+  title: "Applications",
+  path: "/applications",
+  description:
+    "Small products Chidi Orji builds and maintains — on the web, in editor marketplaces, and on mobile.",
+});
 
 type AppLink = { label: string; href: string };
 

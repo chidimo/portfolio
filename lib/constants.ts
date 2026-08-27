@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { LearningPlatform, TechnologyStack } from "types";
 
-export const siteUrl = "https://chidimo.netlify.app";
+export const siteUrl = "https://chidiorji.com";
+export const twitterHandle = "@chidiorji";
 
 export const siteDescription =
   "Chidi Orji — full-stack AI engineer with an MSc in Artificial Intelligence, building production ML systems and the applications around them.";
@@ -47,33 +49,72 @@ export const techLabel = (tag: string): string =>
   (stackReadableNames as Record<string, string>)[tag] ?? tag;
 
 type MetaArgs = {
+  /** Page title, prefixed onto the brand. Omit for the site default. */
   title?: string;
+  /** Page-specific description. Falls back to the site description. */
+  description?: string;
+  /** Route path, e.g. "/portfolio". Used for canonical + og:url. */
+  path?: string;
 };
-export const getMetadata = ({ title }: MetaArgs) => {
-  const fullTitle = title
-    ? `${title} – Chidi Orji`
-    : "Chidi Orji · Full-Stack AI Engineer — MSc Artificial Intelligence";
+
+const defaultTitle =
+  "Chidi Orji · Full-Stack AI Engineer — MSc Artificial Intelligence";
+
+export const getMetadata = ({
+  title,
+  description,
+  path = "/",
+}: MetaArgs): Metadata => {
+  const fullTitle = title ? `${title} – Chidi Orji` : defaultTitle;
+  const desc = description ?? siteDescription;
+  const url = new URL(path, siteUrl).toString();
+
   return {
     metadataBase: new URL(siteUrl),
+    applicationName: "Chidi Orji",
     title: fullTitle,
-    description: siteDescription,
-    keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
+    description: desc,
+    keywords: [
+      "Chidi Orji",
+      "Full-Stack AI Engineer",
+      "Machine Learning Engineer",
+      "MSc Artificial Intelligence",
+      "University of Salford",
+      "NLP",
+      "Semantic Search",
+      "React",
+      "Next.js",
+      "Python",
+    ],
+    authors: [{ name: "Chidi Orji", url: siteUrl }],
+    creator: "Chidi Orji",
+    publisher: "Chidi Orji",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    alternates: { canonical: url },
     openGraph: {
-      title: fullTitle,
-      description: siteDescription,
       type: "website",
-      url: siteUrl,
-      images: ["/images/headshot.JPG"],
+      siteName: "Chidi Orji",
+      locale: "en_GB",
+      url,
+      title: fullTitle,
+      description: desc,
     },
     twitter: {
-      title: fullTitle,
-      description: siteDescription,
       card: "summary_large_image",
-      site: "@chidiorji",
-      images: ["/images/headshot.JPG"],
-    },
-    alternates: {
-      canonical: siteUrl,
+      site: twitterHandle,
+      creator: twitterHandle,
+      title: fullTitle,
+      description: desc,
     },
   };
 };
