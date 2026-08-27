@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { portfolio_projects } from "lib/portfolio";
-import { stackReadableNames } from "lib/constants";
-import type { TechnologyStack } from "types/index";
+import { featuredProjects } from "lib/portfolio";
+import { techLabel } from "lib/constants";
 
-const featured = portfolio_projects.slice(0, 4);
+const featured = featuredProjects;
 
 export const SelectedWork = () => (
   <section>
@@ -45,9 +44,7 @@ export const SelectedWork = () => (
               ) : null}
               {p.stack.length ? (
                 <p className="mt-2 font-sans text-[11px] uppercase tracking-[0.14em] text-faint">
-                  {p.stack
-                    .map((s) => stackReadableNames[s as TechnologyStack])
-                    .join(" · ")}
+                  {p.stack.map((s) => techLabel(s)).join(" · ")}
                 </p>
               ) : null}
             </div>

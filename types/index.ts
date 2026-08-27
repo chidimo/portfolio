@@ -45,7 +45,9 @@ export interface Certificate {
 export interface Project {
   name: string;
   description: string;
-  stack: TechnologyStack[];
+  // Free-form tech tags. `TechnologyStack` enum members are still valid values
+  // (they are strings); newer entries pass plain strings.
+  stack: string[];
   screenshotsFolder: string;
   links: {
     name: string;

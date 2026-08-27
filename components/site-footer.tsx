@@ -4,6 +4,7 @@ import { SocialLinks } from "./social-links";
 const links = [
   { name: "Home", href: "/" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "ML Projects", href: "/ml" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
   { name: "Applications", href: "/applications" },
@@ -15,8 +16,8 @@ export const SiteFooter = () => (
       <div>
         <p className="font-serif text-lg font-bold text-ink">Chidi Orji</p>
         <p className="mt-2 max-w-xs text-muted">
-          Product-focused software engineer building scalable, well-crafted
-          web applications.
+          Full-stack AI engineer building production ML systems and the
+          applications around them.
         </p>
       </div>
 
