@@ -227,41 +227,6 @@ const portfolio_projects: Project[] = [
     ],
   },
   {
-    name: "Test x",
-    stack: [
-      TechnologyStack.reactNative,
-      TechnologyStack.redux,
-      TechnologyStack.javascript,
-    ],
-    links: [],
-    screenshotsFolder: "testx",
-    description:
-      "I built the Android app for the testX platform owned by Traindemy. The app is being developed as the educational testing platform of the 21st century, to be used remotely. I am the mobile Lead developer, both for Android and iOS, using React Native. The app and its sister site helped the team secure a $5,000 of AWS credit in a startup fare.",
-  },
-  {
-    name: "Quick Credit",
-    stack: [
-      TechnologyStack.expressJs,
-      TechnologyStack.html5,
-      TechnologyStack.css3,
-      TechnologyStack.javascript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://chidimo.github.io/Quick-Credit/UI/index.html",
-      },
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/Quick-Credit",
-      },
-      { name: "API Doc", url: "https://qcredit.docs.apiary.io/" },
-    ],
-    screenshotsFolder: "qcredit",
-    description:
-      "Quick Credit is an online lending platform that provides short term soft loans to individuals. This helps solve problems of financial inclusion as a way to alleviate poverty and empower low income earners.",
-  },
-  {
     name: "Ethodoxy",
     stack: [
       TechnologyStack.djangoRestFramework,
@@ -338,34 +303,6 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "wudURada",
     description:
       "A would you rather game I built as part of my React nanodegree program at Udacity. Game description is available in the repo.",
-  },
-  {
-    name: "Url shortener",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.meteorJs,
-      TechnologyStack.mongoDb,
-    ],
-    description: "URL shortening service with automatic redirects.",
-    screenshotsFolder: "urlShortener",
-    links: [
-      {
-        name: "Home page",
-        url: "https://basic-url-shortener.herokuapp.com",
-      },
-      { name: "Github page", url: "https://github.com/chidimo/Url-Shortener" },
-    ],
-  },
-  {
-    name: "Currency Analyzer",
-    stack: [
-      TechnologyStack.meteorJs,
-      TechnologyStack.react,
-      TechnologyStack.javascript,
-    ],
-    description: "A currency counting app. Available for web and mobile",
-    screenshotsFolder: "",
-    links: [],
   },
   {
     name: "choral central",
