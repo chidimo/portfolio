@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "media",
+  // Theming is done with CSS custom properties in app/index.css; this only
+  // matters if a `dark:` utility is ever added. `.theme-dark` is the viewer's
+  // explicit choice (set by the inline script + ThemeToggle).
+  darkMode: ["class", ".theme-dark"],
   content: [
     "./components/**/*.{js,ts,jsx,tsx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
