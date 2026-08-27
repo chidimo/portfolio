@@ -10,10 +10,10 @@ import { getMetadata } from "lib/constants";
 export const metadata = getMetadata({ title: "Chidi Orji | Portfolio" });
 
 async function getPhotos() {
-  const shotsFoler = "screenshots";
+  const shotsFolder = "screenshots";
 
   const images = imageDirectories.map((name) => {
-    const imagesPath = `public/${shotsFoler}/${name}`;
+    const imagesPath = `public/${shotsFolder}/${name}`;
 
     const imagesDir = path.join(process.cwd(), imagesPath);
 
@@ -27,7 +27,7 @@ async function getPhotos() {
       const imageFullPath = path.join(imagesDir, filename);
       const imageSizePath = path.join(imagesPath, filename);
 
-      const imagePublicUrl = path.join(`/${shotsFoler}/${name}`, filename);
+      const imagePublicUrl = path.join(`/${shotsFolder}/${name}`, filename);
       // const imageSrc = fs.readFileSync(imageFullPath, "utf8");
       const { width, height } = sizeOf(imageSizePath);
       return {

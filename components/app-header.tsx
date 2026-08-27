@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { mergeClasses } from "utils/class-merge";
 
 const navigation = [
-  { name: "Porfolio", href: "/portfolio" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
   { name: "Applications", href: "/applications" },
@@ -16,10 +16,10 @@ const navigation = [
 
 const Avatar = () => {
   return (
-    <Link href={"/"} passHref className="-">
+    <Link href={"/"} passHref>
       <span className="sr-only">Chidi Orji</span>
       <img
-        className="h-10 w-auto rounded full"
+        className="h-10 w-auto rounded-full"
         src="/images/headshot.JPG"
         alt=""
       />
