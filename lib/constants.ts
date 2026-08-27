@@ -60,6 +60,11 @@ type MetaArgs = {
 const defaultTitle =
   "Chidi Orji · Full-Stack AI Engineer — MSc Artificial Intelligence";
 
+// Set GOOGLE_SITE_VERIFICATION (e.g. in the Netlify build env) to the token
+// from Search Console's "HTML tag" verification method. When present it emits
+// <meta name="google-site-verification" …>; when absent the tag is omitted.
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+
 export const getMetadata = ({
   title,
   description,
@@ -101,6 +106,9 @@ export const getMetadata = ({
       },
     },
     alternates: { canonical: url },
+    verification: googleSiteVerification
+      ? { google: googleSiteVerification }
+      : undefined,
     openGraph: {
       type: "website",
       siteName: "Chidi Orji",
