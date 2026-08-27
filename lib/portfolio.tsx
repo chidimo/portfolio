@@ -190,23 +190,6 @@ const portfolio_projects: Project[] = [
       "Softcom Learning Management System (SLMS), aka Koya, is a learning management system for schools and organizations.",
   },
   {
-    name: "Egbe Igwe",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.redux,
-      TechnologyStack.javascript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://weather-ten-amber.vercel.app/",
-      },
-    ],
-    screenshotsFolder: "egbe",
-    description:
-      "A minimal weather app showing current weather conditions of various cities. Also uses Geolocation to get the current user’s location weather information.",
-  },
-  {
     name: "Mobile Flashcards",
     stack: [
       TechnologyStack.react,
@@ -225,24 +208,6 @@ const portfolio_projects: Project[] = [
         url: "https://github.com/chidimo/Mobile-Flashcards",
       },
     ],
-  },
-  {
-    name: "Ethodoxy",
-    stack: [
-      TechnologyStack.djangoRestFramework,
-      TechnologyStack.django,
-      TechnologyStack.react,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "http://chidimo.github.io/Ethodoxy/",
-      },
-      { name: "Github page", url: "https://github.com/chidimo/Ethodoxy" },
-    ],
-    screenshotsFolder: "ethodoxy",
-    description:
-      "The name is a short form for Electronic Orthodoxy. The current database features the Douay-Rheims version of the bible and the Challoner commentary. The app exposes a set of API endpoints, and the frontend app consumes these endpoints. These are still works in progress.",
   },
   {
     name: "react-drag-drop-browser",
@@ -303,86 +268,6 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "wudURada",
     description:
       "A would you rather game I built as part of my React nanodegree program at Udacity. Game description is available in the repo.",
-  },
-  {
-    name: "choral central",
-    stack: [TechnologyStack.django],
-    description:
-      "The app is a place for sharing choral music sheets and midi files.",
-    screenshotsFolder: "",
-    links: [],
-  },
-  {
-    name: "voidcoin",
-    stack: [
-      TechnologyStack.python,
-      TechnologyStack.django,
-      TechnologyStack.bootstrap,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "http://voidcoin.herokuapp.com/",
-      },
-      { name: "Github page", url: "https://github.com/chidimo/voidcoin" },
-    ],
-    screenshotsFolder: "voidcoin",
-    description: "A simple blockchain implementation in Python",
-  },
-  {
-    name: "YouTube and Drive API v3",
-    stack: [
-      TechnologyStack.django,
-      TechnologyStack.youtubeApiV3,
-      TechnologyStack.python,
-    ],
-    description:
-      "Request YouTube and/or Google Drive access from within a Django web app",
-    screenshotsFolder: "",
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/youtube-drive-api-v3-django",
-      },
-    ],
-  },
-  {
-    name: "Python-git",
-    stack: [TechnologyStack.python],
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/python-git",
-      },
-    ],
-    screenshotsFolder: "pygit",
-    description:
-      "This project aims to control git.exe with Python subprocess module.",
-  },
-  {
-    name: "Hack nairaland",
-    stack: [TechnologyStack.python],
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/hack-nairaland",
-      },
-    ],
-    screenshotsFolder: "nairaland",
-    description:
-      "An exercise in webscraping using nairaland.com as a case study",
-  },
-  {
-    name: "Pywebber",
-    stack: [TechnologyStack.python],
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/pywebber",
-      },
-    ],
-    screenshotsFolder: "",
-    description: "Web development tools written in Python",
   },
   {
     name: "Line of Balance",
