@@ -3,6 +3,8 @@ import { LearningPlatform, TechnologyStack } from "types";
 export const siteDescription =
   "Welcome to the personal website of Orji Chidi Matthew";
 
+export const myEmail = "orjichidi95@gmail.com";
+
 export const platformReadableNames = {
   [LearningPlatform.iversity]: "Iversity",
   [LearningPlatform.coursera]: "Coursera",

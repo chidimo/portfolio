@@ -1,15 +1,14 @@
 import Link from "next/link";
 
 import { mySocial } from "lib/social";
+import { myEmail } from "lib/constants";
 import type { Social } from "types/index";
-// import { ToptalBadge } from "./toptal-badge";
 
 const about = [
   "Experienced full-stack engineer with a frontend focus.",
   "I craft responsive, pixel-perfect UIs that balance aesthetics and performance, with a strong focus on design systems and scalable architecture.",
   "I deliver high ROI through technical depth, cross-functional collaboration, and aligning engineering decisions with business goals.",
 ];
-const myEmail = "orjichidi95@gmail.com";
 
 const techs = [
   { title: "AI", className: "text-[#1F7A1F]" },
@@ -83,8 +82,6 @@ export const HomeLeft = () => {
           Let&apos;s work together <span aria-hidden="true">→</span>
         </a>
       </div>
-
-      {/* <ToptalBadge /> */}
     </div>
   );
 };
