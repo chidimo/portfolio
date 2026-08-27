@@ -13,6 +13,8 @@ export const getColorFromStack = (stack: TechnologyStack) => {
   if (stack === TechnologyStack.javascript) color = BadgeColor.yellow;
   if (stack === TechnologyStack.web3) color = BadgeColor.green;
   if (stack === TechnologyStack.nextJs) color = BadgeColor.gray;
+  if (stack === TechnologyStack.nodeJs) color = BadgeColor.green;
+  if (stack === TechnologyStack.nx) color = BadgeColor.indigo;
   if (stack === TechnologyStack.arcgisDesktop) color = BadgeColor.blue;
   if (stack === TechnologyStack.meteorJs) color = BadgeColor.indigo;
   if (stack === TechnologyStack.bootstrap) color = BadgeColor.purple;

@@ -14,8 +14,16 @@ export default function Page() {
             "aspect-[6/5] w-full rounded-2xl object-cover lg:max-w-none xl:row-span-2"
           )}
         />
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex flex-col items-center gap-3">
           <ToptalBadge />
+          <a
+            href="https://www.toptal.com/case-study/training-app-upgrades-codebase-cost-savings"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-md font-semibold leading-6 text-blue-800"
+          >
+            Featured Toptal case study <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </div>

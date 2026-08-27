@@ -11,6 +11,8 @@ export enum TechnologyStack {
   web3 = "Web3",
   react = "React",
   nextJs = "Next.js",
+  nodeJs = "Node.js",
+  nx = "Nx",
   typescript = "Typescript",
   arcgisDesktop = "ArcGIS Desktop",
   mongoDb = "MongoDB",
