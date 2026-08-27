@@ -38,7 +38,7 @@ export const Hero = () => (
         className="w-full border border-rule object-cover"
       />
       <figcaption className="mt-2 font-serif text-sm italic text-faint">
-        Chidi Orji, {new Date().getFullYear()}.
+        Chidi Orji.
       </figcaption>
     </figure>
   </section>
