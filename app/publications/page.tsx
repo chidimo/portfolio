@@ -1,40 +1,42 @@
 import type { Publication } from "types/index";
 import { publications } from "lib/publications";
-import { SectionHeader } from "components/section-header";
-import Link from "next/link";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { PageHeader } from "components/page-header";
 import { getMetadata } from "lib/constants";
+import { formatMonthYear } from "utils/format-date";
 
-export const metadata = getMetadata({ title: "Chidi Orji | Publications" });
+export const metadata = getMetadata({ title: "Publications" });
 
 export default function Publications() {
-  publications.sort((a, b) => {
-    return new Date(b.pub_date).getTime() - new Date(a.pub_date).getTime();
-  });
+  const sorted = [...publications].sort(
+    (a, b) => new Date(b.pub_date).getTime() - new Date(a.pub_date).getTime()
+  );
 
   return (
     <div>
-      <ul className="divide-y divide-gray-200">
-        {publications.map((pub: Publication) => {
-          return (
-            <li key={pub.title} className="py-4 space-y-4">
-              <SectionHeader
-                title={pub.title}
-                imageURl={`https://ui-avatars.com/api/?name=${pub.platform}`}
-              />
+      <PageHeader
+        kicker="Writing"
+        title="Publications"
+        intro="Articles I've written for Smashing Magazine and elsewhere — mostly on React, testing, and frontend architecture."
+      />
 
-              <Link
-                href={pub.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-l leading-5 default-body-text"
-              >
-                View publication
-                <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
-              </Link>
-            </li>
-          );
-        })}
+      <ul className="divide-y divide-rule">
+        {sorted.map((pub: Publication) => (
+          <li key={pub.title}>
+            <a
+              href={pub.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:gap-8"
+            >
+              <span className="font-serif text-lg transition-colors group-hover:text-accent">
+                {pub.title}
+              </span>
+              <span className="font-sans text-[11px] uppercase tracking-[0.14em] text-faint sm:text-right">
+                {pub.platform} — {formatMonthYear(pub.pub_date)}
+              </span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

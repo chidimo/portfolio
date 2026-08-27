@@ -1,123 +1,77 @@
 "use client";
 
 import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mergeClasses } from "utils/class-merge";
 
-type NavLink = { name: string; href: string };
-
-const navigation: NavLink[] = [
+const nav = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
   { name: "Applications", href: "/applications" },
 ];
 
-const Avatar = () => {
-  return (
-    <Link href={"/"} passHref>
-      <span className="sr-only">Chidi Orji</span>
-      <img
-        className="h-10 w-auto rounded-full"
-        src="/images/headshot.JPG"
-        alt=""
-      />
-    </Link>
-  );
-};
-
-const NavItem = ({
-  item,
-  pathName,
-  classNames = "",
-}: {
-  item: NavLink;
-  pathName: string;
-  classNames?: string;
-}) => {
-  return (
-    <Link
-      href={item.href}
-      className={mergeClasses(
-        "text-sm font-semibold text-white py-1 px-1.5",
-        pathName?.includes(item.href)
-          ? "border border-gray-50 rounded-md opacity-100"
-          : "opacity-90",
-        classNames
-      )}
-    >
-      <span>{item.name}</span>
-    </Link>
-  );
-};
+const active = (path: string | null, href: string) =>
+  path === href || (href !== "/" && !!path?.startsWith(`${href}/`));
 
 export function AppHeader() {
-  const pathName = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const path = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-blue-900">
-      <nav
-        className="mx-auto flex items-center justify-between py-6 px-8 md:px-20"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <Avatar />
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-8 w-8 text-white" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <NavItem key={item.name} item={item} pathName={pathName} />
-          ))}
-        </div>
-      </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-          <div className="flex items-center justify-between">
-            <Avatar />
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-900"
-              onClick={() => setMobileMenuOpen(false)}
+    <header className="border-b border-rule">
+      <div className="measure flex items-baseline justify-between gap-6 py-5">
+        <Link
+          href="/"
+          className="font-serif text-lg font-bold tracking-tight text-ink"
+        >
+          Chidi&nbsp;Orji
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="label sm:hidden"
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+
+        <nav className="hidden items-baseline gap-6 sm:flex" aria-label="Global">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={mergeClasses(
+                "font-sans text-xs font-semibold uppercase tracking-[0.16em] transition-colors",
+                active(path, item.href)
+                  ? "text-accent"
+                  : "text-faint hover:text-ink"
+              )}
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-8 w-8 text-white" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/25">
-              <div className="flex flex-col space-y-6 py-6">
-                {navigation.map((item) => (
-                  <NavItem
-                    key={item.name}
-                    item={item}
-                    pathName={pathName}
-                    classNames="py-2"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      {open ? (
+        <nav className="measure flex flex-col gap-3 border-t border-rule py-4 sm:hidden">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={mergeClasses(
+                "font-sans text-sm font-semibold uppercase tracking-[0.16em]",
+                active(path, item.href) ? "text-accent" : "text-faint"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
     </header>
   );
 }

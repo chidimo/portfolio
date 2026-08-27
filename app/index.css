@@ -2,7 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-.default-body-text {
-  @apply text-blue-900/70
+/* Light is the primary theme. */
+:root {
+  --paper: 251 249 244;
+  --card: 255 255 255;
+  --ink: 24 23 21;
+  --muted: 92 86 78;
+  --faint: 142 134 122;
+  --rule: 214 206 192;
+  --accent: 155 27 42;
+  --accent-ink: 255 250 246;
 }
 
+/* Dark is the secondary theme — a warm inversion. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: 22 21 19;
+    --card: 29 27 24;
+    --ink: 240 236 228;
+    --muted: 174 166 153;
+    --faint: 122 115 104;
+    --rule: 56 52 46;
+    --accent: 232 138 128;
+    --accent-ink: 22 21 19;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-serif text-base leading-[1.7] text-ink antialiased;
+    font-feature-settings: "liga", "kern";
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.18);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-ink;
+  }
+}
+
+@layer components {
+  .measure {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .label {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-faint;
+  }
+
+  .rule {
+    @apply border-0 border-t border-rule;
+  }
+
+  .a-link {
+    @apply text-ink underline decoration-rule underline-offset-2;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+  .a-link:hover {
+    color: rgb(var(--accent));
+    text-decoration-color: rgb(var(--accent));
+  }
+
+  .more {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-accent;
+  }
+
+  .clip {
+    @apply border border-rule bg-card p-5;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-[0.14em];
+  }
+  .btn-fill {
+    @apply bg-accent px-4 py-2.5 text-accent-ink;
+    transition: opacity 0.15s;
+  }
+  .btn-fill:hover {
+    opacity: 0.9;
+  }
+  .btn-line {
+    @apply border border-ink px-4 py-2.5 text-ink;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-line:hover {
+    color: rgb(var(--accent));
+    border-color: rgb(var(--accent));
+  }
+
+  .dropcap::first-letter {
+    float: left;
+    margin-right: 0.5rem;
+    margin-top: 0.35rem;
+    font-weight: 700;
+    font-size: 3.1rem;
+    line-height: 0.8;
+    color: rgb(var(--accent));
+  }
+
+  .default-body-text {
+    @apply text-muted;
+  }
+}

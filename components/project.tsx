@@ -1,55 +1,51 @@
 "use client";
 
-import type {
-  Project as ProjectType,
-  TBadgeColor,
-  TechnologyStack,
-} from "types/index";
-import { SectionHeader } from "./section-header";
-import { TechStackBadge, getColorFromStack } from "./tech-stack-badge";
+import type { Project as ProjectType, TechnologyStack } from "types/index";
+import { TechStackBadge } from "./tech-stack-badge";
 import { stackReadableNames } from "lib/constants";
 
 type Props = {
   onClick: () => void;
   projectItem: ProjectType;
+  index: number;
 };
 
-export const Project = (props: Props) => {
-  const { projectItem, onClick } = props;
-
-  return (
-    <li className="flex flex-col mb-5 pt-5">
-      <div className="flex flex-col gap-x-4 col-span-2">
-        <SectionHeader
-          title={projectItem.name}
-          description={projectItem.description}
-          imageURl={`https://ui-avatars.com/api/?name=${projectItem.name}`}
-        />
-
-        <div className="mt-5 flex flex-wrap gap-4">
-          {projectItem.stack.map((st) => {
-            return (
-              <div key={st}>
-                <TechStackBadge
-                  key={st}
-                  text={stackReadableNames[st as TechnologyStack]}
-                  color={
-                    getColorFromStack(st as TechnologyStack) as TBadgeColor
-                  }
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <button
-          type="button"
-          onClick={onClick}
-          className="flex items-center text-l leading-5 text-blue-500 cursor-pointer mt-5"
-        >
-          See more
-        </button>
+export const Project = ({ projectItem, onClick, index }: Props) => (
+  <li>
+    <button
+      type="button"
+      onClick={onClick}
+      className="clip group flex h-full w-full flex-col gap-3 text-left transition-colors hover:border-ink"
+    >
+      <div className="flex items-baseline gap-3">
+        <span className="font-serif text-lg text-faint">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="font-serif text-lg font-bold leading-snug">
+          {projectItem.name}
+        </h3>
       </div>
-    </li>
-  );
-};
+
+      {projectItem.description ? (
+        <p className="line-clamp-3 text-sm text-muted">
+          {projectItem.description}
+        </p>
+      ) : null}
+
+      {projectItem.stack.length ? (
+        <p className="flex flex-wrap gap-x-3 gap-y-1">
+          {projectItem.stack.map((st) => (
+            <TechStackBadge
+              key={st}
+              text={stackReadableNames[st as TechnologyStack]}
+            />
+          ))}
+        </p>
+      ) : null}
+
+      <span className="more mt-auto">
+        Read entry <span className="transition-transform group-hover:translate-x-0.5 inline-block">→</span>
+      </span>
+    </button>
+  </li>
+);

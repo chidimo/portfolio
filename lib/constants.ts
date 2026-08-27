@@ -1,7 +1,9 @@
 import { LearningPlatform, TechnologyStack } from "types";
 
+export const siteUrl = "https://chidimo.netlify.app";
+
 export const siteDescription =
-  "Welcome to the personal website of Orji Chidi Matthew";
+  "Chidi Orji — product-focused software engineer building scalable, well-crafted web applications.";
 
 export const myEmail = "orjichidi95@gmail.com";
 
@@ -44,8 +46,11 @@ type MetaArgs = {
   title?: string;
 };
 export const getMetadata = ({ title }: MetaArgs) => {
-  const fullTitle = title ? `${title} – Chidi Orji` : "Chidi Orji | My Personal Website";
+  const fullTitle = title
+    ? `${title} – Chidi Orji`
+    : "Chidi Orji · Product-Focused Software Engineer";
   return {
+    metadataBase: new URL(siteUrl),
     title: fullTitle,
     description: siteDescription,
     keywords: ["Chidi Orji", "Chidi Orji's Portfolio", "Chidi Orji's Website"],
@@ -53,7 +58,7 @@ export const getMetadata = ({ title }: MetaArgs) => {
       title: fullTitle,
       description: siteDescription,
       type: "website",
-      url: "https://chidimo.netlify.app",
+      url: siteUrl,
       images: ["/images/headshot.JPG"],
     },
     twitter: {
@@ -64,7 +69,7 @@ export const getMetadata = ({ title }: MetaArgs) => {
       images: ["/images/headshot.JPG"],
     },
     alternates: {
-      canonical: "https://chidimo.netlify.app",
+      canonical: siteUrl,
     },
   };
 };

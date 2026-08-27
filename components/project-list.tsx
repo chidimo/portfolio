@@ -1,19 +1,12 @@
 "use client";
 
-import clsx from "clsx";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import { useMemo, useState } from "react";
 import { portfolio_projects, techStacks } from "lib/portfolio";
-import type {
-  ProjectNameAndImage,
-  Project as ProjectType,
-  TBadgeColor,
-  TechnologyStack,
-} from "types/index";
+import type { ProjectNameAndImage, TechnologyStack } from "types/index";
 import { Project } from "components/project";
 import Modal from "./Modal";
-import { TechStackBadge, getColorFromStack } from "./tech-stack-badge";
+import { TechStackBadge } from "./tech-stack-badge";
 import { stackReadableNames } from "lib/constants";
 
 type Props = {
@@ -24,158 +17,123 @@ export const ProjectList = ({ projectImages }: Props) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedStack, setSelectedStack] = useState<string[]>([]);
 
-  const selectedProject = portfolio_projects.find(
-    (pp) => pp.name === selectedId
-  );
+  const selectedProject = portfolio_projects.find((p) => p.name === selectedId);
 
-  const images = projectImages.filter((pImg) => {
-    if (pImg.projectName === selectedProject?.screenshotsFolder) {
-      return true;
-    }
-  })[0]?.fileData;
+  const images = projectImages.find(
+    (p) => p.projectName === selectedProject?.screenshotsFolder
+  )?.fileData;
 
-  const [visibleProjects, setVisibleProjects] = useState<ProjectType[]>([]);
-
-  useEffect(() => {
-    let visibleProjects = portfolio_projects;
-
-    if (selectedStack.length > 0) {
-      visibleProjects = visibleProjects.filter((pf) => {
-        return selectedStack.some((el) =>
-          pf.stack.includes(el as TechnologyStack)
-        );
-      });
-    }
-
-    setVisibleProjects(visibleProjects);
+  const visible = useMemo(() => {
+    if (selectedStack.length === 0) return portfolio_projects;
+    return portfolio_projects.filter((p) =>
+      selectedStack.some((t) => p.stack.includes(t as TechnologyStack))
+    );
   }, [selectedStack]);
+
+  const toggle = (s: string) =>
+    setSelectedStack((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
+    );
 
   return (
     <div>
-      <div className="mb-10 default-body-text">
-        <p className="">
-          Below is a non-exhaustive list of projects I have done in the course
-          of my career.
-        </p>
-        <p className="">
-          You can filter the projects by clicking on any of the technologies
-          listed on the right.
-        </p>
+      <p className="label mb-3">Filter by technology</p>
+      <div className="mb-6 flex flex-wrap gap-2">
+        {techStacks.map((stack) => (
+          <TechStackBadge
+            key={stack}
+            text={stackReadableNames[stack as TechnologyStack]}
+            isSelected={selectedStack.includes(stack)}
+            onClick={() => toggle(stack)}
+          />
+        ))}
+        {selectedStack.length > 0 ? (
+          <button
+            type="button"
+            onClick={() => setSelectedStack([])}
+            className="more"
+          >
+            Clear
+          </button>
+        ) : null}
       </div>
 
-      <div className="flex flex-col-reverse md:flex-row justify-between gap-x-8">
-        <ul className="divide-y divide-gray-100">
-          {visibleProjects.map((projectItem) => (
-            <Project
-              key={projectItem.name}
-              projectItem={projectItem}
-              onClick={() => {
-                setSelectedId(projectItem.name);
-              }}
-            />
-          ))}
-        </ul>
-        <div
-          className={clsx(
-            "flex flex-wrap",
-            "bg-white px-1 h-40 space-y-3",
-            "flex-col overflow-y-auto",
-            "md:h-full md:overflow-y-visible"
-          )}
-        >
-          {techStacks.map((stack) => {
-            return (
-              <TechStackBadge
-                key={stack}
-                text={stackReadableNames[stack as TechnologyStack]}
-                color={
-                  getColorFromStack(stack as TechnologyStack) as TBadgeColor
-                }
-                isSelected={selectedStack.includes(stack)}
-                onClick={() => {
-                  if (selectedStack.includes(stack)) {
-                    setSelectedStack((prev) => prev.filter((s) => s !== stack));
-                  } else {
-                    setSelectedStack((prev) => [...prev, stack]);
-                  }
-                }}
-              />
-            );
-          })}
-        </div>
-      </div>
+      <p className="mb-6 font-sans text-[11px] uppercase tracking-[0.14em] text-faint">
+        {visible.length} of {portfolio_projects.length} entries
+      </p>
 
-      {selectedId && selectedProject && (
+      <ul className="grid gap-4 sm:auto-rows-fr sm:grid-cols-2">
+        {visible.map((projectItem, i) => (
+          <Project
+            key={projectItem.name}
+            index={i}
+            projectItem={projectItem}
+            onClick={() => setSelectedId(projectItem.name)}
+          />
+        ))}
+      </ul>
+
+      {selectedId && selectedProject ? (
         <Modal
-          title=""
           isOpen={!!selectedId}
-          onClose={() => {
-            setSelectedId(null);
-          }}
+          onClose={() => setSelectedId(null)}
+          title={selectedProject.name}
           content={
             <div className="space-y-5">
-              <div className="space-y-5">
-                <h2 className="mb-2 text-xl font-semibold leading-6 text-blue-900">
-                  {selectedProject.name}
-                </h2>
-                <p className="mb-2">{selectedProject.description}</p>
+              <p className="text-muted">
+                {selectedProject.description || "—"}
+              </p>
 
-                <div className="mb-2 flex flex-wrap gap-2 items-center">
-                  Made with{" "}
-                  {selectedProject.stack?.map((st) => {
-                    return (
+              {selectedProject.stack?.length ? (
+                <div>
+                  <p className="label mb-2">Stack</p>
+                  <p className="flex flex-wrap gap-x-3 gap-y-1">
+                    {selectedProject.stack.map((st) => (
                       <TechStackBadge
                         key={st}
                         text={stackReadableNames[st as TechnologyStack]}
-                        color={
-                          getColorFromStack(
-                            st as TechnologyStack
-                          ) as TBadgeColor
-                        }
                       />
-                    );
-                  })}
+                    ))}
+                  </p>
                 </div>
-                <hr />
+              ) : null}
 
-                <div className="">
-                  {selectedProject.links?.map((link) => {
-                    return (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center leading-5 default-body-text text-md"
-                        key={link.name}
-                        href={link.url}
-                      >
-                        {link.name}{" "}
-                        <ArrowTopRightOnSquareIcon className="h-5 w-5 ml-1.5" />
-                      </Link>
-                    );
-                  })}
+              {selectedProject.links?.length ? (
+                <div>
+                  <p className="label mb-2">Links</p>
+                  <ul className="space-y-1">
+                    {selectedProject.links.map((link) => (
+                      <li key={link.name}>
+                        <Link
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="a-link"
+                        >
+                          {link.name} ↗
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              ) : null}
 
-              <div className="pictures">
-                {images?.map((image) => {
-                  return (
-                    <div
+              {images?.length ? (
+                <div className="space-y-3 border-t border-rule pt-4">
+                  {images.map((image) => (
+                    <img
                       key={image.imagePublicUrl}
-                      className="mb-5 border border-gray-300 rounded-md"
-                    >
-                      <img
-                        src={image.imagePublicUrl}
-                        alt=""
-                        className="rounded border border-gray-300"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+                      src={image.imagePublicUrl}
+                      alt=""
+                      className="w-full border border-rule"
+                    />
+                  ))}
+                </div>
+              ) : null}
             </div>
           }
         />
-      )}
+      ) : null}
     </div>
   );
 };

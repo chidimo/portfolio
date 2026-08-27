@@ -1,84 +1,60 @@
 import Link from "next/link";
 import { applications } from "lib/applications";
+import { SectionHeader } from "components/section-header";
+import { PageHeader } from "components/page-header";
+import { getMetadata } from "lib/constants";
+
+export const metadata = getMetadata({ title: "Applications" });
+
+type AppLink = { label: string; href: string };
 
 export default function ApplicationsPage() {
   return (
-    <main>
-      <h1 className="text-2xl font-bold mb-2">Applications</h1>
-      <p className="text-gray-700 mb-8">
-        A list of hobby apps I&apos;m maintaining. Blue links are web apps, and
-        mobile icons indicate the appropriate platform.
-      </p>
-      <ul className="space-y-6">
+    <div>
+      <PageHeader
+        kicker="Side Projects"
+        title="Applications"
+        intro="Small products I build and maintain for fun — on the web, in editor marketplaces, and on mobile."
+      />
+
+      <ul className="grid gap-4 sm:auto-rows-fr sm:grid-cols-2">
         {applications.map((app) => {
+          const links: AppLink[] = [
+            app.webUrl && { label: "Web app", href: app.webUrl },
+            app.vsCode && { label: "VS Code Marketplace", href: app.vsCode },
+            app.openVsx && { label: "Open VSX", href: app.openVsx },
+            app.playStoreUrl && { label: "Google Play", href: app.playStoreUrl },
+          ].filter(Boolean) as AppLink[];
+
           return (
-            <li key={app.name} className="pb-2 border-b border-b-1">
-              <p className="text-gray-700 text-lg font-semibold">{app.name}</p>
-
-              <p className="text-gray-600 mb-3">{app.description}</p>
-
-              <div className="space-y-2">
-                {app.webUrl ? (
-                  <div>
-                    <Link
-                      className="text-blue-700 hover:underline font-semibold"
-                      href={app.webUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      On the web
-                    </Link>
-                  </div>
-                ) : null}
-
-                {app.vsCode ? (
-                  <div className="flex">
-                    <Link
-                      href={app.vsCode}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="text-blue-700 hover:underline font-semibold">
-                        Get it on VS Code Marketplace
-                      </span>
-                    </Link>
-                  </div>
-                ) : null}
-
-                {app.openVsx ? (
-                  <div className="flex">
-                    <Link
-                      href={app.openVsx}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="text-blue-700 hover:underline font-semibold">
-                        Get it on the Open VSX Registry
-                      </span>
-                    </Link>
-                  </div>
-                ) : null}
-
-                {app.playStoreUrl ? (
-                  <div className="flex my-4">
-                    <Link
-                      href={app.playStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="/GetItOnGooglePlay_Badge_Web_color_English.png"
-                        alt="Get it on Google Play"
-                        className="h-12"
-                      />
-                    </Link>
-                  </div>
-                ) : null}
+            <li key={app.name} className="clip flex flex-col gap-4">
+              <SectionHeader title={app.name} description={app.description} />
+              <div className="mt-auto border-t border-rule pt-4">
+                {links.length ? (
+                  <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+                    {links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="more"
+                        >
+                          {link.label} ↗
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="font-sans text-[11px] uppercase tracking-[0.14em] text-faint">
+                    In development
+                  </p>
+                )}
               </div>
             </li>
           );
         })}
       </ul>
-    </main>
+    </div>
   );
 }

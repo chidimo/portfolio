@@ -75,8 +75,7 @@ export interface ProjectNameAndImage {
 
 export interface Social {
   title: string;
-  socialUrl: string;
-  badgeUrl: string;
+  url: string;
 }
 
 export enum BadgeColor {
