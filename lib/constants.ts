@@ -17,7 +17,7 @@ export const stackReadableNames = {
   [TechnologyStack.react]: "React",
   [TechnologyStack.nextJs]: "NextJS",
   [TechnologyStack.typescript]: "TypeScript",
-  [TechnologyStack.arcgisDesktop]: "ArchGIS Desktop",
+  [TechnologyStack.arcgisDesktop]: "ArcGIS Desktop",
   [TechnologyStack.mongoDb]: "MongoDB",
   [TechnologyStack.meteorJs]: "MeteorJS",
   [TechnologyStack.python]: "Python",

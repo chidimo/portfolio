@@ -23,7 +23,7 @@ export const Project = (props: Props) => {
         <SectionHeader
           title={projectItem.name}
           description={projectItem.description}
-          imageURl={`https://ui-avatars.com/api/name=${projectItem.name}`}
+          imageURl={`https://ui-avatars.com/api/?name=${projectItem.name}`}
         />
 
         <div className="mt-5 flex flex-wrap gap-4">

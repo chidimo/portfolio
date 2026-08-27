@@ -54,7 +54,7 @@ export const ProjectList = ({ projectImages }: Props) => {
     <div>
       <div className="mb-10 default-body-text">
         <p className="">
-          Below is a non-exhaustime list of projects I have done in the course
+          Below is a non-exhaustive list of projects I have done in the course
           of my career.
         </p>
         <p className="">
