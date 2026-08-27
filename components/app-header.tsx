@@ -7,7 +7,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mergeClasses } from "utils/class-merge";
 
-const navigation = [
+type NavLink = { name: string; href: string };
+
+const navigation: NavLink[] = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Certifications", href: "/certifications" },
   { name: "Publications", href: "/publications" },
@@ -32,13 +34,12 @@ const NavItem = ({
   pathName,
   classNames = "",
 }: {
-  item: any;
+  item: NavLink;
   pathName: string;
   classNames?: string;
 }) => {
   return (
-    <a
-      key={item.name}
+    <Link
       href={item.href}
       className={mergeClasses(
         "text-sm font-semibold text-white py-1 px-1.5",
@@ -49,7 +50,7 @@ const NavItem = ({
       )}
     >
       <span>{item.name}</span>
-    </a>
+    </Link>
   );
 };
 
