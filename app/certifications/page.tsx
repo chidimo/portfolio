@@ -6,7 +6,12 @@ import { PlatformBadge } from "components/platform-badge";
 import { PageHeader } from "components/page-header";
 import { getMetadata } from "lib/constants";
 
-export const metadata = getMetadata({ title: "Certifications" });
+export const metadata = getMetadata({
+  title: "Certifications",
+  path: "/certifications",
+  description:
+    "Coursework and credentials by Chidi Orji — web and data science, GIS, and project management.",
+});
 
 export default function Certifications() {
   const sorted = [...certificates].sort((a, b) => a.relevance - b.relevance);
