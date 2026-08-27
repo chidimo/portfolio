@@ -2,7 +2,6 @@ import { Fragment, ReactElement } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-
 type Props = {
   isOpen: boolean;
   title: string;
@@ -13,71 +12,60 @@ type Props = {
 
 export default function Modal(props: Readonly<Props>) {
   const { isOpen, onClose, title, content, actions } = props;
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog
-        as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={onClose}
-      >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
+      <Dialog as="div" className="relative z-50" onClose={onClose}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-200"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="fixed inset-0 bg-ink/40 backdrop-blur-sm" />
+        </Transition.Child>
 
-          {/* This element is to trick the browser into centering the modal contents. */}
-          <span
-            className="hidden sm:inline-block sm:align-middle sm:h-screen"
-            aria-hidden="true"
-          >
-            &#8203;
-          </span>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            enterTo="opacity-100 translate-y-0 sm:scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          >
-            <div className="inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all my-8 align-middle w-[592px]">
-              <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+        <div className="fixed inset-0 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-200"
+              enterFrom="opacity-0 translate-y-3 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-3 sm:scale-95"
+            >
+              <Dialog.Panel className="relative w-full max-w-xl rounded-2xl border border-line bg-surface p-6 text-left shadow-xl sm:p-8">
                 <button
                   type="button"
-                  className="bg-white rounded-md text-gray-900 hover:default-body-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
                   onClick={onClose}
+                  className="absolute right-4 top-4 rounded-md p-1 text-faint transition-colors hover:text-ink"
                 >
-                  <span className="sr-only">{"closeCopy"}</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  <span className="sr-only">Close</span>
+                  <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                 </button>
-              </div>
 
-              <div className="mt-3 text-center sm:mt-0 sm:text-left">
-                {title && (
+                {title ? (
                   <Dialog.Title
                     as="h3"
-                    className="text-xl leading-6 font-medium text-gray-700"
+                    className="text-lg font-semibold text-ink"
                   >
                     {title}
                   </Dialog.Title>
-                )}
-                <div className="mt-2">
-                  <div className="text-sm default-body-text">{content}</div>
-                </div>
-              </div>
+                ) : null}
 
-              {actions && <div className="mt-6 flex space-x-3">{actions}</div>}
-            </div>
-          </Transition.Child>
+                <div className="text-ink">{content}</div>
+
+                {actions ? (
+                  <div className="mt-6 flex gap-3">{actions}</div>
+                ) : null}
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
         </div>
       </Dialog>
     </Transition.Root>

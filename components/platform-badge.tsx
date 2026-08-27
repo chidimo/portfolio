@@ -1,34 +1,16 @@
-"use client";
-
-import { BadgeColor, LearningPlatform } from "types";
+import { LearningPlatform } from "types";
 import { platformReadableNames } from "lib/constants";
-import clsx from "clsx";
 
 interface Props {
   platform?: LearningPlatform;
 }
 
-export const PlatformBadge = (props: Props) => {
-  const { platform } = props;
-
+export const PlatformBadge = ({ platform }: Props) => {
   if (!platform) return null;
 
-  let color: unknown = "";
-
-  if (platform === LearningPlatform.iversity) color = BadgeColor.green;
-  if (platform === LearningPlatform.coursera) color = BadgeColor.blue;
-  if (platform === LearningPlatform.udacity) color = BadgeColor.indigo;
   return (
-    // <Badge text={platformReadableNames[platform]} color={color as undefined} />
-
-    <button
-      type="button"
-      className={clsx(
-        "inline-flex w-fit text-center items-center justify-center border rounded-full px-2 py-1 text-xs font-medium whitespace-nowrap"
-      )}
-      title={platformReadableNames[platform]}
-    >
+    <span className="inline-flex w-fit items-center rounded-full border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-muted">
       {platformReadableNames[platform]}
-    </button>
+    </span>
   );
 };

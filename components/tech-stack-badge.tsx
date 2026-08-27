@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import { BadgeColor, TechnologyStack, type TBadgeColor } from "types";
+import { mergeClasses } from "utils/class-merge";
 
 export const getColorFromStack = (stack: TechnologyStack) => {
   if (!stack) return null;
@@ -38,40 +38,42 @@ export const getColorFromStack = (stack: TechnologyStack) => {
   return color;
 };
 
-const getBadgeColor = (color: TBadgeColor) => {
+const dotColor = (color: TBadgeColor) => {
   switch (color) {
     case BadgeColor.gray:
-      return "bg-gray-100 text-gray-800 border-gray-400";
+      return "text-stone-500 dark:text-stone-300";
     case BadgeColor.red:
-      return "bg-red-100 text-red-700 border-red-400";
+      return "text-red-600 dark:text-red-400";
     case BadgeColor.blue:
-      return "bg-blue-100 text-blue-700 border-blue-400";
+      return "text-blue-600 dark:text-blue-400";
     case BadgeColor.green:
-      return "bg-green-100 text-green-700 border-green-400";
+      return "text-emerald-600 dark:text-emerald-400";
     case BadgeColor.yellow:
-      return "bg-yellow-100 text-yellow-800 border-yellow-400";
+      return "text-amber-600 dark:text-amber-400";
     case BadgeColor.indigo:
-      return "bg-indigo-100 text-indigo-700 border-indigo-400";
+      return "text-indigo-600 dark:text-indigo-400";
     case BadgeColor.purple:
-      return "bg-purple-100 text-purple-700 border-purple-400";
+      return "text-purple-600 dark:text-purple-400";
     case BadgeColor.pink:
-      return "bg-pink-100 text-pink-700 border-pink-400";
+      return "text-pink-600 dark:text-pink-400";
     case BadgeColor.solidjsblue:
-      return "bg-[#4e88c6]/10 text-[#4e88c6] border-[#4e88c6]";
+      return "text-[#4e88c6]";
     case BadgeColor.tailwindcssblue:
-      return "bg-[#00b4d8]/10 text-[#00b4d8] border-[#00b4d8]";
+      return "text-[#0ca5c9]";
     case BadgeColor.typescriptblue:
-      return "bg-[#3178C6]/10 text-[#3178C6] border-[#3178C6]";
+      return "text-[#3178C6] dark:text-[#6ea9e6]";
     case BadgeColor.reactblue:
-      return "bg-[#58c4dc]/5 text-[#58c4dc] border-[#58c4dc]";
+      return "text-[#3f9fb5] dark:text-[#58c4dc]";
     case BadgeColor.pythonblue:
-      return "bg-[#2d618c]/10 text-[#2d618c] border-[#2d618c]";
+      return "text-[#2d618c] dark:text-[#6fa8cf]";
     case BadgeColor.drfred:
-      return "bg-[#A30000]/10 text-[#A30000] border-[#A30000]";
+      return "text-[#A30000] dark:text-[#e07a7a]";
     case BadgeColor.djangogreen:
-      return "bg-[#0b4b33]/10 text-[#0b4b33] border-[#0b4b33]";
+      return "text-[#0b7a53] dark:text-[#5fae8f]";
     case BadgeColor.mongogreen:
-      return "bg-[#00684A]/10 text-[#00684A] border-[#00684A]";
+      return "text-[#00684A] dark:text-[#4fb894]";
+    default:
+      return "text-muted";
   }
 };
 
@@ -83,22 +85,46 @@ interface Props {
   className?: string;
 }
 
-export const TechStackBadge = (props: Props) => {
-  const { text, color = "blue", onClick, isSelected, className } = props;
+export const TechStackBadge = ({
+  text,
+  color = "blue",
+  onClick,
+  isSelected,
+  className,
+}: Props) => {
+  const classes = mergeClasses(
+    "inline-flex w-fit items-center gap-1.5 rounded-md border px-2 py-1 text-xs font-medium whitespace-nowrap transition-colors",
+    isSelected
+      ? "border-accent bg-accent/10 text-accent"
+      : "border-line bg-surface text-muted",
+    onClick ? "cursor-pointer hover:border-accent/50 hover:text-ink" : "",
+    className
+  );
+
+  const inner = (
+    <>
+      <span
+        aria-hidden="true"
+        className={mergeClasses(
+          "h-1.5 w-1.5 rounded-full bg-current",
+          isSelected ? "text-accent" : dotColor(color)
+        )}
+      />
+      {text}
+    </>
+  );
+
+  if (!onClick) {
+    return (
+      <span className={classes} title={text}>
+        {inner}
+      </span>
+    );
+  }
 
   return (
-    <button
-      type="button"
-      onClick={onClick || (() => null)}
-      className={clsx(
-        "inline-flex w-fit text-center items-center justify-center border rounded-full px-2 py-1 text-xs font-medium whitespace-nowrap",
-        onClick ? "cursor-pointer" : "cursor-default",
-        getBadgeColor(color),
-        className
-      )}
-      title={text}
-    >
-      {text}
+    <button type="button" onClick={onClick} className={classes} title={text}>
+      {inner}
     </button>
   );
 };

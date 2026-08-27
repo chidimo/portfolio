@@ -1,19 +1,18 @@
 import "./index.css";
+import type { ReactNode } from "react";
 import { AppHeader } from "components/app-header";
+import { SiteFooter } from "components/site-footer";
 import { getMetadata } from "lib/constants";
 
 export const metadata = getMetadata({});
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex min-h-screen flex-col font-sans">
         <AppHeader />
-        <div className="px-8 md:px-20 py-10 overflow-auto">{children}</div>
+        <main className="container-page flex-1 py-16 sm:py-20">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

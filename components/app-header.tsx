@@ -16,105 +16,94 @@ const navigation: NavLink[] = [
   { name: "Applications", href: "/applications" },
 ];
 
-const Avatar = () => {
-  return (
-    <Link href={"/"} passHref>
-      <span className="sr-only">Chidi Orji</span>
-      <img
-        className="h-10 w-auto rounded-full"
-        src="/images/headshot.JPG"
-        alt=""
-      />
-    </Link>
-  );
-};
+const isActive = (pathName: string | null, href: string) =>
+  pathName === href || (href !== "/" && !!pathName?.startsWith(`${href}/`));
 
-const NavItem = ({
-  item,
-  pathName,
-  classNames = "",
-}: {
-  item: NavLink;
-  pathName: string;
-  classNames?: string;
-}) => {
-  return (
-    <Link
-      href={item.href}
-      className={mergeClasses(
-        "text-sm font-semibold text-white py-1 px-1.5",
-        pathName?.includes(item.href)
-          ? "border border-gray-50 rounded-md opacity-100"
-          : "opacity-90",
-        classNames
-      )}
-    >
-      <span>{item.name}</span>
-    </Link>
-  );
-};
+const Wordmark = () => (
+  <Link href="/" className="flex items-center gap-2.5">
+    <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-[12px] font-bold text-bg">
+      CO
+    </span>
+    <span className="text-sm font-semibold tracking-tightish text-ink">
+      Chidi Orji
+    </span>
+  </Link>
+);
 
 export function AppHeader() {
   const pathName = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-blue-900">
+    <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur">
       <nav
-        className="mx-auto flex items-center justify-between py-6 px-8 md:px-20"
+        className="container-page flex h-16 items-center justify-between"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
-          <Avatar />
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-8 w-8 text-white" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <Wordmark />
+
+        <div className="hidden md:flex md:items-center md:gap-1">
           {navigation.map((item) => (
-            <NavItem key={item.name} item={item} pathName={pathName} />
+            <Link
+              key={item.href}
+              href={item.href}
+              className={mergeClasses(
+                "rounded-md px-3 py-1.5 text-sm transition-colors",
+                isActive(pathName, item.href)
+                  ? "bg-elevated font-medium text-ink"
+                  : "text-muted hover:text-ink"
+              )}
+            >
+              {item.name}
+            </Link>
           ))}
         </div>
+
+        <button
+          type="button"
+          className="-mr-2 inline-flex items-center justify-center rounded-md p-2 text-muted md:hidden"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <span className="sr-only">Open main menu</span>
+          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+        </button>
       </nav>
+
       <Dialog
         as="div"
-        className="lg:hidden"
+        className="md:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <div className="fixed inset-0 z-40 bg-ink/20 backdrop-blur-sm" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full max-w-xs overflow-y-auto border-l border-line bg-bg px-6 py-5">
           <div className="flex items-center justify-between">
-            <Avatar />
+            <Wordmark />
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-900"
+              className="-mr-2 rounded-md p-2 text-muted"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-8 w-8 text-white" aria-hidden="true" />
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/25">
-              <div className="flex flex-col space-y-6 py-6">
-                {navigation.map((item) => (
-                  <NavItem
-                    key={item.name}
-                    item={item}
-                    pathName={pathName}
-                    classNames="py-2"
-                  />
-                ))}
-              </div>
-            </div>
+          <div className="mt-8 flex flex-col gap-1">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={mergeClasses(
+                  "rounded-lg px-3 py-2.5 text-base transition-colors",
+                  isActive(pathName, item.href)
+                    ? "bg-elevated font-medium text-ink"
+                    : "text-muted hover:bg-elevated hover:text-ink"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </Dialog.Panel>
       </Dialog>

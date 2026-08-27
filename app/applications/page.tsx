@@ -1,84 +1,63 @@
 import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { applications } from "lib/applications";
+import { SectionHeader } from "components/section-header";
+import { PageHeader } from "components/page-header";
+import { getMetadata } from "lib/constants";
+
+export const metadata = getMetadata({ title: "Applications" });
+
+type AppLink = { label: string; href: string };
 
 export default function ApplicationsPage() {
   return (
-    <main>
-      <h1 className="text-2xl font-bold mb-2">Applications</h1>
-      <p className="text-gray-700 mb-8">
-        A list of hobby apps I&apos;m maintaining. Blue links are web apps, and
-        mobile icons indicate the appropriate platform.
-      </p>
-      <ul className="space-y-6">
+    <div>
+      <PageHeader
+        eyebrow="Side projects"
+        title="Applications"
+        intro="Small products I build and maintain for fun — on the web, in editor marketplaces, and on mobile."
+      />
+
+      <ul className="grid gap-4 sm:grid-cols-2 sm:auto-rows-fr">
         {applications.map((app) => {
+          const links: AppLink[] = [
+            app.webUrl && { label: "Web app", href: app.webUrl },
+            app.vsCode && { label: "VS Code Marketplace", href: app.vsCode },
+            app.openVsx && { label: "Open VSX Registry", href: app.openVsx },
+            app.playStoreUrl && {
+              label: "Google Play",
+              href: app.playStoreUrl,
+            },
+          ].filter(Boolean) as AppLink[];
+
           return (
-            <li key={app.name} className="pb-2 border-b border-b-1">
-              <p className="text-gray-700 text-lg font-semibold">{app.name}</p>
+            <li key={app.name} className="card flex flex-col gap-4">
+              <SectionHeader title={app.name} description={app.description} />
 
-              <p className="text-gray-600 mb-3">{app.description}</p>
-
-              <div className="space-y-2">
-                {app.webUrl ? (
-                  <div>
+              {links.length ? (
+                <div className="mt-auto flex flex-wrap gap-x-5 gap-y-2 border-t border-line pt-4">
+                  {links.map((link) => (
                     <Link
-                      className="text-blue-700 hover:underline font-semibold"
-                      href={app.webUrl}
+                      key={link.href}
+                      href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="link text-sm"
                     >
-                      On the web
+                      {link.label}
+                      <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                     </Link>
-                  </div>
-                ) : null}
-
-                {app.vsCode ? (
-                  <div className="flex">
-                    <Link
-                      href={app.vsCode}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="text-blue-700 hover:underline font-semibold">
-                        Get it on VS Code Marketplace
-                      </span>
-                    </Link>
-                  </div>
-                ) : null}
-
-                {app.openVsx ? (
-                  <div className="flex">
-                    <Link
-                      href={app.openVsx}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="text-blue-700 hover:underline font-semibold">
-                        Get it on the Open VSX Registry
-                      </span>
-                    </Link>
-                  </div>
-                ) : null}
-
-                {app.playStoreUrl ? (
-                  <div className="flex my-4">
-                    <Link
-                      href={app.playStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src="/GetItOnGooglePlay_Badge_Web_color_English.png"
-                        alt="Get it on Google Play"
-                        className="h-12"
-                      />
-                    </Link>
-                  </div>
-                ) : null}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-auto pt-4 text-sm text-faint">
+                  In development
+                </p>
+              )}
             </li>
           );
         })}
       </ul>
-    </main>
+    </div>
   );
 }
