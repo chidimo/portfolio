@@ -120,17 +120,6 @@ const portfolio_projects: Project[] = [
     links: [{ name: "Home page", url: "https://www.teachshare.com/" }],
   },
   {
-    name: "My portfolio",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.typescript,
-      TechnologyStack.nextJs,
-    ],
-    links: [{ name: "Home page", url: "https://chidimo.netlify.app" }],
-    screenshotsFolder: "port",
-    description: "My portfolio site",
-  },
-  {
     name: "Autumn AI",
     stack: [
       TechnologyStack.react,
