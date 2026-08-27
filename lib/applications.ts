@@ -34,11 +34,6 @@ export const applications: AppInfo[] = [
       "Capture and organize ideas for repositories and projects, ready to action later.",
   },
   {
-    name: "Savings Challenge Creator",
-    description:
-      "Design savings challenges with flexible schedules and progress tracking.",
-  },
-  {
     name: "Choral Central",
     description:
       "A central place for choral resources, arrangements, and rehearsal planning.",
