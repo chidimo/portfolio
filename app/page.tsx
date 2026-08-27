@@ -19,9 +19,12 @@ const Recognition = () => (
           Top 3% engineering talent, vetted by Toptal
         </p>
         <p className="mt-2 text-muted">
-          A platform modernization I led — migrating the codebase to an Nx
-          monorepo on React&nbsp;19 / Next.js, consolidating deployment and
-          cutting hosting costs — is published as a Toptal case study.
+          For a niche dog-training platform, I rebuilt the interface, made it
+          fully responsive, and shipped a sponsorship feature that opened an
+          advertising revenue stream — then restructured the codebase into an
+          Nx monorepo on React&nbsp;19 and Next.js, consolidating front- and
+          back-end deployment to cut hosting costs. Toptal published the work
+          as a case study.
         </p>
         <a
           href={CASE_STUDY_URL}
