@@ -156,40 +156,6 @@ const portfolio_projects: Project[] = [
       "Bluelines is a business management solution for SMEs. Bluelines abstracts away the boring paperwork carried out by business owners on a daily basis, allowing them to focus on growing their business.",
   },
   {
-    name: "Identify",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.redux,
-      TechnologyStack.typescript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://softcom.xyz/usepass",
-      },
-    ],
-    screenshotsFolder: "identify",
-    description:
-      "Identify is a product of Softcom, which is used to control time and access to buildings, offices and apartments. With Identify, organizations can create, authorize and share digital identity cards.",
-  },
-  {
-    name: "Koya Schools",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.redux,
-      TechnologyStack.javascript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://koya.co/",
-      },
-    ],
-    screenshotsFolder: "koya",
-    description:
-      "Softcom Learning Management System (SLMS), aka Koya, is a learning management system for schools and organizations.",
-  },
-  {
     name: "Mobile Flashcards",
     stack: [
       TechnologyStack.react,
@@ -229,66 +195,6 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "dragNdrop",
     description:
       "Simple, customizable React drag and drop component. Also comes with a file browser. It is highly configurable in terms of styling. Do checkout the docs on the Github repo.",
-  },
-  {
-    name: "My Reads",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.redux,
-      TechnologyStack.javascript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://react-shelf.herokuapp.com",
-      },
-      { name: "Github page", url: "https://github.com/chidimo/My-Reads" },
-    ],
-    screenshotsFolder: "myread",
-    description:
-      "A simple book tracking app which I built as part of my React nanodegree program with Udacity.",
-  },
-  {
-    name: "Would You Rather",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.redux,
-      TechnologyStack.javascript,
-    ],
-    links: [
-      {
-        name: "Home page",
-        url: "https://wud-u-rada.herokuapp.com/",
-      },
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/Would-You-Rather",
-      },
-    ],
-    screenshotsFolder: "wudURada",
-    description:
-      "A would you rather game I built as part of my React nanodegree program at Udacity. Game description is available in the repo.",
-  },
-  {
-    name: "Line of Balance",
-    stack: [
-      TechnologyStack.python,
-      TechnologyStack.pandas,
-      TechnologyStack.matplotlib,
-    ],
-    links: [
-      {
-        name: "Github page",
-        url: "https://github.com/chidimo/line_of_balance",
-      },
-      {
-        name: "Sample plot",
-        url: "https://github.com/chidimo/line_of_balance/blob/master/graph.pdf",
-      },
-    ],
-    screenshotsFolder: "lob",
-    description:
-      "Plotting a line of balance plot/curve (in project management) using Matplotlib",
   },
   {
     name: "Olympic medals",
@@ -375,19 +281,6 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "tempHigh",
     description:
       "Plotting temperature highs and lows for every calendar day of the year in Abu Dhabi, UAE for the ten-year period, 2005 and 2014",
-  },
-  {
-    name: "Visualization of probabilistic data",
-    stack: [],
-    links: [
-      {
-        name: "Jupyter Notebook",
-        url: "https://github.com/chidimo/ds/blob/master/coursera_matplotlib/Week3_solution.ipynb",
-      },
-    ],
-    screenshotsFolder: "dataVisualization",
-    description:
-      "Building a custom visualization from probabilistic data generated through samples in Matplotlib",
   },
   {
     name: "Visualizing voting pattern",
