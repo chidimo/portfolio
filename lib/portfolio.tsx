@@ -2,6 +2,98 @@ import { type Project, TechnologyStack } from "types/index";
 
 const portfolio_projects: Project[] = [
   {
+    name: "Concord — Expert Matching Platform",
+    stack: [
+      TechnologyStack.python,
+      "FastAPI",
+      "SBERT",
+      "TF-IDF",
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.expressJs,
+      "PostgreSQL",
+      "Kysely",
+      TechnologyStack.nx,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Production platform for The College Collective, a UK Further Education peer-support network, replacing a manual spreadsheet workflow. Matches college Senior Leads with industry experts across 37 capability areas using a three-signal ranker — SBERT (all-MiniLM-L6-v2) embeddings, TF-IDF cosine similarity, and categorical overlap — served from a FastAPI microservice behind a React / Express / PostgreSQL Nx monorepo. Built and maintained as the sole engineer.",
+    links: [{ name: "Live app", url: "https://app.collegecollective.co.uk" }],
+  },
+  {
+    name: "Intelligent Matching System (MSc Dissertation)",
+    stack: [
+      TechnologyStack.python,
+      "Sentence-BERT",
+      "SBERT",
+      "TF-IDF",
+      "scikit-learn",
+      "NLP",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "MSc Artificial Intelligence dissertation (University of Salford). Research and prototype automating the candidate-identification stage of the College Collective's expert matching. Combines categorical overlap over a 37-label taxonomy, TF-IDF cosine similarity, and Sentence-BERT embeddings into one ranked list, evaluated against 320 historical matching decisions. Achieved Precision@10 of 48.44% and MRR of 0.186, alongside a documented audit of five sequential evaluation-integrity bugs with before/after metrics for each.",
+    links: [],
+  },
+  {
+    name: "Sentiment Classification — Nigerian Pidgin English",
+    stack: [
+      TechnologyStack.python,
+      "TensorFlow",
+      "NLP",
+      "scikit-learn",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "NLP module project (MSc AI, University of Salford). Compared three TensorFlow embedding strategies — a trainable token embedding, NNLM-50, and NNLM-128 with normalisation — for 3-class sentiment on the NaijaSenti Pidgin English corpus (10,556 tweets), handling class imbalance with class weights and stratified splits. The trainable embedding learned from the target corpus won (weighted F1 0.72) over both pre-trained NNLMs, showing that domain-specific embeddings beat general-purpose ones for low-resource creole text.",
+    links: [],
+  },
+  {
+    name: "Topic Modelling — Global AI News Coverage",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "NLP",
+      "Topic Modelling",
+      "LDA",
+      "NMF",
+    ],
+    screenshotsFolder: "",
+    description:
+      "NLP module project (MSc AI, University of Salford). Applied LDA and NMF to a self-collected corpus of global AI news, using grid search over coherence (LDA) and reconstruction error (NMF) to choose K. Both models converged on 10 consistent themes — cross-model validation — with NMF producing sharper, more lexically distinct topics and running far faster, while LDA's probabilistic outputs suit downstream routing. LDA coherence 0.5273; NMF reconstruction error 28.70.",
+    links: [],
+  },
+  {
+    name: "Plastic Classification — MobileNetV2 vs InceptionV3",
+    stack: [
+      TechnologyStack.python,
+      "TensorFlow",
+      "Keras",
+      "Transfer Learning",
+      "MobileNetV2",
+      "InceptionV3",
+    ],
+    screenshotsFolder: "",
+    description:
+      "Deep Learning module project (MSc AI, University of Salford). Fine-tuned MobileNetV2 and InceptionV3 on a small self-collected image dataset (163 train / 71 validation) to classify HDPE against PET. MobileNetV2 outperformed InceptionV3 on precision, recall, and F1 for both classes; both reached at least 80% training accuracy after fine-tuning. The report analyses why the task is hard — plastics differ mainly by texture and transparency — and proposes concrete data-collection changes. Companion project to the YOLO detection study.",
+    links: [],
+  },
+  {
+    name: "Plastic Object Detection — YOLOv8 vs YOLOv9",
+    stack: [
+      TechnologyStack.python,
+      "YOLOv8",
+      "YOLOv9",
+      "Object Detection",
+    ],
+    screenshotsFolder: "",
+    description:
+      "Deep Learning module project (MSc AI, University of Salford). Trained and compared YOLOv8 and YOLOv9 (50 epochs) on a self-annotated dataset for HDPE, PET, and PP bounding-box detection. YOLOv8 was the more conservative, higher-precision model (mAP@0.5 0.3364, precision 0.5964) versus YOLOv9's noisier output (mAP@0.5 0.2669); confusion-matrix analysis pinned PET/PP confusion and background misclassification as a shared data-quality issue. YOLOv8 recommended for production. Companion project to the transfer-learning classification study.",
+    links: [],
+  },
+  {
     name: "Field Trial Training Platform",
     stack: [
       TechnologyStack.react,
@@ -26,71 +118,6 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "teachshare",
     description: "The world’s largest platform for Personalized Learning",
     links: [{ name: "Home page", url: "https://www.teachshare.com/" }],
-  },
-  {
-    name: "Evolve AI",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.typescript,
-      TechnologyStack.nextJs,
-      TechnologyStack.tailwindCSS,
-    ],
-    screenshotsFolder: "evolve",
-    description: "Revolutionize Your Game with Evolve AI",
-    links: [{ name: "Home page", url: "https://app.evolveai.com/login" }],
-  },
-  {
-    name: "Taking Payments IRL with Solana Pay",
-    stack: [
-      TechnologyStack.web3,
-      TechnologyStack.react,
-      TechnologyStack.nextJs,
-      TechnologyStack.typescript,
-    ],
-    links: [
-      {
-        name: "Codebase",
-        url: "https://github.com/chidimo/Solana-pay-tutorial",
-      },
-    ],
-    screenshotsFolder: "web3-solana-pay",
-    description: "",
-  },
-  {
-    name: "Create a Web3 Forum with Polygon",
-    stack: [
-      TechnologyStack.web3,
-      TechnologyStack.react,
-      TechnologyStack.nextJs,
-      TechnologyStack.typescript,
-    ],
-    links: [
-      {
-        name: "Codebase",
-        url: "https://github.com/chidimo/web3-polygon-forum",
-      },
-    ],
-    screenshotsFolder: "web3-polygon-forum",
-    description: "",
-  },
-  {
-    name: "Build a NFT Lootbox with thirdweb",
-    stack: [
-      TechnologyStack.web3,
-      TechnologyStack.react,
-      TechnologyStack.nextJs,
-      TechnologyStack.typescript,
-    ],
-    links: [
-      { name: "Codebase", url: "https://github.com/chidimo/Lootbox-on-3rdweb" },
-
-      {
-        name: "NFT Reward",
-        url: "https://opensea.io/assets/matic/0x8b86d9766db4ace3801cd085ec4174afddfc9956/297/",
-      },
-    ],
-    screenshotsFolder: "web3-nft-lootbox",
-    description: "",
   },
   {
     name: "My portfolio",
@@ -599,7 +626,7 @@ const portfolio_projects: Project[] = [
   },
 ];
 
-const techStacks: TechnologyStack[] = [];
+const techStacks: string[] = [];
 
 for (const entry of portfolio_projects) {
   for (const ent of entry.stack) {
@@ -613,4 +640,16 @@ const imageDirectories = portfolio_projects
   .map((mp) => mp.screenshotsFolder)
   .filter((ff) => ff !== "");
 
-export { portfolio_projects, techStacks, imageDirectories };
+// Curated set shown in the homepage "Selected Work" section, in order.
+const featuredProjects: Project[] = [
+  "Concord — Expert Matching Platform",
+  "Intelligent Matching System (MSc Dissertation)",
+  "Field Trial Training Platform",
+  "TeachShare",
+  "Autumn AI",
+  "Bluelines",
+]
+  .map((name) => portfolio_projects.find((p) => p.name === name))
+  .filter((p): p is Project => Boolean(p));
+
+export { portfolio_projects, techStacks, imageDirectories, featuredProjects };

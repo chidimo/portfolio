@@ -3,7 +3,7 @@ import { LearningPlatform, TechnologyStack } from "types";
 export const siteUrl = "https://chidimo.netlify.app";
 
 export const siteDescription =
-  "Chidi Orji — product-focused software engineer building scalable, well-crafted web applications.";
+  "Chidi Orji — full-stack AI engineer with an MSc in Artificial Intelligence, building production ML systems and the applications around them.";
 
 export const myEmail = "orjichidi95@gmail.com";
 
@@ -42,13 +42,17 @@ export const stackReadableNames = {
   [TechnologyStack.tailwindCSS]: "TailwindCSS",
 };
 
+/** Display label for a tech tag: a known enum value gets its readable name, anything else passes through. */
+export const techLabel = (tag: string): string =>
+  (stackReadableNames as Record<string, string>)[tag] ?? tag;
+
 type MetaArgs = {
   title?: string;
 };
 export const getMetadata = ({ title }: MetaArgs) => {
   const fullTitle = title
     ? `${title} – Chidi Orji`
-    : "Chidi Orji · Product-Focused Software Engineer";
+    : "Chidi Orji · Full-Stack AI Engineer — MSc Artificial Intelligence";
   return {
     metadataBase: new URL(siteUrl),
     title: fullTitle,

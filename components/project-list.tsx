@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { portfolio_projects, techStacks } from "lib/portfolio";
-import type { ProjectNameAndImage, TechnologyStack } from "types/index";
+import type { ProjectNameAndImage } from "types/index";
 import { Project } from "components/project";
 import Modal from "./Modal";
 import { TechStackBadge } from "./tech-stack-badge";
-import { stackReadableNames } from "lib/constants";
+import { techLabel } from "lib/constants";
 
 type Props = {
   projectImages: ProjectNameAndImage[];
@@ -26,7 +26,7 @@ export const ProjectList = ({ projectImages }: Props) => {
   const visible = useMemo(() => {
     if (selectedStack.length === 0) return portfolio_projects;
     return portfolio_projects.filter((p) =>
-      selectedStack.some((t) => p.stack.includes(t as TechnologyStack))
+      selectedStack.some((t) => p.stack.includes(t))
     );
   }, [selectedStack]);
 
@@ -42,7 +42,7 @@ export const ProjectList = ({ projectImages }: Props) => {
         {techStacks.map((stack) => (
           <TechStackBadge
             key={stack}
-            text={stackReadableNames[stack as TechnologyStack]}
+            text={techLabel(stack)}
             isSelected={selectedStack.includes(stack)}
             onClick={() => toggle(stack)}
           />
@@ -89,10 +89,7 @@ export const ProjectList = ({ projectImages }: Props) => {
                   <p className="label mb-2">Stack</p>
                   <p className="flex flex-wrap gap-x-3 gap-y-1">
                     {selectedProject.stack.map((st) => (
-                      <TechStackBadge
-                        key={st}
-                        text={stackReadableNames[st as TechnologyStack]}
-                      />
+                      <TechStackBadge key={st} text={techLabel(st)} />
                     ))}
                   </p>
                 </div>

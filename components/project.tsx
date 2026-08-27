@@ -1,8 +1,8 @@
 "use client";
 
-import type { Project as ProjectType, TechnologyStack } from "types/index";
+import type { Project as ProjectType } from "types/index";
 import { TechStackBadge } from "./tech-stack-badge";
-import { stackReadableNames } from "lib/constants";
+import { techLabel } from "lib/constants";
 
 type Props = {
   onClick: () => void;
@@ -35,10 +35,7 @@ export const Project = ({ projectItem, onClick, index }: Props) => (
       {projectItem.stack.length ? (
         <p className="flex flex-wrap gap-x-3 gap-y-1">
           {projectItem.stack.map((st) => (
-            <TechStackBadge
-              key={st}
-              text={stackReadableNames[st as TechnologyStack]}
-            />
+            <TechStackBadge key={st} text={techLabel(st)} />
           ))}
         </p>
       ) : null}

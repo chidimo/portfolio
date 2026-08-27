@@ -2,14 +2,23 @@ import { myEmail } from "lib/constants";
 import { SocialLinks } from "./social-links";
 
 const lead =
-  "I'm a full-stack engineer with a frontend focus. I craft responsive, pixel-perfect interfaces that balance aesthetics with performance — grounded in design systems and scalable architecture — and I align engineering decisions with the outcomes a business actually cares about.";
+  "I'm a full-stack engineer and MSc in Artificial Intelligence (University of Salford) building production ML systems and the applications around them. I work across the full stack — from NLP pipelines and semantic search to React frontends and Express APIs — and I care about getting models into production, not just notebooks.";
 
-const skills = ["AI", "React", "Next.js", "Node.js", "TypeScript", "Django"];
+const skills = [
+  "Python",
+  "TensorFlow",
+  "SBERT",
+  "scikit-learn",
+  "React",
+  "Node.js",
+  "TypeScript",
+  "PostgreSQL",
+];
 
 export const Hero = () => (
   <section className="grid gap-10 md:grid-cols-[1fr_15rem] md:items-start md:gap-14">
     <div>
-      <p className="label">Product-Focused Software Engineer</p>
+      <p className="label">Full-Stack AI Engineer</p>
       <h1 className="mt-4 font-serif text-5xl font-bold leading-[1.02] sm:text-6xl">
         Chidi Orji
       </h1>
