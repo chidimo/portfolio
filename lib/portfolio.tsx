@@ -113,25 +113,6 @@ const portfolio_projects: Project[] = [
     ],
   },
   {
-    name: "TeachShare",
-    stack: [TechnologyStack.solidJs, TechnologyStack.tailwindCSS],
-    screenshotsFolder: "teachshare",
-    description: "The world’s largest platform for Personalized Learning",
-    links: [{ name: "Home page", url: "https://www.teachshare.com/" }],
-  },
-  {
-    name: "Autumn AI",
-    stack: [
-      TechnologyStack.react,
-      TechnologyStack.typescript,
-      TechnologyStack.nextJs,
-    ],
-    links: [{ name: "Home page", url: "https://getautumn.com" }],
-    description:
-      "Autumn AI is an early-stage startup based in Canada working on the future of preventative mental healthcare",
-    screenshotsFolder: "autumn",
-  },
-  {
     name: "Bluelines",
     stack: [
       TechnologyStack.react,
@@ -154,6 +135,25 @@ const portfolio_projects: Project[] = [
     screenshotsFolder: "bluelines",
     description:
       "Bluelines is a business management solution for SMEs. Bluelines abstracts away the boring paperwork carried out by business owners on a daily basis, allowing them to focus on growing their business.",
+  },
+  {
+    name: "TeachShare",
+    stack: [TechnologyStack.solidJs, TechnologyStack.tailwindCSS],
+    screenshotsFolder: "teachshare",
+    description: "The world’s largest platform for Personalized Learning",
+    links: [{ name: "Home page", url: "https://www.teachshare.com/" }],
+  },
+  {
+    name: "Autumn AI",
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.typescript,
+      TechnologyStack.nextJs,
+    ],
+    links: [{ name: "Home page", url: "https://getautumn.com" }],
+    description:
+      "Autumn AI is an early-stage startup based in Canada working on the future of preventative mental healthcare",
+    screenshotsFolder: "autumn",
   },
   {
     name: "Mobile Flashcards",
@@ -349,9 +349,9 @@ const featuredProjects: Project[] = [
   "Concord — Expert Matching Platform",
   "Intelligent Matching System (MSc Dissertation)",
   "Field Trial Training Platform",
+  "Bluelines",
   "TeachShare",
   "Autumn AI",
-  "Bluelines",
 ]
   .map((name) => portfolio_projects.find((p) => p.name === name))
   .filter((p): p is Project => Boolean(p));
