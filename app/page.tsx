@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { HomeLeft } from "components/home-left";
+import { ToptalBadge } from "components/toptal-badge";
 
 export default function Page() {
   return (
@@ -13,6 +14,9 @@ export default function Page() {
             "aspect-[6/5] w-full rounded-2xl object-cover lg:max-w-none xl:row-span-2"
           )}
         />
+        <div className="mt-10 flex justify-center">
+          <ToptalBadge />
+        </div>
       </div>
     </div>
   );
