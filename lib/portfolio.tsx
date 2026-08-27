@@ -2,6 +2,25 @@ import { type Project, TechnologyStack } from "types/index";
 
 const portfolio_projects: Project[] = [
   {
+    name: "Field Trial Training Platform",
+    stack: [
+      TechnologyStack.react,
+      TechnologyStack.nextJs,
+      TechnologyStack.nodeJs,
+      TechnologyStack.typescript,
+      TechnologyStack.nx,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Modernization of a niche canine field-trial training platform: redesigned the UI, added mobile responsiveness, and built a sponsorship feature to open a new revenue stream. Migrated the codebase to an Nx monorepo on React 19 / Next.js, consolidating front- and back-end deployment and cutting hosting costs. Featured as a Toptal case study.",
+    links: [
+      {
+        name: "Toptal case study",
+        url: "https://www.toptal.com/case-study/training-app-upgrades-codebase-cost-savings",
+      },
+    ],
+  },
+  {
     name: "TeachShare",
     stack: [TechnologyStack.solidJs, TechnologyStack.tailwindCSS],
     screenshotsFolder: "teachshare",
