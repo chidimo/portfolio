@@ -4,6 +4,9 @@ import { LearningPlatform, TechnologyStack } from "types";
 export const siteUrl = "https://chidiorji.com";
 export const twitterHandle = "@chidiorji";
 
+/** localStorage key holding the viewer's chosen theme ("light" | "dark"). */
+export const THEME_STORAGE_KEY = "chidi-website";
+
 export const siteDescription =
   "Chidi Orji — full-stack ML engineer with an MSc in Artificial Intelligence, building production machine learning systems and the applications around them.";
 

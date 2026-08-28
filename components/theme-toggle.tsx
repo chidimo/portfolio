@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { THEME_STORAGE_KEY } from "lib/constants";
 
 type Theme = "light" | "dark";
 
@@ -18,7 +19,7 @@ const apply = (theme: Theme) => {
   el.classList.remove("theme-dark", "theme-light");
   el.classList.add(`theme-${theme}`);
   try {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch {
     /* storage unavailable — the choice just won't persist */
   }
