@@ -17,7 +17,7 @@ const portfolio_projects: Project[] = [
     ],
     screenshotsFolder: "",
     description:
-      "Production platform for The College Collective, a UK Further Education peer-support network, replacing a manual spreadsheet workflow. Matches college Senior Leads with industry experts across 37 capability areas using a three-signal ranker — SBERT (all-MiniLM-L6-v2) embeddings, TF-IDF cosine similarity, and categorical overlap — served from a FastAPI microservice behind a React / Express / PostgreSQL Nx monorepo. Built and maintained as the sole engineer.",
+      "Production platform for The College Collective, a UK Further Education peer-support network, replacing a manual spreadsheet workflow. Matches each support request to candidate industry experts across 37 capability areas using a three-signal ranker — SBERT (all-MiniLM-L6-v2) embeddings, TF-IDF cosine similarity, and categorical overlap — served from a FastAPI microservice behind a React / Express / PostgreSQL Nx monorepo. Built and maintained as the sole engineer.",
     links: [{ name: "Live app", url: "https://app.collegecollective.co.uk" }],
   },
   {

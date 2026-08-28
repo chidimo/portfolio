@@ -18,7 +18,7 @@ export const mlProjects: MlProject[] = [
     context: "The College Collective (KWP Ltd) · sole engineer",
     status: "Live in production",
     description:
-      "Production platform for The College Collective, replacing a manual spreadsheet process for matching Further Education colleges with industry experts across 37 capability areas in 7 categories. The ML layer is a FastAPI microservice serving SBERT (all-MiniLM-L6-v2) embeddings combined with TF-IDF cosine similarity and categorical overlap scoring to produce a ranked shortlist of candidate experts per support request. The application layer is a React / TypeScript / Express / PostgreSQL Nx monorepo on Render, with Resend transactional email, a pg-boss job queue, and Sentry + LogRocket observability.",
+      "Production platform for The College Collective, replacing a manual spreadsheet process for matching support requests from Further Education colleges to industry experts across 37 capability areas in 7 categories. The ML layer is a FastAPI microservice serving SBERT (all-MiniLM-L6-v2) embeddings combined with TF-IDF cosine similarity and categorical overlap scoring to produce a ranked shortlist of candidate experts per support request. The application layer is a React / TypeScript / Express / PostgreSQL Nx monorepo on Render, with Resend transactional email, a pg-boss job queue, and Sentry + LogRocket observability.",
     results: [
       "37-label capability taxonomy across 7 categories",
       "Three-signal ranking: SBERT + TF-IDF + categorical overlap",
