@@ -16,7 +16,7 @@ export const SiteFooter = () => (
       <div>
         <p className="font-serif text-lg font-bold text-ink">Chidi Orji</p>
         <p className="mt-2 max-w-xs text-muted">
-          Full-stack AI engineer building production ML systems and the
+          Full-stack ML engineer building production machine learning systems and the
           applications around them.
         </p>
       </div>

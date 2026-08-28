@@ -2,7 +2,7 @@ import { myEmail } from "lib/constants";
 import { SocialLinks } from "./social-links";
 
 const lead =
-  "I'm a full-stack engineer with an MSc in Artificial Intelligence (University of Salford), building production ML systems and the applications around them. I work across the full stack — from NLP pipelines and semantic search to React frontends and Express APIs — and I care about getting models into production, not just notebooks.";
+  "I'm a full-stack ML engineer with an MSc in Artificial Intelligence (University of Salford), building production machine learning systems and the applications around them. I work end to end — from NLP pipelines and semantic search to the React frontends and Express APIs that put them in front of users — and I care about getting models into production, not just notebooks.";
 
 const skills = [
   "Python",
@@ -18,7 +18,7 @@ const skills = [
 export const Hero = () => (
   <section className="grid gap-10 md:grid-cols-[1fr_15rem] md:items-start md:gap-14">
     <div>
-      <p className="label">Full-Stack AI Engineer</p>
+      <p className="label">Full-Stack ML Engineer</p>
       <h1 className="mt-4 font-serif text-5xl font-bold leading-[1.02] sm:text-6xl">
         Chidi Orji
       </h1>

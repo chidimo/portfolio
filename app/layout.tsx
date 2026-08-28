@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import { AppHeader } from "components/app-header";
 import { SiteFooter } from "components/site-footer";
-import { getMetadata, siteUrl } from "lib/constants";
+import { getMetadata, siteUrl, THEME_STORAGE_KEY } from "lib/constants";
 import { mySocial } from "lib/social";
 
 export const metadata = getMetadata({});
@@ -11,7 +11,9 @@ export const metadata = getMetadata({});
 // Runs before the page paints: applies the viewer's saved theme so there is
 // no flash of the wrong palette. `suppressHydrationWarning` on <html> covers
 // the class this adds before React hydrates.
-const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("theme-dark");else if(t==="light")document.documentElement.classList.add("theme-light");}catch(e){}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
+  THEME_STORAGE_KEY
+)});if(t==="dark")document.documentElement.classList.add("theme-dark");else if(t==="light")document.documentElement.classList.add("theme-light");}catch(e){}})();`;
 
 const personLd = {
   "@context": "https://schema.org",
@@ -19,7 +21,7 @@ const personLd = {
   name: "Chidi Orji",
   url: siteUrl,
   image: `${siteUrl}/images/headshot.JPG`,
-  jobTitle: "Full-Stack AI Engineer",
+  jobTitle: "Full-Stack ML Engineer",
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "University of Salford",
