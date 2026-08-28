@@ -5,7 +5,7 @@ export const siteUrl = "https://chidiorji.com";
 export const twitterHandle = "@chidiorji";
 
 export const siteDescription =
-  "Chidi Orji — full-stack AI engineer with an MSc in Artificial Intelligence, building production ML systems and the applications around them.";
+  "Chidi Orji — full-stack ML engineer with an MSc in Artificial Intelligence, building production machine learning systems and the applications around them.";
 
 export const myEmail = "orjichidi95@gmail.com";
 
@@ -58,7 +58,7 @@ type MetaArgs = {
 };
 
 const defaultTitle =
-  "Chidi Orji · Full-Stack AI Engineer — MSc Artificial Intelligence";
+  "Chidi Orji · Full-Stack ML Engineer — MSc Artificial Intelligence";
 
 export const getMetadata = ({
   title,
@@ -76,7 +76,7 @@ export const getMetadata = ({
     description: desc,
     keywords: [
       "Chidi Orji",
-      "Full-Stack AI Engineer",
+      "Full-Stack ML Engineer",
       "Machine Learning Engineer",
       "MSc Artificial Intelligence",
       "University of Salford",

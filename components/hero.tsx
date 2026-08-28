@@ -18,7 +18,7 @@ const skills = [
 export const Hero = () => (
   <section className="grid gap-10 md:grid-cols-[1fr_15rem] md:items-start md:gap-14">
     <div>
-      <p className="label">Full-Stack AI Engineer</p>
+      <p className="label">Full-Stack ML Engineer</p>
       <h1 className="mt-4 font-serif text-5xl font-bold leading-[1.02] sm:text-6xl">
         Chidi Orji
       </h1>

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Chidi Orji",
     short_name: "Chidi Orji",
     description:
-      "Full-stack AI engineer building production ML systems and the applications around them.",
+      "Full-stack ML engineer building production machine learning systems and the applications around them.",
     start_url: "/",
     display: "browser",
     background_color: "#fbf9f4",
