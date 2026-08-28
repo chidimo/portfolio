@@ -2,7 +2,7 @@ import { myEmail } from "lib/constants";
 import { SocialLinks } from "./social-links";
 
 const lead =
-  "I'm a full-stack engineer with an MSc in Artificial Intelligence (University of Salford), building production ML systems and the applications around them. I work across the full stack — from NLP pipelines and semantic search to React frontends and Express APIs — and I care about getting models into production, not just notebooks.";
+  "I'm a full-stack ML engineer with an MSc in Artificial Intelligence (University of Salford), building production machine learning systems and the applications around them. I work end to end — from NLP pipelines and semantic search to the React frontends and Express APIs that put them in front of users — and I care about getting models into production, not just notebooks.";
 
 const skills = [
   "Python",
