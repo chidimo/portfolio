@@ -117,7 +117,7 @@ const portfolio_projects: Project[] = [
     stack: [
       TechnologyStack.react,
       TechnologyStack.typescript,
-      TechnologyStack.apolloClient,
+      "TanStack Query",
       TechnologyStack.python,
       TechnologyStack.django,
       TechnologyStack.graphene,
@@ -126,11 +126,7 @@ const portfolio_projects: Project[] = [
       {
         name: "Home page",
         url: "https://bluelines.io",
-      },
-      {
-        name: "Example organization",
-        url: "https://fabsjewelry.bluelines.io/",
-      },
+      }
     ],
     screenshotsFolder: "bluelines",
     description:
