@@ -66,6 +66,23 @@ const portfolio_projects: Project[] = [
     links: [],
   },
   {
+    name: "ML & Data Mining — Three-Task Assessment",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "Decision Tree",
+      "Random Forest",
+      "DBSCAN",
+      "OPTICS",
+      "Clustering",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). Three tasks on real-world datasets: Decision Tree and Random Forest for diabetes screening on BRFSS-2015 (253,680 records), tuned to 88% recall at a 0.40 threshold as a clinically appropriate precision/recall trade-off; DBSCAN and OPTICS with PCA to segment individuals by eating habits; and TF-IDF + Logistic Regression vs Naive Bayes for Twitter sentiment, with Logistic Regression winning at 73.45% accuracy and F1 ≈ 0.74.",
+    links: [],
+  },
+  {
     name: "Plastic Classification — MobileNetV2 vs InceptionV3",
     stack: [
       TechnologyStack.python,

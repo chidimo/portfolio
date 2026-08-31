@@ -115,6 +115,28 @@ export const mlProjects: MlProject[] = [
     ],
   },
   {
+    slug: "ml-data-mining",
+    title: "ML & Data Mining — Three-Task Assessment",
+    typeLabel: "Classical ML · Supervised Learning · Clustering",
+    context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
+    status: "Submitted January 2026",
+    description:
+      "Three-task assessment across classical ML techniques on real-world datasets. Task 1 applied Decision Tree and Random Forest to diabetes screening on the BRFSS-2015 dataset (253,680 records), with threshold optimisation — Random Forest at threshold 0.40 catches 88% of at-risk individuals at the cost of precision, argued explicitly as a clinically appropriate trade-off. Task 2 used DBSCAN and OPTICS with PCA dimensionality reduction to segment individuals by eating habits, comparing density-based clustering on a noisy real-world dataset. Task 3 compared TF-IDF + Logistic Regression against Naive Bayes for Twitter sentiment classification.",
+    results: [
+      "Diabetes screening: Random Forest at threshold 0.40 → 88% recall, balanced accuracy 0.73",
+      "Clustering: DBSCAN vs OPTICS with PCA — density-based segmentation of eating-habit profiles",
+      "Sentiment: TF-IDF + Logistic Regression → 73.45% accuracy, F1 ≈ 0.74; outperforms Naive Bayes",
+    ],
+    tech: [
+      "Python",
+      "scikit-learn",
+      "pandas",
+      "NumPy",
+      "matplotlib",
+      "Jupyter",
+    ],
+  },
+  {
     slug: "plastic-classification",
     title: "Classifying Plastics Using Transfer Learning — MobileNetV2 vs InceptionV3",
     typeLabel: "Computer Vision · Image Classification · Transfer Learning",
