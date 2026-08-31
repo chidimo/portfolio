@@ -1,7 +1,15 @@
+export type MlDomain =
+  | "NLP"
+  | "Computer Vision"
+  | "Big Data"
+  | "Classical ML";
+
 export type MlProject = {
   slug: string;
   title: string;
   typeLabel: string;
+  /** High-level domains, used by the /ml page filter. */
+  domains: MlDomain[];
   context: string;
   status?: string;
   description: string;
@@ -15,6 +23,7 @@ export const mlProjects: MlProject[] = [
     slug: "concord",
     title: "Concord — Expert Matching Platform",
     typeLabel: "Production System · NLP · Semantic Search",
+    domains: ["NLP"],
     context: "The College Collective (KWP Ltd) · sole engineer",
     status: "Live in production",
     description:
@@ -46,6 +55,7 @@ export const mlProjects: MlProject[] = [
     slug: "dissertation",
     title: "Intelligent Matching System for the College Collective",
     typeLabel: "MSc Dissertation · NLP · Information Retrieval",
+    domains: ["NLP"],
     context: "MSc Artificial Intelligence, University of Salford",
     status: "Submitted July 2026",
     description:
@@ -71,6 +81,7 @@ export const mlProjects: MlProject[] = [
     slug: "pidgin-sentiment",
     title: "Sentiment Classification of Nigerian Pidgin English Tweets",
     typeLabel: "NLP · Text Classification · Embedding Strategies",
+    domains: ["NLP"],
     context: "Natural Language Processing module, MSc AI, University of Salford",
     status: "Submitted April 2026",
     description:
@@ -94,6 +105,7 @@ export const mlProjects: MlProject[] = [
     slug: "ai-news-topics",
     title: "Exploring Thematic Structures in AI News Using Topic Modelling",
     typeLabel: "NLP · Unsupervised Learning · Topic Modelling",
+    domains: ["NLP"],
     context: "Natural Language Processing module, MSc AI, University of Salford",
     status: "Submitted April 2026",
     description:
@@ -115,9 +127,112 @@ export const mlProjects: MlProject[] = [
     ],
   },
   {
+    slug: "diabetes-screening",
+    title: "Diabetes Risk Screening with Decision Tree and Random Forest",
+    typeLabel: "ML · Supervised Learning · Clinical Decision Support",
+    domains: ["Classical ML"],
+    context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
+    status: "Submitted January 2026",
+    description:
+      "Applied Decision Tree and Random Forest classifiers to the BRFSS-2015 dataset (253,680 records) for diabetes risk screening. The core challenge was clinical: minimising false negatives matters more than raw accuracy when screening for disease. Applied threshold optimisation — shifting the classification boundary from the default 0.50 to 0.40 — to raise recall at the cost of precision, a deliberately argued clinical trade-off. Both models reached balanced accuracy of 0.73; the threshold-tuned Random Forest caught 88% of at-risk individuals (up from ~65% at the default threshold), cutting the false negative rate by 48%.",
+    results: [
+      "253,680 records, BRFSS-2015 (CDC Behavioral Risk Factor Survey)",
+      "Random Forest at threshold 0.40: 88% recall, balanced accuracy 0.73",
+      "False negative rate reduced by 48% vs the default threshold",
+      "Decision Tree: comparable balanced accuracy, lower recall at the same threshold",
+    ],
+    tech: ["Python", "scikit-learn", "pandas", "NumPy", "matplotlib", "Jupyter"],
+  },
+  {
+    slug: "eating-habits-clustering",
+    title: "Behavioural Segmentation of Eating Habits Using DBSCAN and OPTICS",
+    typeLabel: "ML · Unsupervised Learning · Density-Based Clustering",
+    domains: ["Classical ML"],
+    context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
+    status: "Submitted January 2026",
+    description:
+      "Applied DBSCAN and OPTICS density-based clustering to segment individuals by eating habits, using PCA for dimensionality reduction prior to clustering. Both algorithms were compared on their ability to identify meaningful behavioural segments without a pre-specified number of clusters — an advantage over centroid-based methods for noisy real-world datasets. The analysis evaluated cluster stability, noise-point sensitivity, and the effect of DBSCAN's epsilon and min_samples hyperparameters, contrasted with OPTICS's reachability-based approach.",
+    results: [
+      "Dimensionality reduction via PCA before clustering",
+      "DBSCAN vs OPTICS compared on noise handling and segment quality",
+      "Identified meaningful behavioural clusters in the eating-habit data",
+    ],
+    tech: ["Python", "scikit-learn", "pandas", "NumPy", "matplotlib", "Jupyter"],
+  },
+  {
+    slug: "twitter-sentiment-tfidf",
+    title: "Twitter Sentiment Classification — TF-IDF vs Naive Bayes",
+    typeLabel: "NLP · Text Classification · Supervised Learning",
+    domains: ["NLP", "Classical ML"],
+    context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
+    status: "Submitted January 2026",
+    description:
+      "Compared TF-IDF + Logistic Regression against Multinomial Naive Bayes for sentiment classification of Twitter text. The pipeline covered standard NLP preprocessing — tokenisation, stopword removal, vectorisation — before model training. TF-IDF with Logistic Regression outperformed Naive Bayes on accuracy and F1, the argued reason being that TF-IDF's ability to down-weight frequent but uninformative terms beats Naive Bayes's raw term-frequency assumption on social-media text.",
+    results: [
+      "TF-IDF + Logistic Regression: 73.45% accuracy, F1 ≈ 0.74 (best)",
+      "Naive Bayes: lower accuracy and F1 across all classes",
+      "Key finding: TF-IDF term weighting outperforms raw frequency for Twitter text",
+    ],
+    tech: ["Python", "scikit-learn", "NLTK", "pandas", "matplotlib", "Jupyter"],
+  },
+  {
+    slug: "clinicaltrials-spark",
+    title: "ClinicalTrials.gov Analytics with Spark SQL",
+    typeLabel: "Big Data · Distributed Computing · Exploratory Data Analysis",
+    domains: ["Big Data"],
+    context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
+    status: "Submitted April 2026 · companion to the Steam recommender",
+    description:
+      "SparkSQL exploratory analysis of the full ClinicalTrials.gov registry (572,935 rows, 14 columns) on Apache Spark / Databricks — registered as a temporary view and queried entirely in SparkSQL. Handled real-world data quality issues: 68% null Collaborators, 71% null Acronyms, and pipe-delimited multi-value Conditions requiring SPLIT and EXPLODE. Four questions: study-type distribution, top-10 conditions by frequency, mean trial duration via DATEDIFF, and the Alzheimer's completed-trial trend 1996–2026, converted to pandas and plotted with matplotlib.",
+    results: [
+      "572,935 studies × 14 columns; COMPLETED 55% (313,041), TERMINATED 6% (32,937)",
+      "Study types: INTERVENTIONAL 76% (437,333), OBSERVATIONAL 23% (133,604)",
+      "Top conditions: Healthy (10,873), Breast Cancer (8,511), Obesity (7,324), Stroke (5,034), Hypertension (4,510)",
+      "Mean trial duration: 35.29 months (~3 years)",
+      "Alzheimer's trials: fewer than 5/year pre-2001, peak of 139 in 2024",
+    ],
+    tech: [
+      "Python",
+      "PySpark",
+      "Apache Spark",
+      "SparkSQL",
+      "Databricks",
+      "pandas",
+      "matplotlib",
+    ],
+  },
+  {
+    slug: "steam-recommender",
+    title: "Steam Game Recommender with Spark MLlib ALS",
+    typeLabel: "Big Data · Recommender Systems · Collaborative Filtering",
+    domains: ["Big Data"],
+    context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
+    status:
+      "Submitted April 2026 · companion to the ClinicalTrials.gov analytics",
+    description:
+      "Collaborative-filtering recommendation engine on the Steam-200k dataset (200,000 interactions, 12,393 users, 5,155 games), built on Apache Spark / Databricks. EDA showed heavily right-skewed play hours (mean 48.88h, median 4.5h, max 11,754h), motivating a log1p transform before training. Trained Spark MLlib ALS (Alternating Least Squares) in explicit mode with integer-indexed game IDs, tuned by a 24-run MLflow grid search over rank ∈ [5, 10, 20, 40], regParam ∈ [0.01, 0.1, 0.5], and maxIter ∈ [5, 10]. Produces top-5 recommendations per user, with game names decoded from the StringIndexer mapping.",
+    results: [
+      "Best RMSE 1.4632 / MAE 1.0732 (rank 40, regParam 0.5, maxIter 10), from a 1.519 baseline",
+      "24-run MLflow grid search; 80/20 split — 56,518 train / 13,971 test rows",
+      "Top games by total hours: Dota 2 (981,684h), CS:GO (322,771h), Team Fortress 2 (173,673h)",
+    ],
+    tech: [
+      "Python",
+      "PySpark",
+      "Apache Spark",
+      "MLlib (ALS)",
+      "MLflow",
+      "StringIndexer",
+      "Databricks",
+      "pandas",
+      "NumPy",
+    ],
+  },
+  {
     slug: "plastic-classification",
     title: "Classifying Plastics Using Transfer Learning — MobileNetV2 vs InceptionV3",
     typeLabel: "Computer Vision · Image Classification · Transfer Learning",
+    domains: ["Computer Vision"],
     context: "Deep Learning & Neural Networks module, MSc AI, University of Salford",
     status: "Submitted December 2025 · companion to the YOLO study",
     description:
@@ -141,6 +256,7 @@ export const mlProjects: MlProject[] = [
     slug: "plastic-detection",
     title: "Detecting Plastic Types Using YOLOv8 and YOLOv9",
     typeLabel: "Computer Vision · Object Detection · YOLO",
+    domains: ["Computer Vision"],
     context: "Deep Learning & Neural Networks module, MSc AI, University of Salford",
     status: "Submitted December 2025 · companion to the transfer-learning study",
     description:

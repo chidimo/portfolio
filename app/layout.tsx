@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
         <AppHeader />
-        <main className="measure flex-1 py-14 sm:py-20">{children}</main>
+        <main className="measure flex-1 py-10 sm:py-14">{children}</main>
         <SiteFooter />
       </body>
     </html>

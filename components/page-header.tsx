@@ -8,7 +8,7 @@ type Props = {
 
 /** A magazine section opener. */
 export const PageHeader = ({ kicker, title, intro }: Props) => (
-  <header className="mb-12">
+  <header className="mb-6">
     {kicker ? <p className="label mb-4">{kicker}</p> : null}
     <h1 className="font-serif text-4xl font-bold leading-[1.05] sm:text-5xl">
       {title}

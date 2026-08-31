@@ -66,6 +66,88 @@ const portfolio_projects: Project[] = [
     links: [],
   },
   {
+    name: "Diabetes Risk Screening with Decision Tree and Random Forest",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "Random Forest",
+      "Decision Tree",
+      "Supervised Learning",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). Decision Tree and Random Forest for diabetes risk screening on BRFSS-2015 (253,680 records). Threshold optimisation (0.50 → 0.40) prioritises recall over precision — a clinical trade-off argued explicitly: the tuned Random Forest catches 88% of at-risk individuals at balanced accuracy 0.73, cutting the false negative rate by 48%.",
+    links: [],
+  },
+  {
+    name: "Behavioural Segmentation of Eating Habits Using DBSCAN and OPTICS",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "DBSCAN",
+      "OPTICS",
+      "Clustering",
+      "Unsupervised Learning",
+      "PCA",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). DBSCAN and OPTICS density-based clustering to segment individuals by eating habits, with PCA beforehand. Compared on cluster stability, noise handling, and hyperparameter sensitivity — neither needs a pre-set cluster count, an advantage on noisy real-world data.",
+    links: [],
+  },
+  {
+    name: "Twitter Sentiment Classification — TF-IDF vs Naive Bayes",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "NLP",
+      "TF-IDF",
+      "Logistic Regression",
+      "Text Classification",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). TF-IDF + Logistic Regression vs Multinomial Naive Bayes for Twitter sentiment, with standard NLP preprocessing. Logistic Regression wins at 73.45% accuracy and F1 ≈ 0.74; TF-IDF's down-weighting of common terms beats Naive Bayes's raw-frequency assumption on social-media text.",
+    links: [],
+  },
+  {
+    name: "ClinicalTrials.gov Analytics with Spark SQL",
+    stack: [
+      TechnologyStack.python,
+      "PySpark",
+      "Apache Spark",
+      "SparkSQL",
+      "Databricks",
+      "Big Data",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Big Data Tools and Techniques module project (MSc AI, University of Salford). SparkSQL exploratory analysis of the full ClinicalTrials.gov registry (572,935 rows) on Databricks — a temporary view queried entirely in SparkSQL, handling null-heavy and pipe-delimited real-world data across study-type, condition, trial-duration (35.29 months via DATEDIFF), and Alzheimer's-trend questions.",
+    links: [],
+  },
+  {
+    name: "Steam Game Recommender with Spark MLlib ALS",
+    stack: [
+      TechnologyStack.python,
+      "PySpark",
+      "Apache Spark",
+      "MLflow",
+      "ALS",
+      "Collaborative Filtering",
+      "Databricks",
+      "Big Data",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Big Data Tools and Techniques module project (MSc AI, University of Salford). Collaborative-filtering recommender on Steam-200k (200,000 interactions, 12,393 users, 5,155 games) using Spark MLlib ALS in explicit mode, with a log1p transform for right-skewed play hours and a 24-run MLflow grid search over rank, regParam, and maxIter. Best RMSE 1.4632 (rank 40, regParam 0.5, maxIter 10), down from a 1.519 baseline.",
+    links: [],
+  },
+  {
     name: "Plastic Classification — MobileNetV2 vs InceptionV3",
     stack: [
       TechnologyStack.python,
@@ -117,7 +199,7 @@ const portfolio_projects: Project[] = [
     stack: [
       TechnologyStack.react,
       TechnologyStack.typescript,
-      TechnologyStack.apolloClient,
+      "TanStack Query",
       TechnologyStack.python,
       TechnologyStack.django,
       TechnologyStack.graphene,
@@ -126,11 +208,7 @@ const portfolio_projects: Project[] = [
       {
         name: "Home page",
         url: "https://bluelines.io",
-      },
-      {
-        name: "Example organization",
-        url: "https://fabsjewelry.bluelines.io/",
-      },
+      }
     ],
     screenshotsFolder: "bluelines",
     description:
