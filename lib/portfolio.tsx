@@ -66,20 +66,51 @@ const portfolio_projects: Project[] = [
     links: [],
   },
   {
-    name: "ML & Data Mining — Three-Task Assessment",
+    name: "Diabetes Risk Screening with Decision Tree and Random Forest",
     stack: [
       TechnologyStack.python,
       "scikit-learn",
-      "Decision Tree",
       "Random Forest",
-      "DBSCAN",
-      "OPTICS",
-      "Clustering",
+      "Decision Tree",
+      "Supervised Learning",
       TechnologyStack.pandas,
     ],
     screenshotsFolder: "",
     description:
-      "Machine Learning & Data Mining module project (MSc AI, University of Salford). Three tasks on real-world datasets: Decision Tree and Random Forest for diabetes screening on BRFSS-2015 (253,680 records), tuned to 88% recall at a 0.40 threshold as a clinically appropriate precision/recall trade-off; DBSCAN and OPTICS with PCA to segment individuals by eating habits; and TF-IDF + Logistic Regression vs Naive Bayes for Twitter sentiment, with Logistic Regression winning at 73.45% accuracy and F1 ≈ 0.74.",
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). Decision Tree and Random Forest for diabetes risk screening on BRFSS-2015 (253,680 records). Threshold optimisation (0.50 → 0.40) prioritises recall over precision — a clinical trade-off argued explicitly: the tuned Random Forest catches 88% of at-risk individuals at balanced accuracy 0.73, cutting the false negative rate by 48%.",
+    links: [],
+  },
+  {
+    name: "Behavioural Segmentation of Eating Habits Using DBSCAN and OPTICS",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "DBSCAN",
+      "OPTICS",
+      "Clustering",
+      "Unsupervised Learning",
+      "PCA",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). DBSCAN and OPTICS density-based clustering to segment individuals by eating habits, with PCA beforehand. Compared on cluster stability, noise handling, and hyperparameter sensitivity — neither needs a pre-set cluster count, an advantage on noisy real-world data.",
+    links: [],
+  },
+  {
+    name: "Twitter Sentiment Classification — TF-IDF vs Naive Bayes",
+    stack: [
+      TechnologyStack.python,
+      "scikit-learn",
+      "NLP",
+      "TF-IDF",
+      "Logistic Regression",
+      "Text Classification",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Machine Learning & Data Mining module project (MSc AI, University of Salford). TF-IDF + Logistic Regression vs Multinomial Naive Bayes for Twitter sentiment, with standard NLP preprocessing. Logistic Regression wins at 73.45% accuracy and F1 ≈ 0.74; TF-IDF's down-weighting of common terms beats Naive Bayes's raw-frequency assumption on social-media text.",
     links: [],
   },
   {
