@@ -1,7 +1,15 @@
+export type MlDomain =
+  | "NLP"
+  | "Computer Vision"
+  | "Big Data"
+  | "Classical ML";
+
 export type MlProject = {
   slug: string;
   title: string;
   typeLabel: string;
+  /** High-level domains, used by the /ml page filter. */
+  domains: MlDomain[];
   context: string;
   status?: string;
   description: string;
@@ -15,6 +23,7 @@ export const mlProjects: MlProject[] = [
     slug: "concord",
     title: "Concord — Expert Matching Platform",
     typeLabel: "Production System · NLP · Semantic Search",
+    domains: ["NLP"],
     context: "The College Collective (KWP Ltd) · sole engineer",
     status: "Live in production",
     description:
@@ -46,6 +55,7 @@ export const mlProjects: MlProject[] = [
     slug: "dissertation",
     title: "Intelligent Matching System for the College Collective",
     typeLabel: "MSc Dissertation · NLP · Information Retrieval",
+    domains: ["NLP"],
     context: "MSc Artificial Intelligence, University of Salford",
     status: "Submitted July 2026",
     description:
@@ -71,6 +81,7 @@ export const mlProjects: MlProject[] = [
     slug: "pidgin-sentiment",
     title: "Sentiment Classification of Nigerian Pidgin English Tweets",
     typeLabel: "NLP · Text Classification · Embedding Strategies",
+    domains: ["NLP"],
     context: "Natural Language Processing module, MSc AI, University of Salford",
     status: "Submitted April 2026",
     description:
@@ -94,6 +105,7 @@ export const mlProjects: MlProject[] = [
     slug: "ai-news-topics",
     title: "Exploring Thematic Structures in AI News Using Topic Modelling",
     typeLabel: "NLP · Unsupervised Learning · Topic Modelling",
+    domains: ["NLP"],
     context: "Natural Language Processing module, MSc AI, University of Salford",
     status: "Submitted April 2026",
     description:
@@ -118,6 +130,7 @@ export const mlProjects: MlProject[] = [
     slug: "diabetes-screening",
     title: "Diabetes Risk Screening with Decision Tree and Random Forest",
     typeLabel: "ML · Supervised Learning · Clinical Decision Support",
+    domains: ["Classical ML"],
     context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
     status: "Submitted January 2026",
     description:
@@ -134,6 +147,7 @@ export const mlProjects: MlProject[] = [
     slug: "eating-habits-clustering",
     title: "Behavioural Segmentation of Eating Habits Using DBSCAN and OPTICS",
     typeLabel: "ML · Unsupervised Learning · Density-Based Clustering",
+    domains: ["Classical ML"],
     context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
     status: "Submitted January 2026",
     description:
@@ -149,6 +163,7 @@ export const mlProjects: MlProject[] = [
     slug: "twitter-sentiment-tfidf",
     title: "Twitter Sentiment Classification — TF-IDF vs Naive Bayes",
     typeLabel: "NLP · Text Classification · Supervised Learning",
+    domains: ["NLP", "Classical ML"],
     context: "Machine Learning & Data Mining module, MSc AI, University of Salford",
     status: "Submitted January 2026",
     description:
@@ -164,6 +179,7 @@ export const mlProjects: MlProject[] = [
     slug: "clinicaltrials-spark",
     title: "ClinicalTrials.gov Analytics with Spark SQL",
     typeLabel: "Big Data · Distributed Computing · Exploratory Data Analysis",
+    domains: ["Big Data"],
     context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
     status: "Submitted April 2026 · companion to the Steam recommender",
     description:
@@ -189,6 +205,7 @@ export const mlProjects: MlProject[] = [
     slug: "steam-recommender",
     title: "Steam Game Recommender with Spark MLlib ALS",
     typeLabel: "Big Data · Recommender Systems · Collaborative Filtering",
+    domains: ["Big Data"],
     context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
     status:
       "Submitted April 2026 · companion to the ClinicalTrials.gov analytics",
@@ -215,6 +232,7 @@ export const mlProjects: MlProject[] = [
     slug: "plastic-classification",
     title: "Classifying Plastics Using Transfer Learning — MobileNetV2 vs InceptionV3",
     typeLabel: "Computer Vision · Image Classification · Transfer Learning",
+    domains: ["Computer Vision"],
     context: "Deep Learning & Neural Networks module, MSc AI, University of Salford",
     status: "Submitted December 2025 · companion to the YOLO study",
     description:
@@ -238,6 +256,7 @@ export const mlProjects: MlProject[] = [
     slug: "plastic-detection",
     title: "Detecting Plastic Types Using YOLOv8 and YOLOv9",
     typeLabel: "Computer Vision · Object Detection · YOLO",
+    domains: ["Computer Vision"],
     context: "Deep Learning & Neural Networks module, MSc AI, University of Salford",
     status: "Submitted December 2025 · companion to the transfer-learning study",
     description:
