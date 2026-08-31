@@ -83,6 +83,40 @@ const portfolio_projects: Project[] = [
     links: [],
   },
   {
+    name: "ClinicalTrials.gov Analytics with Spark SQL",
+    stack: [
+      TechnologyStack.python,
+      "PySpark",
+      "Apache Spark",
+      "SparkSQL",
+      "Databricks",
+      "Big Data",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Big Data Tools and Techniques module project (MSc AI, University of Salford). SparkSQL exploratory analysis of the full ClinicalTrials.gov registry (572,935 rows) on Databricks — a temporary view queried entirely in SparkSQL, handling null-heavy and pipe-delimited real-world data across study-type, condition, trial-duration (35.29 months via DATEDIFF), and Alzheimer's-trend questions.",
+    links: [],
+  },
+  {
+    name: "Steam Game Recommender with Spark MLlib ALS",
+    stack: [
+      TechnologyStack.python,
+      "PySpark",
+      "Apache Spark",
+      "MLflow",
+      "ALS",
+      "Collaborative Filtering",
+      "Databricks",
+      "Big Data",
+      TechnologyStack.pandas,
+    ],
+    screenshotsFolder: "",
+    description:
+      "Big Data Tools and Techniques module project (MSc AI, University of Salford). Collaborative-filtering recommender on Steam-200k (200,000 interactions, 12,393 users, 5,155 games) using Spark MLlib ALS in explicit mode, with a log1p transform for right-skewed play hours and a 24-run MLflow grid search over rank, regParam, and maxIter. Best RMSE 1.4632 (rank 40, regParam 0.5, maxIter 10), down from a 1.519 baseline.",
+    links: [],
+  },
+  {
     name: "Plastic Classification — MobileNetV2 vs InceptionV3",
     stack: [
       TechnologyStack.python,

@@ -137,6 +137,57 @@ export const mlProjects: MlProject[] = [
     ],
   },
   {
+    slug: "clinicaltrials-spark",
+    title: "ClinicalTrials.gov Analytics with Spark SQL",
+    typeLabel: "Big Data · Distributed Computing · Exploratory Data Analysis",
+    context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
+    status: "Submitted April 2026 · companion to the Steam recommender",
+    description:
+      "SparkSQL exploratory analysis of the full ClinicalTrials.gov registry (572,935 rows, 14 columns) on Apache Spark / Databricks — registered as a temporary view and queried entirely in SparkSQL. Handled real-world data quality issues: 68% null Collaborators, 71% null Acronyms, and pipe-delimited multi-value Conditions requiring SPLIT and EXPLODE. Four questions: study-type distribution, top-10 conditions by frequency, mean trial duration via DATEDIFF, and the Alzheimer's completed-trial trend 1996–2026, converted to pandas and plotted with matplotlib.",
+    results: [
+      "572,935 studies × 14 columns; COMPLETED 55% (313,041), TERMINATED 6% (32,937)",
+      "Study types: INTERVENTIONAL 76% (437,333), OBSERVATIONAL 23% (133,604)",
+      "Top conditions: Healthy (10,873), Breast Cancer (8,511), Obesity (7,324), Stroke (5,034), Hypertension (4,510)",
+      "Mean trial duration: 35.29 months (~3 years)",
+      "Alzheimer's trials: fewer than 5/year pre-2001, peak of 139 in 2024",
+    ],
+    tech: [
+      "Python",
+      "PySpark",
+      "Apache Spark",
+      "SparkSQL",
+      "Databricks",
+      "pandas",
+      "matplotlib",
+    ],
+  },
+  {
+    slug: "steam-recommender",
+    title: "Steam Game Recommender with Spark MLlib ALS",
+    typeLabel: "Big Data · Recommender Systems · Collaborative Filtering",
+    context: "Big Data Tools and Techniques module, MSc AI, University of Salford",
+    status:
+      "Submitted April 2026 · companion to the ClinicalTrials.gov analytics",
+    description:
+      "Collaborative-filtering recommendation engine on the Steam-200k dataset (200,000 interactions, 12,393 users, 5,155 games), built on Apache Spark / Databricks. EDA showed heavily right-skewed play hours (mean 48.88h, median 4.5h, max 11,754h), motivating a log1p transform before training. Trained Spark MLlib ALS (Alternating Least Squares) in explicit mode with integer-indexed game IDs, tuned by a 24-run MLflow grid search over rank ∈ [5, 10, 20, 40], regParam ∈ [0.01, 0.1, 0.5], and maxIter ∈ [5, 10]. Produces top-5 recommendations per user, with game names decoded from the StringIndexer mapping.",
+    results: [
+      "Best RMSE 1.4632 / MAE 1.0732 (rank 40, regParam 0.5, maxIter 10), from a 1.519 baseline",
+      "24-run MLflow grid search; 80/20 split — 56,518 train / 13,971 test rows",
+      "Top games by total hours: Dota 2 (981,684h), CS:GO (322,771h), Team Fortress 2 (173,673h)",
+    ],
+    tech: [
+      "Python",
+      "PySpark",
+      "Apache Spark",
+      "MLlib (ALS)",
+      "MLflow",
+      "StringIndexer",
+      "Databricks",
+      "pandas",
+      "NumPy",
+    ],
+  },
+  {
     slug: "plastic-classification",
     title: "Classifying Plastics Using Transfer Learning — MobileNetV2 vs InceptionV3",
     typeLabel: "Computer Vision · Image Classification · Transfer Learning",
