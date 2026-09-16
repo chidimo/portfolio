@@ -28,6 +28,7 @@ export const TechStackBadge = ({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={!!isSelected}
       className={mergeClasses(
         base,
         "border px-2.5 py-1 transition-colors",

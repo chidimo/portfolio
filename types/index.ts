@@ -42,9 +42,14 @@ export interface Certificate {
   certificate_url: string;
 }
 
+/** High-level audience/focus tags for the /portfolio filter. Keep this to four. */
+export type AudienceTag = "Full-stack" | "Backend" | "Frontend" | "ML/AI";
+
 export interface Project {
   name: string;
   description: string;
+  /** Coarse focus tags — 1–3 per project. */
+  tags: AudienceTag[];
   // Free-form tech tags. `TechnologyStack` enum members are still valid values
   // (they are strings); newer entries pass plain strings.
   stack: string[];

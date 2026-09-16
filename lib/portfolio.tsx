@@ -3,6 +3,7 @@ import { type Project, TechnologyStack } from "types/index";
 const portfolio_projects: Project[] = [
   {
     name: "Concord — Expert Matching Platform",
+    tags: ["Full-stack","Backend","ML/AI"],
     stack: [
       TechnologyStack.python,
       "FastAPI",
@@ -22,6 +23,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Intelligent Matching System (MSc Dissertation)",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "Sentence-BERT",
@@ -38,6 +40,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Sentiment Classification — Nigerian Pidgin English",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "TensorFlow",
@@ -52,6 +55,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Topic Modelling — Global AI News Coverage",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "scikit-learn",
@@ -67,6 +71,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Diabetes Risk Screening with Decision Tree and Random Forest",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "scikit-learn",
@@ -82,6 +87,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Behavioural Segmentation of Eating Habits Using DBSCAN and OPTICS",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "scikit-learn",
@@ -99,6 +105,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Twitter Sentiment Classification — TF-IDF vs Naive Bayes",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "scikit-learn",
@@ -115,6 +122,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "ClinicalTrials.gov Analytics with Spark SQL",
+    tags: ["ML/AI","Backend"],
     stack: [
       TechnologyStack.python,
       "PySpark",
@@ -131,6 +139,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Steam Game Recommender with Spark MLlib ALS",
+    tags: ["ML/AI","Backend"],
     stack: [
       TechnologyStack.python,
       "PySpark",
@@ -149,6 +158,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Plastic Classification — MobileNetV2 vs InceptionV3",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "TensorFlow",
@@ -164,6 +174,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Plastic Object Detection — YOLOv8 vs YOLOv9",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       "YOLOv8",
@@ -177,6 +188,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Field Trial Training Platform",
+    tags: ["Full-stack","Frontend","Backend"],
     stack: [
       TechnologyStack.react,
       TechnologyStack.nextJs,
@@ -196,6 +208,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Bluelines",
+    tags: ["Full-stack","Frontend","Backend"],
     stack: [
       TechnologyStack.react,
       TechnologyStack.typescript,
@@ -216,6 +229,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "TeachShare",
+    tags: ["Frontend"],
     stack: [TechnologyStack.solidJs, TechnologyStack.tailwindCSS],
     screenshotsFolder: "teachshare",
     description: "The world’s largest platform for Personalized Learning",
@@ -223,6 +237,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Autumn AI",
+    tags: ["Frontend"],
     stack: [
       TechnologyStack.react,
       TechnologyStack.typescript,
@@ -235,6 +250,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Mobile Flashcards",
+    tags: ["Frontend"],
     stack: [
       TechnologyStack.react,
       TechnologyStack.reactNative,
@@ -255,6 +271,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "react-drag-drop-browser",
+    tags: ["Frontend"],
     stack: [TechnologyStack.react, TechnologyStack.javascript],
     links: [
       {
@@ -276,6 +293,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Olympic medals",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
@@ -288,6 +306,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Energy and GDP",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
@@ -300,6 +319,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Hypothesis testing",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.python, TechnologyStack.pandas],
     links: [
       {
@@ -312,6 +332,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "GDP and Inflation by year",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       TechnologyStack.pandas,
@@ -337,6 +358,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Temperature highs and lows",
+    tags: ["ML/AI"],
     stack: [
       TechnologyStack.python,
       TechnologyStack.pandas,
@@ -362,6 +384,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Visualizing voting pattern",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.arcgisDesktop],
     links: [
       {
@@ -379,6 +402,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Moving Valmeyer",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.arcgisDesktop],
     links: [
       {
@@ -395,6 +419,7 @@ const portfolio_projects: Project[] = [
   },
   {
     name: "Visualizing ozone concentrations",
+    tags: ["ML/AI"],
     stack: [TechnologyStack.arcgisDesktop],
     links: [
       {

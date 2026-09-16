@@ -26,6 +26,19 @@ export const Project = ({ projectItem, onClick, index }: Props) => (
         </h3>
       </div>
 
+      {projectItem.tags?.length ? (
+        <p className="flex flex-wrap gap-1.5">
+          {projectItem.tags.map((t) => (
+            <span
+              key={t}
+              className="border border-rule px-1.5 py-0.5 font-sans text-[10px] uppercase tracking-[0.12em] text-faint"
+            >
+              {t}
+            </span>
+          ))}
+        </p>
+      ) : null}
+
       {projectItem.description ? (
         <p className="line-clamp-3 text-sm text-muted">
           {projectItem.description}
