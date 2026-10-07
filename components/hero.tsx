@@ -2,7 +2,7 @@ import { myEmail } from "lib/constants";
 import { SocialLinks } from "./social-links";
 
 const lead =
-  "I'm a full-stack ML engineer with an MSc in Artificial Intelligence (University of Salford), building production machine learning systems and the applications around them. I work end to end — from NLP pipelines and semantic search to the React frontends and Express APIs that put them in front of users — and I care about getting models into production, not just notebooks.";
+  "Software engineer with eight years experience across US and UK product companies and an MSc in Artificial Intelligence (University of Salford). Built and maintain Concord — a production expert-matching platform for The College Collective (KWP Ltd), in active use — as the sole engineer from data pipeline through API to React frontend. Known for owning systems end to end: first architectural decision through to deployment, observability, and iteration. Toptal Top 3% vetted talent; currently contracting at Flex (US banking infrastructure) and Autumn AI (acquired by Qualtrics).";
 
 const skills = [
   "Python",
