@@ -21,7 +21,7 @@ const personLd = {
   name: "Chidi Orji",
   url: siteUrl,
   image: `${siteUrl}/images/headshot.JPG`,
-  jobTitle: "Full-Stack ML Engineer",
+  jobTitle: "Software Engineer",
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "University of Salford",
